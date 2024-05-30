@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class TBottomSheetTheme {
-  TBottomSheetTheme._();
+  TBottomSheetTheme._(); // To avoid creating instances
 
   static BottomSheetThemeData lightBottomSheetTheme = BottomSheetThemeData(
     showDragHandle: true,

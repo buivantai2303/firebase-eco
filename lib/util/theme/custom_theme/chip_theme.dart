@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class TChipTheme {
-  TChipTheme._();
+  TChipTheme._(); // To avoid creating instances
 
   static ChipThemeData lightChipTheme = ChipThemeData(
     disabledColor: Colors.grey.withOpacity(0.4),

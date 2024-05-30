@@ -10,7 +10,7 @@ import 'custom_theme/outlined_button_theme.dart';
 import 'custom_theme/text_field_theme.dart';
 
 class TAppTheme {
-  TAppTheme._();
+  TAppTheme._(); // To avoid creating instances
 
   /// Light Theme
   static ThemeData lightTheme = ThemeData(
