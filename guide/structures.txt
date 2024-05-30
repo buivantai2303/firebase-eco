@@ -1,0 +1,20 @@
+firebase-eco/
+├── lib/
+│   ├── common/
+│   │   ├── styles
+│   │   └── widgets
+│   ├── controllers
+│   ├── data/
+│   │   ├── models
+│   │   ├── repositories
+│   │   └── services
+│   ├── localization
+│   ├── screens
+│   ├── util/
+│   │   ├── constants
+│   │   ├── device
+│   │   ├── formatters
+│   │   ├── helpers
+│   │   └── theme
+│   ├── app.dart
+│   └── main.dart
