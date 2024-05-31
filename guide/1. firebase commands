@@ -1,0 +1,12 @@
+firebase login
+
+dart pub global activate flutterfire_cli
+
+flutterfire configure
+
+flutter pub add firebase_core
+
+flutterfire configure
+
+[Platform  Firebase App Id]
+[android   1:348212590592:android:15bc8486e96d4a304a00e5]

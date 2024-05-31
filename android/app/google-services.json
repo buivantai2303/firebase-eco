@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "348212590592",
+    "project_id": "feco-eaut",
+    "storage_bucket": "feco-eaut.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:348212590592:android:15bc8486e96d4a304a00e5",
+        "android_client_info": {
+          "package_name": "com.example.firebase_eco"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyClb1Uk9nR41QCBPjMlj4W5Qe8nfhtzeko"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
