@@ -13,43 +13,41 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       body: SingleChildScrollView(
         child: Column(
           children: [
             TPrimaryHeaderContainer(
-              child: Container(
-                child: Column(
-                  children: [
-                    /// App Bar
-                    THomeAppbar(),
-                    SizedBox(height: TSizes.spaceBtwSections),
+              child: Column(
+                children: [
+                  /// App Bar
+                  THomeAppbar(),
+                  SizedBox(height: TSizes.spaceBtwSections),
 
-                    /// Search Container
-                    TSearchContainer(text: 'Search in Store'),
-                    SizedBox(height: TSizes.spaceBtwSections),
+                  /// Search Container
+                  TSearchContainer(text: 'Search in Store'),
+                  SizedBox(height: TSizes.spaceBtwSections),
 
-                    /// Popular Categories Section
-                    Padding(
-                      padding: EdgeInsets.only(left: TSizes.defaultSpace),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          /// Heading
-                          TSectionHeading(
-                            title: 'Popular Categories',
-                            showActionButton: false,
-                            textColor: Colors.white,
-                          ),
-                          SizedBox(height: TSizes.spaceBtwItems),
+                  /// Popular Categories Section
+                  Padding(
+                    padding: EdgeInsets.only(left: TSizes.defaultSpace),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        /// Heading
+                        TSectionHeading(
+                          title: 'Popular Categories',
+                          showActionButton: false,
+                          textColor: Colors.white,
+                        ),
+                        SizedBox(height: TSizes.spaceBtwItems),
 
-                          /// Categories
-                          THomeCategories(),
-                        ],
-                      ),
+                        /// Categories
+                        THomeCategories(),
+                      ],
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
             ),
           ],

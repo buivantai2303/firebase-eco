@@ -36,6 +36,8 @@ class TPrimaryHeaderContainer extends StatelessWidget {
                   backgroundColor: TColors.textWhite.withOpacity(0.1),
                 ),
               ),
+              // Add the child widget here
+              if (child != null) child!,
             ],
           ),
         ),

@@ -14,6 +14,7 @@ class THomeAppbar extends StatelessWidget {
   Widget build(BuildContext context) {
     return TAppbar(
       title: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
             TTexts.homeAppbarTitle,
@@ -26,7 +27,7 @@ class THomeAppbar extends StatelessWidget {
             TTexts.homeAppbarSubTitle,
             style: Theme.of(context)
                 .textTheme
-                .labelMedium!
+                .headlineSmall!
                 .apply(color: TColors.white),
           ),
         ],
