@@ -4,7 +4,7 @@ import 'package:firebase_eco/features/authentication/screens/login/widgets/login
 import 'package:firebase_eco/features/authentication/screens/login/widgets/login_header.dart';
 import 'package:firebase_eco/features/authentication/screens/login/widgets/social_buttons.dart';
 import 'package:firebase_eco/utils/helpers/helper_functions.dart';
-import '../../../../common/widgets/form_divider.dart';
+import '../../../../common/widgets/login_signup/form_divider.dart';
 import '../../../../utils/constants/sizes.dart';
 
 class LoginScreen extends StatelessWidget {
