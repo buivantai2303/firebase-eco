@@ -11,7 +11,7 @@ class TSearchContainer extends StatelessWidget {
     this.icon,
     this.showBackground = true,
     this.showBorder = true,
-    this.onTap;
+    this.onTap,
   });
 
   final String text;
