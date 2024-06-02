@@ -7,7 +7,6 @@ import '../../../../../utils/constants/sizes.dart';
 import '../../../../../utils/device/device_utility.dart';
 import '../../../../../utils/helpers/helper_functions.dart';
 
-
 class OnBoardingDotnavigation extends StatelessWidget {
   const OnBoardingDotnavigation({
     super.key,
@@ -18,14 +17,14 @@ class OnBoardingDotnavigation extends StatelessWidget {
     final controller = OnBoardingController.instance;
     final dark = THelperFunctions.isDarkMode(context);
     return Positioned(
-        bottom: TDeviceUtils.getBottomNavigationBarHeight() +25,
-        left:TSizes.defaultSpace,
-
+        bottom: TDeviceUtils.getBottomNavigationBarHeight() + 25,
+        left: TSizes.defaultSpace,
         child: SmoothPageIndicator(
             count: 3,
             controller: controller.pageController,
             onDotClicked: controller.dotNavigationClick,
-            effect: ExpandingDotsEffect(activeDotColor: dark ? TColors.light : TColors.dark, dotHeight: 6)
-        ));
+            effect: ExpandingDotsEffect(
+                activeDotColor: dark ? TColors.light : TColors.dark,
+                dotHeight: 6)));
   }
 }

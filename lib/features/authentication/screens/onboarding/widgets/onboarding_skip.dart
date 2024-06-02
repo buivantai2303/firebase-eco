@@ -7,7 +7,6 @@ import '../../../../../navigation_menu.dart';
 import '../../../../../utils/constants/sizes.dart';
 import '../../../../../utils/device/device_utility.dart';
 
-
 class OnBoardingSkip extends StatelessWidget {
   const OnBoardingSkip({
     super.key,

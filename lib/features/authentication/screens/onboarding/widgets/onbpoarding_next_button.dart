@@ -1,4 +1,3 @@
-
 import 'package:firebase_eco/features/authentication/controllers/controllers.dart';
 import 'package:firebase_eco/utils/constants/colors.dart';
 import 'package:firebase_eco/utils/helpers/helper_functions.dart';
@@ -17,12 +16,13 @@ class OnBoardingNextButton extends StatelessWidget {
   Widget build(BuildContext context) {
     final dark = THelperFunctions.isDarkMode(context);
     return Positioned(
-        right:TSizes.defaultSpace,
+        right: TSizes.defaultSpace,
         bottom: TDeviceUtils.getBottomNavigationBarHeight(),
         child: ElevatedButton(
             onPressed: () => OnBoardingController.instance.nextPage(),
-            style: ElevatedButton.styleFrom(shape: const CircleBorder(), backgroundColor: dark ? TColors.primary: Colors.black),
-            child: Icon(Iconsax.arrow_right_3)
-        ));
+            style: ElevatedButton.styleFrom(
+                shape: const CircleBorder(),
+                backgroundColor: dark ? TColors.primary : Colors.black),
+            child: const Icon(Iconsax.arrow_right_3)));
   }
 }
