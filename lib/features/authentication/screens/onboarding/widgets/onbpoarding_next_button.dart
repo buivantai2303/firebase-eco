@@ -1,4 +1,3 @@
-import 'package:firebase_eco/features/authentication/controllers/controllers.dart';
 import 'package:firebase_eco/utils/constants/colors.dart';
 import 'package:firebase_eco/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
@@ -6,6 +5,7 @@ import 'package:iconsax/iconsax.dart';
 
 import '../../../../../utils/constants/sizes.dart';
 import '../../../../../utils/device/device_utility.dart';
+import '../../../controllers/onboarding/onboarding_controller.dart';
 
 class OnBoardingNextButton extends StatelessWidget {
   const OnBoardingNextButton({

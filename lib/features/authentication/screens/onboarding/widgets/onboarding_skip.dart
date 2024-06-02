@@ -1,7 +1,5 @@
-import 'package:firebase_eco/features/authentication/controllers/controllers.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 
 import '../../../../../navigation_menu.dart';
 import '../../../../../utils/constants/sizes.dart';
