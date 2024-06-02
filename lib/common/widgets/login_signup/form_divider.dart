@@ -6,11 +6,13 @@ import '../../../utils/constants/text_strings.dart';
 
 class TFormDivider extends StatelessWidget {
   const TFormDivider({
-    super.key,
+    Key? key,
     required this.dark,
-  });
+    required this.dividerText,
+  }) : super(key: key);
 
   final bool dark;
+  final String dividerText;
 
   @override
   Widget build(BuildContext context) {
@@ -18,21 +20,25 @@ class TFormDivider extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Flexible(
-            child: Divider(
-                color: dark ? TColors.darkGrey : TColors.grey,
-                thickness: 0.5,
-                indent: 68,
-                endIndent: 5)),
+          child: Divider(
+            color: dark ? TColors.darkGrey : TColors.grey,
+            thickness: 0.5,
+            indent: 68,
+            endIndent: 5,
+          ),
+        ),
         Text(
-          TTexts.orSignInWith.capitalize!,
-          style: Theme.of(context).textTheme.labelMedium,
+          dividerText,
+          style: Theme.of(context).textTheme.labelMedium!,
         ),
         Flexible(
-            child: Divider(
-                color: dark ? TColors.darkGrey : TColors.grey,
-                thickness: 0.5,
-                indent: 5,
-                endIndent: 60)),
+          child: Divider(
+            color: dark ? TColors.darkGrey : TColors.grey,
+            thickness: 0.5,
+            indent: 5,
+            endIndent: 60,
+          ),
+        ),
       ],
     );
   }
