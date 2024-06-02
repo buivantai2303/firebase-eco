@@ -1,23 +1,21 @@
-
 import 'package:firebase_eco/features/authentication/screens/signup/widget/terms_condition_checkbox.dart';
 import 'package:firebase_eco/utils/constants/colors.dart';
 import 'package:firebase_eco/utils/constants/sizes.dart';
 import 'package:firebase_eco/utils/constants/text_strings.dart';
 import 'package:firebase_eco/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
+
+import '../../onboarding/verify_email.dart';
 
 class TSignupForm extends StatelessWidget {
   const TSignupForm({
     super.key,
-
   });
-
-
 
   @override
   Widget build(BuildContext context) {
-
     return Form(
       child: Column(
         children: [
@@ -88,12 +86,13 @@ class TSignupForm extends StatelessWidget {
           /// Terms & Conditions Checkbox
           const TTermsAndConditionCheckbox(),
           const SizedBox(height: TSizes.spaceBtwSections),
+
           // Sign Up Button
           SizedBox(
             width: double.infinity,
             child: ElevatedButton(
-              onPressed: () {},
-              child: Text(TTexts.createAccount),
+              onPressed: () => Get.to(() => const VerifyEmailScreen()),
+              child: const Text(TTexts.createAccount),
             ),
           ),
         ],
@@ -101,4 +100,3 @@ class TSignupForm extends StatelessWidget {
     );
   }
 }
-

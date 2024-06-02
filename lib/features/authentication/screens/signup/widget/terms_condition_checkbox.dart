@@ -8,14 +8,11 @@ import 'package:flutter/material.dart';
 class TTermsAndConditionCheckbox extends StatelessWidget {
   const TTermsAndConditionCheckbox({
     super.key,
-
   });
-
-
 
   @override
   Widget build(BuildContext context) {
-    final dark =THelperFunctions.isDarkMode(context);
+    final dark = THelperFunctions.isDarkMode(context);
     return Row(
       children: [
         SizedBox(
@@ -37,10 +34,10 @@ class TTermsAndConditionCheckbox extends StatelessWidget {
               TextSpan(
                 text: '${TTexts.privacyPolicy}',
                 style: Theme.of(context).textTheme.bodyMedium!.apply(
-                  color: dark ? TColors.white : TColors.primary,
-                  decoration: TextDecoration.underline,
-                  decorationColor: dark ? TColors.white : TColors.primary,
-                ),
+                      color: dark ? TColors.white : TColors.primary,
+                      decoration: TextDecoration.underline,
+                      decorationColor: dark ? TColors.white : TColors.primary,
+                    ),
               ),
               TextSpan(
                 text: '${TTexts.and}',
@@ -49,10 +46,10 @@ class TTermsAndConditionCheckbox extends StatelessWidget {
               TextSpan(
                 text: TTexts.termsOfUse,
                 style: Theme.of(context).textTheme.bodyMedium!.apply(
-                  color: dark ? TColors.white : TColors.primary,
-                  decoration: TextDecoration.underline,
-                  decorationColor: dark ? TColors.white : TColors.primary,
-                ),
+                      color: dark ? TColors.white : TColors.primary,
+                      decoration: TextDecoration.underline,
+                      decorationColor: dark ? TColors.white : TColors.primary,
+                    ),
               ),
             ],
           ),
