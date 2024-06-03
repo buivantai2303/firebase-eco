@@ -1,8 +1,6 @@
 import 'package:firebase_eco/features/authentication/screens/signup/widget/terms_condition_checkbox.dart';
-import 'package:firebase_eco/utils/constants/colors.dart';
 import 'package:firebase_eco/utils/constants/sizes.dart';
 import 'package:firebase_eco/utils/constants/text_strings.dart';
-import 'package:firebase_eco/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';

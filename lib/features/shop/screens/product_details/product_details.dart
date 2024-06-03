@@ -1,4 +1,5 @@
 import 'package:firebase_eco/common/widgets/appbar/appbar.dart';
+import 'package:firebase_eco/features/shop/screens/product_details/widgets/bottom_add_to_cart_widget.dart';
 import 'package:firebase_eco/features/shop/screens/product_details/widgets/product_attributes.dart';
 import 'package:firebase_eco/features/shop/screens/product_details/widgets/product_meta_data.dart';
 import 'package:firebase_eco/features/shop/screens/product_details/widgets/rating_share_widget.dart';
@@ -6,12 +7,15 @@ import 'package:firebase_eco/utils/constants/colors.dart';
 import 'package:firebase_eco/utils/constants/image_strings.dart';
 import 'package:firebase_eco/utils/constants/sizes.dart';
 import 'package:firebase_eco/utils/helpers/helper_functions.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:readmore/readmore.dart';
 
 import '../../../../common/widgets/texts/action_heading.dart';
+
+import '../../../../common/widgets/custom_shape/curved_edges/curved_edges_widget.dart';
+import '../../../../common/widgets/icons/t_circular_icon.dart';
+import '../../../../common/widgets/images/t_rounded_image.dart';
 
 class ProductDetail extends StatelessWidget {
   const ProductDetail({super.key});
@@ -26,7 +30,7 @@ class ProductDetail extends StatelessWidget {
         child: Column(
           children: [
         /// 1 - product Image Slider
-        TCurvedEdgesWidget(
+        TCurvedEdgeWidget(
         child: Container(
         color: dark ? TColors.darkerGrey : TColors.light,
           // Assuming dark is not defined, default to light color
@@ -39,6 +43,7 @@ class ProductDetail extends StatelessWidget {
               child: Center(
                 child: Image(
                   image: AssetImage(TImages.productImage5),
+
                 ),
               ),
             ),
@@ -60,7 +65,7 @@ class ProductDetail extends StatelessWidget {
                     TRoundedImage(
                         width: 80,
                         backgroundColor: dark ? TColors.darkerGrey : TColors
-                            .light, ,
+                            .light,
                         // Assuming dark is not defined, default to white color
                         border: Border.all(color: TColors.primary),
                 padding: const EdgeInsets.all(TSizes.sm),
@@ -71,7 +76,7 @@ class ProductDetail extends StatelessWidget {
         ),
         const TAppbar(
           showBackArrow: true,
-          actions: [TCircularIcon(icon: Iconsax.heart5, color: colors.red)],
+          actions: [TCircularIcon(icon: Iconsax.heart5, color: Colors.red)],
         )
         ],
       ),
@@ -123,6 +128,7 @@ class ProductDetail extends StatelessWidget {
                     icon: const Icon(Iconsax.arrow_right_3, size: 18),
                     onPressed: () {},
                   ),
+
                 ],
               ),
               const SizedBox(height: TSizes.spaceBtwSections),
@@ -135,4 +141,3 @@ class ProductDetail extends StatelessWidget {
     );
   }
 }
-

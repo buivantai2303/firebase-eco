@@ -1,6 +1,8 @@
 import 'package:firebase_eco/common/widgets/custom_shape/container/rounded_container.dart';
+import 'package:firebase_eco/common/widgets/images/t_circular_image.dart';
 import 'package:firebase_eco/common/widgets/texts/product_price_text.dart';
 import 'package:firebase_eco/common/widgets/texts/product_title_text.dart';
+import 'package:firebase_eco/common/widgets/texts/t_brand_title_text_with_verified_icon.dart';
 import 'package:firebase_eco/utils/constants/enums.dart';
 import 'package:firebase_eco/utils/constants/image_strings.dart';
 import 'package:firebase_eco/utils/helpers/helper_functions.dart';
