@@ -23,6 +23,6 @@ class TProductTitleText extends StatelessWidget {
       overflow: TextOverflow.ellipsis,
       maxLines: maxLines,
       textAlign: textAlign,
-    )
+    );
   }
 }

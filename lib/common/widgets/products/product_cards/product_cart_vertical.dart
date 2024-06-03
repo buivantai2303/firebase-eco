@@ -12,6 +12,7 @@ import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 
 import '../../icons/t_circular_icon.dart';
+import '../../texts/t_brand_title_text_with_verified_icon.dart';
 
 class TProductCardVertical extends StatelessWidget{
   const TProductCardVertical({super.key});
@@ -69,13 +70,7 @@ class TProductCardVertical extends StatelessWidget{
                 children: [
                   TProductTitleText(title: 'Green Nike Air Shoes', smallSize: true),
                   SizedBox(height: TSizes.spaceBtwItems / 2),
-                  Row(
-                    children: [
-                      Text('Nike', overflow: TextOverflow.ellipsis, maxLines: 1, style: Theme.of(context).textTheme.labelMedium,),
-                      const SizedBox(width: TSizes.xs,),
-                      const Icon(Iconsax.verify5, color: TColors.primary, size: TSizes.iconXs,),
-                    ],
-                  ),
+                  TBrandTitleWithVerifiedIcon(title:'Nike'),
       
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -106,4 +101,6 @@ class TProductCardVertical extends StatelessWidget{
     );
   }
 }
+
+
 
