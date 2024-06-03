@@ -3,12 +3,13 @@ import 'package:firebase_eco/utils/constants/colors.dart';
 import 'package:firebase_eco/utils/constants/sizes.dart';
 import 'package:firebase_eco/utils/device/device_utility.dart';
 import 'package:firebase_eco/utils/helpers/helper_functions.dart';
+import 'package:iconsax/iconsax.dart';
 
 class TSearchContainer extends StatelessWidget {
   const TSearchContainer({
     super.key,
     required this.text,
-    this.icon,
+    required this.icon,
     this.showBackground = true,
     this.showBorder = true,
     this.onTap,
@@ -29,7 +30,7 @@ class TSearchContainer extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: TSizes.defaultSpace),
         child: Container(
           width: TDeviceUtils.getScreenWidth(context),
-          padding: EdgeInsets.all(TSizes.md),
+          padding: const EdgeInsets.all(TSizes.md),
           decoration: BoxDecoration(
             color: showBackground
                 ? dark
@@ -42,7 +43,7 @@ class TSearchContainer extends StatelessWidget {
           child: Row(
             children: [
               Icon(icon, color: TColors.darkerGrey),
-              SizedBox(width: TSizes.spaceBtwItems),
+              const SizedBox(width: TSizes.spaceBtwItems),
               Text(text, style: Theme.of(context).textTheme.bodySmall),
             ],
           ),
