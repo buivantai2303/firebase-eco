@@ -1,5 +1,4 @@
 import 'package:firebase_eco/common/widgets/appbar/appbar.dart';
-import 'package:firebase_eco/common/widgets/custom_shape/container/rounded_container.dart';
 import 'package:firebase_eco/features/personalization/screens/address/widgets/single_address.dart';
 import 'package:firebase_eco/utils/constants/colors.dart';
 import 'package:firebase_eco/utils/constants/sizes.dart';

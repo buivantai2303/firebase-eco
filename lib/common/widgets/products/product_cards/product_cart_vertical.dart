@@ -3,11 +3,13 @@ import 'package:firebase_eco/common/widgets/custom_shape/container/rounded_conta
 import 'package:firebase_eco/common/widgets/images/t_rounded_image.dart';
 import 'package:firebase_eco/common/widgets/texts/product_price_text.dart';
 import 'package:firebase_eco/common/widgets/texts/product_title_text.dart';
+import 'package:firebase_eco/features/shop/screens/product_details/product_details.dart';
 import 'package:firebase_eco/utils/constants/colors.dart';
 import 'package:firebase_eco/utils/constants/image_strings.dart';
 import 'package:firebase_eco/utils/constants/sizes.dart';
 import 'package:firebase_eco/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 
 import '../../icons/t_circular_icon.dart';
@@ -20,7 +22,7 @@ class TProductCardVertical extends StatelessWidget {
     final dark = THelperFunctions.isDarkMode(context);
 
     return GestureDetector(
-      onTap: () {},
+      onTap: () => Get.to(() => const ProductDetailScreen()),
       child: Container(
         width: 180,
         padding: const EdgeInsets.all(1),

@@ -1,6 +1,8 @@
 import 'package:firebase_eco/common/widgets/appbar/appbar.dart';
 import 'package:firebase_eco/common/widgets/list_title/settings_menu_title.dart';
 import 'package:firebase_eco/common/widgets/texts/action_heading.dart';
+import 'package:firebase_eco/common/widgets/texts/section_heading.dart';
+import 'package:firebase_eco/features/personalization/screens/address/address.dart';
 import 'package:firebase_eco/features/personalization/screens/profile/profile.dart';
 import 'package:firebase_eco/utils/constants/colors.dart';
 import 'package:flutter/material.dart';
@@ -52,17 +54,19 @@ class SettingsScreen extends StatelessWidget {
             child: Column(
               children: [
                 /// -- Account Settings
-                const TActionHeading(
+                const TSectionHeading(
                   title: 'Account Settings',
                   showActionButton: false,
                 ),
                 const SizedBox(
                   height: TSizes.spaceBtwItems,
                 ),
-                const TSettingsMenuTitle(
+
+                TSettingsMenuTitle(
                   icon: Iconsax.safe_home,
                   title: 'My Addresses',
                   subTitle: 'Set shopping delivery address',
+                  onTap: () => Get.to(() => const UserAddressScreen()),
                 ),
                 const TSettingsMenuTitle(
                     icon: Iconsax.shopping_cart,

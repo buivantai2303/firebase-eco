@@ -5,7 +5,6 @@ import 'package:firebase_eco/utils/constants/colors.dart';
 import 'package:firebase_eco/utils/constants/sizes.dart';
 import 'package:iconsax/iconsax.dart';
 
-
 class TBottomAddToCart extends StatelessWidget {
   const TBottomAddToCart({super.key});
 
@@ -24,8 +23,6 @@ class TBottomAddToCart extends StatelessWidget {
           topRight: Radius.circular(TSizes.cardRadiusLg),
         ),
       ),
-
-
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [

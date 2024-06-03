@@ -10,7 +10,6 @@ import 'package:flutter/material.dart';
 import 'package:firebase_eco/utils/constants/colors.dart';
 import 'package:firebase_eco/utils/constants/sizes.dart';
 
-
 class TProductMetaData extends StatelessWidget {
   const TProductMetaData({super.key});
 
@@ -27,26 +26,36 @@ class TProductMetaData extends StatelessWidget {
             TRoundedContainer(
               radius: TSizes.sm,
               backgroundColor: TColors.secondary.withOpacity(0.8),
-              padding: const EdgeInsets.symmetric(horizontal: TSizes.sm, vertical: TSizes.xs),
+              padding: const EdgeInsets.symmetric(
+                  horizontal: TSizes.sm, vertical: TSizes.xs),
               child: Text(
                 '25%',
-                style: Theme.of(context).textTheme.labelLarge!.apply(color: TColors.black),
+                style: Theme.of(context)
+                    .textTheme
+                    .labelLarge!
+                    .apply(color: TColors.black),
               ),
             ),
             const SizedBox(width: TSizes.spaceBtwItems),
+
             /// Price
             Text(
               '\$250',
-              style: Theme.of(context).textTheme.titleSmall!.apply(decoration: TextDecoration.lineThrough),
+              style: Theme.of(context)
+                  .textTheme
+                  .titleSmall!
+                  .apply(decoration: TextDecoration.lineThrough),
             ),
             const SizedBox(width: TSizes.spaceBtwItems),
             const TProductPriceText(price: '175', isLarge: true),
           ],
         ),
         const SizedBox(height: TSizes.spaceBtwItems / 1.5),
+
         /// Title
         const TProductTitleText(title: 'Green Nike Sports Shirt'),
         const SizedBox(height: TSizes.spaceBtwItems / 1.5),
+
         /// Stock Status
         Row(
           children: [
@@ -63,18 +72,16 @@ class TProductMetaData extends StatelessWidget {
         ///brand
         Row(
           children: [
-
             TCircularImage(
               image: TImages.shoeIcon,
               width: 32,
               height: 32,
-              overlayColor: darkMode? TColors.white: TColors.black,
+              overlayColor: darkMode ? TColors.white : TColors.black,
             ), // TCircular Image
-            const TBrandTitleWithVerifiedIcon(title: 'Nike', brandTextSize: TextSizes.medium),
+            const TBrandTitleWithVerifiedIcon(
+                title: 'Nike', brandTextSize: TextSizes.medium),
           ],
         )
-
-
       ],
     );
   }

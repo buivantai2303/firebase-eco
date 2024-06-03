@@ -6,7 +6,6 @@ import 'package:iconsax/iconsax.dart';
 import '../../../utils/constants/colors.dart';
 import '../../../utils/constants/enums.dart';
 
-
 class TBrandTitleWithVerifiedIcon extends StatelessWidget {
   const TBrandTitleWithVerifiedIcon({
     super.key,
@@ -30,20 +29,19 @@ class TBrandTitleWithVerifiedIcon extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: [
         Flexible(
-            child: TBrandTitleText(
-              title: title,
-              color:textColor,
-              maxLines: maxLines,
-              textAlign: textAlign,
-              brandTextSize: brandTextSize,
-
-
-            ),
+          child: TBrandTitleText(
+            title: title,
+            color: textColor,
+            maxLines: maxLines,
+            textAlign: textAlign,
+            brandTextSize: brandTextSize,
+          ),
         ),
-        const SizedBox(width: TSizes.sm,),
-        Icon(Iconsax.verify5,color: iconColor,size: TSizes.iconXs)
+        const SizedBox(
+          width: TSizes.sm,
+        ),
+        Icon(Iconsax.verify5, color: iconColor, size: TSizes.iconXs)
       ],
-
     );
   }
 }

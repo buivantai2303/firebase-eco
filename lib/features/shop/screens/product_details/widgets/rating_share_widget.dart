@@ -1,4 +1,3 @@
-
 import 'package:firebase_eco/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
@@ -21,7 +20,9 @@ class TRatingAndShare extends StatelessWidget {
             Text.rich(
               TextSpan(
                 children: [
-                  TextSpan(text: '5.0', style: Theme.of(context).textTheme.bodyLarge),
+                  TextSpan(
+                      text: '5.0',
+                      style: Theme.of(context).textTheme.bodyLarge),
                   const TextSpan(text: '(199)'),
                 ],
               ),
