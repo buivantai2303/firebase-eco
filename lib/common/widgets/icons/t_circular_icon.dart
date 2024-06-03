@@ -11,7 +11,7 @@ class TCircularIcon extends StatelessWidget {
     this.height,
     this.size = TSizes.lg,
     this.onPressed,
-    this.color,
+    required this.color,
     this.backgroundColor,
   }) : super(key: key); // Passed the key parameter to super constructor
 
@@ -28,8 +28,8 @@ class TCircularIcon extends StatelessWidget {
       color: backgroundColor != null
           ? backgroundColor!
           : THelperFunctions.isDarkMode(context)
-          ? TColors.black.withOpacity(0.9)
-          : TColors.white.withOpacity(0.9),
+              ? TColors.black.withOpacity(0.9)
+              : TColors.white.withOpacity(0.9),
       child: IconButton(
         onPressed: onPressed,
         icon: Icon(

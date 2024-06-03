@@ -1,4 +1,3 @@
-import 'package:firebase_eco/utils/theme/theme.dart';
 import 'package:flutter/material.dart';
 import 'app.dart';
 

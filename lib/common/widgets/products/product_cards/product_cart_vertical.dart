@@ -7,7 +7,6 @@ import 'package:firebase_eco/utils/constants/colors.dart';
 import 'package:firebase_eco/utils/constants/image_strings.dart';
 import 'package:firebase_eco/utils/constants/sizes.dart';
 import 'package:firebase_eco/utils/helpers/helper_functions.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 
@@ -55,7 +54,7 @@ class TProductCardVertical extends StatelessWidget{
                   const Positioned(
                       top: 0,
                       right: 0,
-                      child: const TCircularIcon(icon: Iconsax.heart5, color: Colors.red,)
+                      child: TCircularIcon(icon: Iconsax.heart5, color: Colors.red,)
                   )
                 ],
               ),
@@ -67,8 +66,8 @@ class TProductCardVertical extends StatelessWidget{
               padding: const EdgeInsets.only(left: TSizes.sm),
               child: Column(
                 children: [
-                  TProductTitleText(title: 'Green Nike Air Shoes', smallSize: true),
-                  SizedBox(height: TSizes.spaceBtwItems / 2),
+                  const TProductTitleText(title: 'Green Nike Air Shoes', smallSize: true),
+                  const SizedBox(height: TSizes.spaceBtwItems / 2),
                   Row(
                     children: [
                       Text('Nike', overflow: TextOverflow.ellipsis, maxLines: 1, style: Theme.of(context).textTheme.labelMedium,),

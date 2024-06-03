@@ -3,7 +3,6 @@ import 'package:firebase_eco/utils/constants/colors.dart';
 import 'package:firebase_eco/utils/constants/sizes.dart';
 import 'package:firebase_eco/utils/device/device_utility.dart';
 import 'package:firebase_eco/utils/helpers/helper_functions.dart';
-import 'package:iconsax/iconsax.dart';
 
 class TSearchContainer extends StatelessWidget {
   const TSearchContainer({

@@ -2,7 +2,6 @@ import 'package:firebase_eco/utils/constants/colors.dart';
 import 'package:firebase_eco/utils/constants/sizes.dart';
 import 'package:firebase_eco/utils/constants/text_strings.dart';
 import 'package:firebase_eco/utils/helpers/helper_functions.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class TTermsAndConditionCheckbox extends StatelessWidget {
@@ -28,11 +27,11 @@ class TTermsAndConditionCheckbox extends StatelessWidget {
           TextSpan(
             children: [
               TextSpan(
-                text: '${TTexts.iAgreeTo}',
+                text: TTexts.iAgreeTo,
                 style: Theme.of(context).textTheme.bodySmall!,
               ),
               TextSpan(
-                text: '${TTexts.privacyPolicy}',
+                text: TTexts.privacyPolicy,
                 style: Theme.of(context).textTheme.bodyMedium!.apply(
                       color: dark ? TColors.white : TColors.primary,
                       decoration: TextDecoration.underline,
@@ -40,7 +39,7 @@ class TTermsAndConditionCheckbox extends StatelessWidget {
                     ),
               ),
               TextSpan(
-                text: '${TTexts.and}',
+                text: TTexts.and,
                 style: Theme.of(context).textTheme.bodySmall!,
               ),
               TextSpan(
