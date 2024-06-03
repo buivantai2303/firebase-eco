@@ -1,8 +1,10 @@
 import 'package:firebase_eco/common/widgets/appbar/appbar.dart';
 import 'package:firebase_eco/common/widgets/list_title/settings_menu_title.dart';
 import 'package:firebase_eco/common/widgets/texts/action_heading.dart';
+import 'package:firebase_eco/features/personalization/screens/profile/profile.dart';
 import 'package:firebase_eco/utils/constants/colors.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 
 import '../../../../common/widgets/custom_shape/container/primary_header_container.dart';
@@ -23,6 +25,7 @@ class SettingsScreen extends StatelessWidget {
               children: [
                 /// Appbar
                 TAppbar(
+                  showBackArrow: false,
                   title: Text(
                     'Account',
                     style: Theme.of(context)
@@ -33,7 +36,9 @@ class SettingsScreen extends StatelessWidget {
                 ),
 
                 ///  List Title
-                const TUserProfileTitle(),
+                TUserProfileTitle(
+                  onPressed: () => Get.to(() => const ProfileScreen()),
+                ),
                 const SizedBox(
                   height: TSizes.spaceBtwSections,
                 )
@@ -47,7 +52,7 @@ class SettingsScreen extends StatelessWidget {
             child: Column(
               children: [
                 /// -- Account Settings
-                const TSectionHeading(
+                const TActionHeading(
                   title: 'Account Settings',
                   showActionButton: false,
                 ),
@@ -86,7 +91,7 @@ class SettingsScreen extends StatelessWidget {
 
                 /// -- App Settings
                 const SizedBox(height: TSizes.spaceBtwSections),
-                const TSectionHeading(
+                const TActionHeading(
                     title: 'App Settings', showActionButton: false),
                 const SizedBox(height: TSizes.spaceBtwItems),
                 const TSettingsMenuTitle(

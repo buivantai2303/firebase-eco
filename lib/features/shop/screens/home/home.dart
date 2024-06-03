@@ -41,7 +41,7 @@ class HomeScreen extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         /// Heading
-                        TSectionHeading(
+                        TActionHeading(
                           title: 'Popular Categories',
                           showActionButton: false,
                           textColor: Colors.white,
@@ -75,7 +75,7 @@ class HomeScreen extends StatelessWidget {
                       height: TSizes.spaceBtwSections,
                     ),
                     TGridLayout(
-                        itemCount: 2,
+                        itemCount: 4,
                         itemBuilder: (_, index) => const TProductCardVertical())
                   ],
                 )),

@@ -1,5 +1,7 @@
 import 'package:firebase_eco/utils/device/device_utility.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:iconsax/iconsax.dart';
 
 import '../../../utils/constants/colors.dart';
 import '../../../utils/constants/sizes.dart';
@@ -30,14 +32,14 @@ class TAppbar extends StatelessWidget implements PreferredSizeWidget {
         backgroundColor: THelperFunctions.isDarkMode(context)
             ? TColors.black
             : TColors.white,
-        // leading: showBackArrow
-        //     ? IconButton(
-        //         onPressed: () => Get.back(),
-        //         icon: const Icon(Iconsax.arrow_left))
-        //     : leadingIcon != null
-        //         ? IconButton(
-        //             onPressed: leadingOnPressed, icon: Icon(leadingIcon))
-        //         : null,
+        leading: showBackArrow
+            ? IconButton(
+                onPressed: () => Get.back(),
+                icon: const Icon(Iconsax.arrow_left))
+            : leadingIcon != null
+                ? IconButton(
+                    onPressed: leadingOnPressed, icon: Icon(leadingIcon))
+                : null,
         title: title,
         actions: actions,
       ),
