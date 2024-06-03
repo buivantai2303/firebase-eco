@@ -48,7 +48,6 @@ class NavigationController extends GetxController {
     const HomeScreen(),
     const StoreScreen(),
     Container(color: Colors.orange),
-    // const StoreScreen(),
     // const FavoriteScreen,
     const SettingsScreen(),
   ];

@@ -6,11 +6,7 @@ import 'package:firebase_eco/common/widgets/products/cart/cart_menu_icon.dart';
 import 'package:firebase_eco/common/widgets/texts/action_heading.dart';
 import 'package:firebase_eco/utils/constants/image_strings.dart';
 import 'package:firebase_eco/utils/helpers/helper_functions.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/painting.dart';
-import 'package:flutter/widgets.dart';
-import 'package:get/get.dart';
 
 import '../../../../common/widgets/images/t_circular_image.dart';
 import '../../../../common/widgets/texts/t_brand_title_text_with_verified_icon.dart';
@@ -42,15 +38,15 @@ class StoreScreen extends StatelessWidget {
 
 
             flexibleSpace: Padding(
-              padding: EdgeInsets.all(TSizes.defaultSpace),
+              padding: const EdgeInsets.all(TSizes.defaultSpace),
               child: ListView(
                 shrinkWrap: true,
                 physics: const NeverScrollableScrollPhysics(),
                 children:  [
 
                   /// ---Search bar
-                  SizedBox(height: TSizes.spaceBtwItems),
-                  TSearchContainer(text: 'Search in Store',showBorder: true, showBackground: false,padding: EdgeInsets.zero,),
+                  const SizedBox(height: TSizes.spaceBtwItems),
+                  const TSearchContainer(text: 'Search in Store',showBorder: true, showBackground: false,padding: EdgeInsets.zero,),
 
 
                   /// --- Feature Brands
