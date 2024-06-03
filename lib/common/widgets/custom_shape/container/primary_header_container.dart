@@ -10,7 +10,7 @@ class TPrimaryHeaderContainer extends StatelessWidget {
     required this.child,
   });
 
-  final Widget? child;
+  final Widget child;
 
   @override
   Widget build(BuildContext context) {
@@ -18,10 +18,11 @@ class TPrimaryHeaderContainer extends StatelessWidget {
       child: Container(
         color: TColors.primary,
         padding: const EdgeInsets.all(0),
-        child: SizedBox(
-          height: 400,
+        child: Container(
+          color: TColors.primary,
           child: Stack(
             children: [
+              /// Background Customer Shape
               Positioned(
                 top: -150,
                 right: -250,
@@ -36,8 +37,7 @@ class TPrimaryHeaderContainer extends StatelessWidget {
                   backgroundColor: TColors.textWhite.withOpacity(0.1),
                 ),
               ),
-              // Add the child widget here
-              if (child != null) child!,
+              child,
             ],
           ),
         ),
