@@ -7,6 +7,7 @@ import 'package:firebase_eco/common/widgets/texts/action_heading.dart';
 import 'package:firebase_eco/utils/constants/image_strings.dart';
 import 'package:firebase_eco/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
+import 'package:iconsax/iconsax.dart';
 
 import '../../../../common/widgets/images/t_circular_image.dart';
 import '../../../../common/widgets/texts/t_brand_title_text_with_verified_icon.dart';
@@ -50,6 +51,7 @@ class StoreScreen extends StatelessWidget {
                         /// ---Search bar
                         const SizedBox(height: TSizes.spaceBtwItems),
                         const TSearchContainer(
+                          icon: Iconsax.search_normal,
                           text: 'Search in Store',
                           showBorder: true,
                           showBackground: false,
