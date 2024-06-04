@@ -4,10 +4,10 @@ import '../../../utils/constants/colors.dart';
 
 class TFormDivider extends StatelessWidget {
   const TFormDivider({
-    Key? key,
+    super.key,
     required this.dark,
     required this.dividerText,
-  }) : super(key: key);
+  });
 
   final bool dark;
   final String dividerText;
