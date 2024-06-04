@@ -30,6 +30,6 @@ class TCouponCode extends StatelessWidget {
           ))
         ],
       ),
-    )
+    );
   }
 }
