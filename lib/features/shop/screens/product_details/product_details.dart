@@ -3,9 +3,11 @@ import 'package:firebase_eco/features/shop/screens/product_details/widgets/produ
 import 'package:firebase_eco/features/shop/screens/product_details/widgets/product_detail_image_slider.dart';
 import 'package:firebase_eco/features/shop/screens/product_details/widgets/product_meta_data.dart';
 import 'package:firebase_eco/features/shop/screens/product_details/widgets/rating_share_widget.dart';
+import 'package:firebase_eco/features/shop/screens/product_reviews/product_reviews.dart';
 import 'package:firebase_eco/utils/constants/sizes.dart';
 import 'package:firebase_eco/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:readmore/readmore.dart';
 
@@ -71,7 +73,7 @@ class ProductDetailScreen extends StatelessWidget {
                         TextStyle(fontSize: 14, fontWeight: FontWeight.w800),
                   ),
 
-                  /// Reviews
+                  /// - Reviews
                   const Divider(),
                   const SizedBox(height: TSizes.spaceBtwItems),
                   Row(
@@ -81,7 +83,8 @@ class ProductDetailScreen extends StatelessWidget {
                           title: 'Reviews (199)', showActionButton: false),
                       IconButton(
                         icon: const Icon(Iconsax.arrow_right_3, size: 18),
-                        onPressed: () {},
+                        onPressed: () =>
+                            Get.to(() => const ProductReviewsScreen()),
                       ),
                     ],
                   ),
