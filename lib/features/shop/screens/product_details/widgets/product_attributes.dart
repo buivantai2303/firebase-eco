@@ -5,7 +5,6 @@ import 'package:firebase_eco/utils/helpers/helper_functions.dart';
 import 'package:firebase_eco/utils/constants/colors.dart';
 import 'package:firebase_eco/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
-
 import '../../../../../common/widgets/custom_shape/container/rounded_container.dart';
 import '../../../../../common/widgets/texts/section_heading.dart';
 
@@ -52,8 +51,6 @@ class TProductAttributes extends StatelessWidget {
                         ],
                       ),
 
-                      const SizedBox(height: TSizes.spaceBtwItems),
-
                       /// Stock Status
                       Row(
                         children: [
@@ -67,17 +64,17 @@ class TProductAttributes extends StatelessWidget {
                         ],
                       ),
                       const SizedBox(height: TSizes.spaceBtwItems),
-
-                      /// Variation Description
-                      const TProductTitleText(
-                        title:
-                            'This is the description of the product and it can go up to max 4 lines.',
-                        smallSize: true,
-                        maxLines: 4,
-                      ),
                     ],
                   ),
                 ],
+              ),
+
+              /// Variation Description
+              const TProductTitleText(
+                title:
+                    'This is the description of the product and it can go up to max 4 lines.',
+                smallSize: true,
+                maxLines: 4,
               ),
             ],
           ),
