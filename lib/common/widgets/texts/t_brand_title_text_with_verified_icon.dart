@@ -1,4 +1,4 @@
-import 'package:firebase_eco/common/widgets/texts/t_brand-title_text.dart';
+import 'package:firebase_eco/common/widgets/texts/t_brand_title_text.dart';
 import 'package:firebase_eco/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';

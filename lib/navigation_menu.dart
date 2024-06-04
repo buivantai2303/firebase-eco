@@ -1,5 +1,6 @@
 import 'package:firebase_eco/features/personalization/screens/settings/settings.dart';
 import 'package:firebase_eco/features/shop/screens/home/home.dart';
+import 'package:firebase_eco/features/shop/screens/wishlist/wistlist.dart';
 import 'package:firebase_eco/utils/constants/colors.dart';
 import 'package:firebase_eco/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
@@ -47,8 +48,7 @@ class NavigationController extends GetxController {
   final screens = [
     const HomeScreen(),
     const StoreScreen(),
-    Container(color: Colors.orange),
-    // const FavoriteScreen,
+    const FavouriteScreen(),
     const SettingsScreen(),
   ];
 }

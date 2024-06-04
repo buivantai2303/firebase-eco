@@ -28,7 +28,7 @@ class TSearchContainer extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Padding(
-        padding:padding,
+        padding: padding,
         child: Container(
           width: TDeviceUtils.getScreenWidth(context),
           padding: const EdgeInsets.all(TSizes.md),
@@ -43,7 +43,7 @@ class TSearchContainer extends StatelessWidget {
           ),
           child: Row(
             children: [
-              Icon(icon, color: TColors.darkerGrey),
+              Icon(icon, color: dark ? TColors.white : TColors.black),
               const SizedBox(width: TSizes.spaceBtwItems),
               Text(text, style: Theme.of(context).textTheme.bodySmall),
             ],

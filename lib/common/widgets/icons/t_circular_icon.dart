@@ -11,7 +11,7 @@ class TCircularIcon extends StatelessWidget {
     this.height,
     this.size = TSizes.lg,
     this.onPressed,
-    required this.color,
+    this.color,
     this.backgroundColor,
   }) : super(key: key); // Passed the key parameter to super constructor
 

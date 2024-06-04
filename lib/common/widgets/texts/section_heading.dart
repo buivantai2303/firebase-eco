@@ -24,7 +24,7 @@ class TSectionHeading extends StatelessWidget {
               .headlineSmall!
               .apply(color: textColor),
           maxLines: 1,
-          overflow: TextOverflow.ellipsis), // Text
+          overflow: TextOverflow.ellipsis),
       if (showActionButton)
         TextButton(onPressed: onPressed, child: Text(buttonTitle))
     ]);
