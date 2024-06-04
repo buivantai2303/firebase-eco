@@ -16,7 +16,6 @@ class FavouriteScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: TAppbar(
-        showBackArrow: false,
         title: Text(
           'Wishlist',
           style: Theme.of(context).textTheme.headlineMedium,

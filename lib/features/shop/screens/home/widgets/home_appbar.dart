@@ -13,7 +13,6 @@ class THomeAppbar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TAppbar(
-      showBackArrow: false,
       title: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

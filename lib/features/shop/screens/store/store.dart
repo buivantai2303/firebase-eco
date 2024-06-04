@@ -22,7 +22,6 @@ class StoreScreen extends StatelessWidget {
       length: 5,
       child: Scaffold(
           appBar: TAppbar(
-            showBackArrow: false,
             title: Text('Store',
                 style: Theme.of(context).textTheme.headlineMedium),
             actions: [
