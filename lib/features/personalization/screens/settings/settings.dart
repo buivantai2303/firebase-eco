@@ -4,6 +4,7 @@ import 'package:firebase_eco/common/widgets/texts/action_heading.dart';
 import 'package:firebase_eco/common/widgets/texts/section_heading.dart';
 import 'package:firebase_eco/features/personalization/screens/address/address.dart';
 import 'package:firebase_eco/features/personalization/screens/profile/profile.dart';
+import 'package:firebase_eco/features/shop/screens/order/order.dart';
 import 'package:firebase_eco/utils/constants/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -71,10 +72,13 @@ class SettingsScreen extends StatelessWidget {
                     icon: Iconsax.shopping_cart,
                     title: 'My Cart',
                     subTitle: 'Add, remove products and move to checkout'),
-                const TSettingsMenuTitle(
+                TSettingsMenuTitle(
                     icon: Iconsax.bag_tick,
                     title: 'My Orders',
-                    subTitle: 'In-progress and Completed Orders'),
+                    subTitle: 'In-progress and Completed Orders',
+                    onTap: () => Get.to(() => const OrderScreen())
+                    ),
+
                 const TSettingsMenuTitle(
                     icon: Iconsax.bank,
                     title: 'Bank Account',
