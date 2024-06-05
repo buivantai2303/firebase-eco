@@ -14,13 +14,11 @@ import 'package:flutter/foundation.dart'
 ///   options: DefaultFirebaseOptions.currentPlatform,
 /// );
 /// ```
+
 class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
     if (kIsWeb) {
-      throw UnsupportedError(
-        'DefaultFirebaseOptions have not been configured for web - '
-        'you can reconfigure this by running the FlutterFire CLI again.',
-      );
+      return web;
     }
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
@@ -52,11 +50,24 @@ class DefaultFirebaseOptions {
     }
   }
 
+  static const FirebaseOptions web = FirebaseOptions(
+    apiKey: 'AIzaSyDngaC-oaoHOQK_0hjRrn3UggD4YleQKcI',
+    appId: '1:348212590592:web:7d96b0d4876b93604a00e5',
+    messagingSenderId: '348212590592',
+    projectId: 'feco-eaut',
+    authDomain: 'feco-eaut.firebaseapp.com',
+    databaseURL: 'https://feco-eaut-default-rtdb.asia-southeast1.firebasedatabase.app',
+    storageBucket: 'feco-eaut.appspot.com',
+    measurementId: 'G-MDZGX2GMEE',
+  );
+
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyClb1Uk9nR41QCBPjMlj4W5Qe8nfhtzeko',
     appId: '1:348212590592:android:15bc8486e96d4a304a00e5',
     messagingSenderId: '348212590592',
     projectId: 'feco-eaut',
+    databaseURL: 'https://feco-eaut-default-rtdb.asia-southeast1.firebasedatabase.app',
     storageBucket: 'feco-eaut.appspot.com',
   );
+
 }

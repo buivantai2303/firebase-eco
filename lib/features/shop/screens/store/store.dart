@@ -8,13 +8,13 @@ import 'package:firebase_eco/features/shop/screens/store/widgets/category_tab.da
 import 'package:firebase_eco/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:iconsax/iconsax.dart';
 
 import '../../../../common/widgets/brands/brand_card.dart';
 import '../../../../common/widgets/texts/section_heading.dart';
 import '../../../../utils/constants/colors.dart';
 import '../../../../utils/constants/sizes.dart';
+import '../brand/brand_products.dart';
 
 class StoreScreen extends StatelessWidget {
   const StoreScreen({super.key});
@@ -50,8 +50,9 @@ class StoreScreen extends StatelessWidget {
                         shrinkWrap: true,
                         physics: const NeverScrollableScrollPhysics(),
                         children: [
-                          /// ---Search bar
                           const SizedBox(height: TSizes.spaceBtwItems),
+
+                          /// -- Search Bar
                           const TSearchContainer(
                             icon: Iconsax.search_normal,
                             text: 'Search in Store',
@@ -62,9 +63,11 @@ class StoreScreen extends StatelessWidget {
 
                           /// --- Feature Brands
                           TSectionHeading(
-                              title: 'Featured Brands',
-                              showActionButton: true,
-                            onPressed: () => Get.to(() =>const AllBrandScreen()),),
+                            title: 'Featured Brands',
+                            showActionButton: true,
+                            onPressed: () =>
+                                Get.to(() => const AllBrandScreen()),
+                          ),
 
                           const SizedBox(
                             height: TSizes.spaceBtwItems / 1.5,
@@ -75,8 +78,10 @@ class StoreScreen extends StatelessWidget {
                               itemCount: 4,
                               mainAxisExtent: 80,
                               itemBuilder: (_, index) {
-                                return const TBrandCard(
+                                return TBrandCard(
                                   showBorder: true,
+                                  onTap: () =>
+                                      Get.to(() => const BrandProducts()),
                                 );
                               })
                         ],

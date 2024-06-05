@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "348212590592",
+    "firebase_url": "https://feco-eaut-default-rtdb.asia-southeast1.firebasedatabase.app",
     "project_id": "feco-eaut",
     "storage_bucket": "feco-eaut.appspot.com"
   },
@@ -12,7 +13,20 @@
           "package_name": "com.example.firebase_eco"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "348212590592-s1sjngb1jl50vhqj2hcmhf4tsbe832m8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.firebase_eco",
+            "certificate_hash": "366505b7e43fe500471689830c5de48d4749dd84"
+          }
+        },
+        {
+          "client_id": "348212590592-kkcjlh6c8gkbse4mmtivhbtdf0b1ei00.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyClb1Uk9nR41QCBPjMlj4W5Qe8nfhtzeko"
@@ -20,7 +34,12 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "348212590592-kkcjlh6c8gkbse4mmtivhbtdf0b1ei00.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }

@@ -8,5 +8,7 @@ flutter pub add firebase_core
 
 flutterfire configure
 
-[Platform  Firebase App Id]
-[android   1:348212590592:android:15bc8486e96d4a304a00e5]
+/// Authentication (Change Username)
+Mac: keytool -list -v -keystore ~/.android/debug.keystore -alias androiddebugkey -storepass android -keypass android
+Windows: keytool -list -v -keystore "C:\Users\BanhMiBietBay\.android\debug.keystore" -alias androiddebugkey -storepass android -keypass android
+Linux: keytool -list -v -keystore ~/.android/debug.keystore -alias androiddebugkey -storepass android-keypass android

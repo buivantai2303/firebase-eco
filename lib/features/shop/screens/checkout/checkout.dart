@@ -11,7 +11,6 @@ import 'package:firebase_eco/utils/constants/sizes.dart';
 import 'package:firebase_eco/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 
 import '../../../../common/widgets/products/cart/coupon_widget.dart';
 import '../../../../utils/constants/colors.dart';
