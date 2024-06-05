@@ -58,7 +58,6 @@ class SettingsScreen extends StatelessWidget {
                   title: 'Account Settings',
                   showActionButton: false,
                 ),
-
                 const SizedBox(
                   height: TSizes.spaceBtwItems,
                 ),
@@ -69,35 +68,29 @@ class SettingsScreen extends StatelessWidget {
                   subTitle: 'Set shopping delivery address',
                   onTap: () => Get.to(() => const UserAddressScreen()),
                 ),
-
                 const TSettingsMenuTitle(
-                  icon: Iconsax.shopping_cart,
-                  title: 'My Cart',
-                  subTitle: 'Add, remove products and move to checkout',
-                ),
-
+                    icon: Iconsax.shopping_cart,
+                    title: 'My Cart',
+                    subTitle: 'Add, remove products and move to checkout'),
                 TSettingsMenuTitle(
-                  icon: Iconsax.bag_tick,
-                  title: 'My Orders',
-                  subTitle: 'In-progress and Completed Orders',
-                  onTap: () => Get.to(() => const OrderScreen()),
-                ),
+                    icon: Iconsax.bag_tick,
+                    title: 'My Orders',
+                    subTitle: 'In-progress and Completed Orders',
+                    onTap: () => Get.to(() => const OrderScreen())
+                    ),
 
                 const TSettingsMenuTitle(
                     icon: Iconsax.bank,
                     title: 'Bank Account',
                     subTitle: 'Withdraw balance to registered bank account'),
-
                 const TSettingsMenuTitle(
                     icon: Iconsax.discount_shape,
                     title: 'My Coupons',
                     subTitle: 'List of all the discounted coupons'),
-
                 const TSettingsMenuTitle(
                     icon: Iconsax.notification,
                     title: 'Notifications',
                     subTitle: 'Set any kind of notification message'),
-
                 const TSettingsMenuTitle(
                     icon: Iconsax.security_card,
                     title: 'Account Privacy',
@@ -105,31 +98,25 @@ class SettingsScreen extends StatelessWidget {
 
                 /// -- App Settings
                 const SizedBox(height: TSizes.spaceBtwSections),
-
                 const TActionHeading(
                     title: 'App Settings', showActionButton: false),
-
                 const SizedBox(height: TSizes.spaceBtwItems),
-
                 const TSettingsMenuTitle(
                     icon: Iconsax.document_upload,
                     title: 'Load Data',
                     subTitle: 'Upload Data to your Cloud Firebase'),
-
                 TSettingsMenuTitle(
                   icon: Iconsax.location,
                   title: 'Geolocation',
                   subTitle: 'Set recommendation based on location',
                   trailing: Switch(value: true, onChanged: (value) {}),
                 ),
-
                 TSettingsMenuTitle(
                   icon: Iconsax.security_user,
                   title: 'Safe Mode',
                   subTitle: 'Search result is safe for all ages',
                   trailing: Switch(value: false, onChanged: (value) {}),
                 ),
-
                 TSettingsMenuTitle(
                   icon: Iconsax.image,
                   title: 'HD Image Quality',

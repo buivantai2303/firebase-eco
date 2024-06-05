@@ -3,9 +3,12 @@ import 'package:firebase_eco/common/widgets/appbar/tabbar.dart';
 import 'package:firebase_eco/common/widgets/custom_shape/container/search_container.dart';
 import 'package:firebase_eco/common/widgets/layouts/grid_layout.dart';
 import 'package:firebase_eco/common/widgets/products/cart/cart_menu_icon.dart';
+import 'package:firebase_eco/features/shop/screens/brand/all_brands.dart';
 import 'package:firebase_eco/features/shop/screens/store/widgets/category_tab.dart';
 import 'package:firebase_eco/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:iconsax/iconsax.dart';
 
 import '../../../../common/widgets/brands/brand_card.dart';
@@ -61,7 +64,7 @@ class StoreScreen extends StatelessWidget {
                           TSectionHeading(
                               title: 'Featured Brands',
                               showActionButton: true,
-                              onPressed: () {}),
+                            onPressed: () => Get.to(() =>const AllBrandScreen()),),
 
                           const SizedBox(
                             height: TSizes.spaceBtwItems / 1.5,
