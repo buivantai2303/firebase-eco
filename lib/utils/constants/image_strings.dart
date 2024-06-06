@@ -31,6 +31,40 @@ class TImages {
   static const String electronicsIcon =
       "assets/icons/categories/icons8-smartphone-64.png";
 
+  // Lottie Animations
+  static String cartAnimation =
+      "assets/images/animations/lady-adding-product-in-cart-animation.json";
+  static String orderCompletedAnimation =
+      "assets/images/animations/order-complete-car-delivery-animation.json";
+  static String packageAnimation =
+      "assets/images/animations/98783-packaging-in-progress.json";
+  static String paperPlaneAnimation =
+      "assets/images/animations/110052-paper-plane.json";
+  static String carAnimation =
+      "assets/images/animations/136491-animation-lottie-car-rides.json";
+  static String pencilAnimation =
+      "assets/images/animations/148429-pencil-drawing.json";
+  static String docerAnimation =
+      "assets/images/animations/141594-animation-of-docer.json";
+  static String searchAnimation =
+      "assets/images/animations/72785-searching.json";
+  static String emptyAnimation =
+      "assets/images/animations/72785-searching.json";
+  static String securityAnimation =
+      "assets/images/animations/67263-security-icon-transparent.json";
+  static String successfullyRegisterAnimation =
+      "assets/images/animations/72462-check-register.json";
+  static String thankYouAnimation =
+      "assets/images/animations/184368-thank-you.json";
+  static String paymentSuccessfulAnimation =
+      "assets/images/animations/128978-payment-successful.json";
+  static String loadingJuggleAnimation =
+      "assets/images/animations/141397-loading-juggle.json";
+  static String clouduploadingAnimation =
+      "assets/images/animations/cloud-uploading-animation.json";
+  static String loaderAnimation =
+      "assets/images/animations/loader-animation.json";
+
   // -- Brand Icons
   static const String nikeLogo = "assets/icons/brands/nike.png";
   static const String adidasLogo = "assets/icons/brands/adidas-logo.png";
@@ -57,6 +91,8 @@ class TImages {
       "assets/images/animations/sammy-line-man-receives-a-mail.png";
   static const String verifyIllustration =
       "assets/images/animations/sammy-line-travel-backpack-with-passport-and-air-ticket.gif";
+  static const String docerIllustration =
+      "assets/images/animations/docer-animation.gif";
 
   // -- OnBoarding Texts
   static const String onBoardingImage1 =

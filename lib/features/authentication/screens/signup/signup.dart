@@ -1,4 +1,5 @@
 import 'package:firebase_eco/common/widgets/login_signup/form_divider.dart';
+import 'package:firebase_eco/features/authentication/screens/login/widgets/social_buttons.dart';
 import 'package:firebase_eco/features/authentication/screens/signup/widget/singup_form.dart';
 import 'package:firebase_eco/utils/constants/sizes.dart';
 import 'package:firebase_eco/utils/constants/text_strings.dart';
@@ -39,6 +40,9 @@ class SignupScreen extends StatelessWidget {
                 dividerText: TTexts.orSignUpWith.capitalize!,
               ),
               const SizedBox(height: TSizes.spaceBtwSections),
+
+              // Social Buttons
+              const TSocialButtons(),
             ],
           ),
         ),
