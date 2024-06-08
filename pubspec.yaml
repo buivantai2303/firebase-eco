@@ -36,6 +36,7 @@ dependencies:
   firebase_storage: ^12.0.0
   firebase_auth: ^5.0.0
   cloud_firestore: ^5.0.0
+  google_sign_in: ^6.1.6
 
   # Icons
   iconsax: ^0.0.8
