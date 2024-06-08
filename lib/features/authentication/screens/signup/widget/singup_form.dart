@@ -89,7 +89,7 @@ class TSignupForm extends StatelessWidget {
 
           /// Password
           Obx(
-            () => TextFormField(
+                () => TextFormField(
               controller: controller.password,
               validator: (value) => TValidator.validatePassword(value),
               obscureText: controller.hidePassword.value,
@@ -98,8 +98,8 @@ class TSignupForm extends StatelessWidget {
                 prefixIcon: const Icon(Iconsax.password_check),
                 suffixIcon: IconButton(
                   onPressed: () => controller.hidePassword.value =
-                      !controller.hidePassword.value,
-                  icon: const Icon(Iconsax.eye_slash),
+                  !controller.hidePassword.value,
+                  icon: Icon(controller.hidePassword.value ? Iconsax.eye_slash : Iconsax.eye),
                 ),
               ),
             ),
