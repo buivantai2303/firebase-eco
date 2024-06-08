@@ -18,16 +18,12 @@ dependencies:
   flutter:
     sdk: flutter
 
-  smooth_page_indicator: ^1.0.0
-
   # Utilities Package
   intl: ^0.19.0
-
-  # Url Launcher
   url_launcher: ^6.2.6
-
-  # logger
   logger: ^2.3.0
+  lottie: ^3.1.2
+  smooth_page_indicator: ^1.1.0
 
   # HTTP
   http: ^1.2.1
@@ -35,14 +31,10 @@ dependencies:
   # Connectivity Plus
   connectivity_plus: ^5.0.1
 
-  # Firebase Core
+  # Firebase
   firebase_core: ^3.0.0
   firebase_storage: ^12.0.0
-
-  # Firebase Auth:
   firebase_auth: ^5.0.0
-
-  # Cloud Firestore:
   cloud_firestore: ^5.0.0
 
   # Icons
@@ -52,9 +44,6 @@ dependencies:
   # State Management
   get: ^4.6.5
   get_storage: ^2.1.1
-
-  # Lottie:
-  lottie: ^3.1.2
 
   # Native Splash:
   flutter_native_splash: ^2.4.0

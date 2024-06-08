@@ -76,8 +76,7 @@ class SettingsScreen extends StatelessWidget {
                     icon: Iconsax.bag_tick,
                     title: 'My Orders',
                     subTitle: 'In-progress and Completed Orders',
-                    onTap: () => Get.to(() => const OrderScreen())
-                    ),
+                    onTap: () => Get.to(() => const OrderScreen())),
 
                 const TSettingsMenuTitle(
                     icon: Iconsax.bank,

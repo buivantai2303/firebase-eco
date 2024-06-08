@@ -24,11 +24,11 @@ class AuthenticationRepository extends GetxController {
   @override
   void onReady() {
     FlutterNativeSplash.remove();
-    screenDirect();
+    screenRedirect();
   }
 
   /// Function to show Relevant Screen
-  screenDirect() async {
+  screenRedirect() async {
     final user = _auth.currentUser;
     if (user != null) {
       if (user.emailVerified) {
@@ -54,9 +54,9 @@ class AuthenticationRepository extends GetxController {
 
 /*---------------------------- Email & Password Sign In ----------------------------*/
 
-  /// [Email Authentication] - Sign In
+  /// [EmailAuthentication] - Sign In
 
-  /// [Email Authentication] - Register
+  /// [EmailAuthentication] - Register
   Future<UserCredential> registerWithEmailAndPassword(
       String email, String password) async {
     try {
@@ -77,7 +77,7 @@ class AuthenticationRepository extends GetxController {
 
   /// [ReAuthenticate] - ReAuthenticate User
 
-  /// [Email Verification] - Mail Verification
+  /// [EmailVerification] - Mail Verification
   Future<void> sendEmailVerification() async {
     try {
       await _auth.currentUser?.sendEmailVerification();
