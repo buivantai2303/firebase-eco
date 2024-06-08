@@ -22,7 +22,7 @@ dependencies:
   intl: ^0.19.0
   url_launcher: ^6.2.6
   logger: ^2.3.0
-  lottie: ^3.1.2
+  lottie: ^2.7.0
   smooth_page_indicator: ^1.1.0
 
   # HTTP
@@ -36,7 +36,6 @@ dependencies:
   firebase_storage: ^12.0.0
   firebase_auth: ^5.0.0
   cloud_firestore: ^5.0.0
-  google_sign_in: ^6.1.6
 
   # Icons
   iconsax: ^0.0.8

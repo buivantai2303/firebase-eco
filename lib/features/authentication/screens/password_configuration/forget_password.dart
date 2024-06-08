@@ -6,7 +6,6 @@ import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 
 import '../../../../utils/constants/sizes.dart';
-import 'reset_password.dart';
 
 class ForgetPassword extends StatelessWidget {
   const ForgetPassword({super.key});
@@ -46,7 +45,7 @@ class ForgetPassword extends StatelessWidget {
                 decoration: const InputDecoration(
                     labelText: TTexts.email,
                     prefixIcon: Icon(Iconsax.direct_right)),
-                style: Theme.of(context).textTheme.headlineMedium,
+                style: Theme.of(context).textTheme.titleMedium,
               ),
             ),
             const SizedBox(
