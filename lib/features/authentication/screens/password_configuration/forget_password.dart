@@ -1,4 +1,6 @@
+import 'package:firebase_eco/features/authentication/controllers/forget_password/forget_password_controller.dart';
 import 'package:firebase_eco/utils/constants/text_strings.dart';
+import 'package:firebase_eco/utils/validators/validation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
@@ -11,6 +13,7 @@ class ForgetPassword extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(ForgetPasswordController());
     return Scaffold(
       appBar: AppBar(),
       body: Padding(
@@ -35,11 +38,16 @@ class ForgetPassword extends StatelessWidget {
             ),
 
             /// Text field
-            TextFormField(
-              decoration: const InputDecoration(
-                  labelText: TTexts.email,
-                  prefixIcon: Icon(Iconsax.direct_right)),
-              style: Theme.of(context).textTheme.headlineMedium,
+            Form(
+              key: controller.forgetPasswordFormKey,
+              child: TextFormField(
+                controller: controller.email,
+                validator: TValidator.validateEmail,
+                decoration: const InputDecoration(
+                    labelText: TTexts.email,
+                    prefixIcon: Icon(Iconsax.direct_right)),
+                style: Theme.of(context).textTheme.headlineMedium,
+              ),
             ),
             const SizedBox(
               height: TSizes.spaceBtwSections,
@@ -49,7 +57,7 @@ class ForgetPassword extends StatelessWidget {
             SizedBox(
               width: double.infinity,
               child: ElevatedButton(
-                onPressed: () => Get.off(() => const ResetPassword()),
+                onPressed: () => controller.sendPasswordResetEmail(),
                 child: const Text(TTexts.submit),
               ),
             )
