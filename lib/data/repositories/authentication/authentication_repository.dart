@@ -1,3 +1,7 @@
+import 'dart:async';
+import 'dart:async';
+import 'dart:async';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_eco/features/authentication/screens/login/login.dart';
 import 'package:firebase_eco/features/authentication/screens/onboarding/onboarding.dart';
@@ -24,11 +28,11 @@ class AuthenticationRepository extends GetxController {
   @override
   void onReady() {
     FlutterNativeSplash.remove();
-    screenRedirect();
+    screenDirect();
   }
 
   /// Function to show Relevant Screen
-  screenRedirect() async {
+  screenDirect() async {
     final user = _auth.currentUser;
     if (user != null) {
       if (user.emailVerified) {
@@ -54,9 +58,28 @@ class AuthenticationRepository extends GetxController {
 
 /*---------------------------- Email & Password Sign In ----------------------------*/
 
-  /// [EmailAuthentication] - Sign In
+  /// [Email Authentication] - Login
+  Future<UserCredential> loginWithEmailAndPassword(String email, String password) async {
+    try{
+      return await _auth.signInWithEmailAndPassword(email: email, password: password);
+    } on FirebaseAuthException catch (e) {
+      throw TFirebaseAuthException(e.code).message;
+    } on FirebaseException catch (e) {
+      throw TFirebaseAuthException(e.code).message;
+    } on FormatException catch (_) {
+      throw const TFormatException();
+    } on PlatformException catch (e) {
+      throw TPlatformException(e.code).message;
+    } catch (e) {
+      throw 'Something went wrong. Please try again';
+    }
+  }
 
-  /// [EmailAuthentication] - Register
+
+
+
+
+  /// [Email Authentication] - Register
   Future<UserCredential> registerWithEmailAndPassword(
       String email, String password) async {
     try {
@@ -77,7 +100,7 @@ class AuthenticationRepository extends GetxController {
 
   /// [ReAuthenticate] - ReAuthenticate User
 
-  /// [EmailVerification] - Mail Verification
+  /// [Email Verification] - Mail Verification
   Future<void> sendEmailVerification() async {
     try {
       await _auth.currentUser?.sendEmailVerification();

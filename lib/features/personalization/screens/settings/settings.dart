@@ -2,6 +2,7 @@ import 'package:firebase_eco/common/widgets/appbar/appbar.dart';
 import 'package:firebase_eco/common/widgets/list_title/settings_menu_title.dart';
 import 'package:firebase_eco/common/widgets/texts/action_heading.dart';
 import 'package:firebase_eco/common/widgets/texts/section_heading.dart';
+import 'package:firebase_eco/features/authentication/screens/login/widgets/login_form.dart';
 import 'package:firebase_eco/features/personalization/screens/address/address.dart';
 import 'package:firebase_eco/features/personalization/screens/profile/profile.dart';
 import 'package:firebase_eco/features/shop/screens/order/order.dart';
@@ -128,7 +129,7 @@ class SettingsScreen extends StatelessWidget {
                 SizedBox(
                   width: double.infinity,
                   child: OutlinedButton(
-                      onPressed: () {}, child: const Text('Logout')),
+                      onPressed: () => const TLoginForm(), child: const Text('Logout')),
                 ), // SizedBox
                 const SizedBox(height: TSizes.spaceBtwSections * 2.5),
               ],

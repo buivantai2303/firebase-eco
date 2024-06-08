@@ -34,11 +34,15 @@ class SignupController extends GetxController {
       // Check Internet Connectivity
       final isConnected = await NetworkManager.instance.isConnected();
       if (!isConnected) {
+        // Remove Loader
+        TFullScreenLoader.stopLoading();
         return;
       }
 
       // Form validation
       if (!signupFormKey.currentState!.validate()) {
+        // Remove Loader
+        // TFullScreenLoader.stopLoading();
         return;
       }
 
