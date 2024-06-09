@@ -14,7 +14,9 @@ class CategoryRepository extends GetxController {
   Future<List<CategoryModel>> getAllCategories() async {
     try {
       final snapshot = await _db.collection('Categories').get();
-      final list = snapshot.docs.map((document) => CategoryModel.fromSnapshot(document)).toList();
+      final list = snapshot.docs
+          .map((document) => CategoryModel.fromSnapshot(document))
+          .toList();
       return list;
     } on FirebaseException catch (e) {
       throw TFirebaseException(e.code).message;
@@ -42,7 +44,4 @@ class CategoryRepository extends GetxController {
   //     throw 'Something went wrong. Please try again!';
   //   }
   // }
-
-
-
 }

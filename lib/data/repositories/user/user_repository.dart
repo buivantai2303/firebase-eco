@@ -1,11 +1,7 @@
-
-import 'dart:io';
-import 'package:firebase_storage/firebase_storage.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_eco/data/repositories/authentication/authentication_repository.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:image_picker/image_picker.dart';
 
 import '../../../utils/exceptions/firebase_exceptions.dart';
 import '../../../utils/exceptions/format_exceptions.dart';
@@ -65,7 +61,7 @@ class UserRepository extends GetxController {
     try {
       ///Sử dụng ID của người dùng từ đối tượng updatedUser để xác định tài liệu cần cập nhật.
 
-    await _db.collection("Users").doc(updatedUser.id).update(updatedUser.toJson());
+    await _db.collection("User").doc(updatedUser.id).update(updatedUser.toJson());
     } on FirebaseException catch (e) {
       throw TFirebaseException(e.code).message;
     } on FormatException catch (_) {
@@ -81,7 +77,7 @@ class UserRepository extends GetxController {
   Future<void> updateSingleField(Map<String, dynamic> json) async {
     try {
       ///Sử dụng UID của người dùng hiện tại để xác định tài liệu cần cập nhật.
-      await _db.collection("Users").doc(AuthenticationRepository.instance.authUser?.uid).update(json);
+      await _db.collection("User").doc(AuthenticationRepository.instance.authUser?.uid).update(json);
     } on FirebaseException catch (e) {
       throw TFirebaseException(e.code).message;
     } on FormatException catch (_) {
@@ -96,32 +92,13 @@ class UserRepository extends GetxController {
   ///function to remove user data from Firestore
   Future<void> RemoveUserRecord(String userId) async {
     try {
-      await _db.collection("Users").doc(userId).delete();
+      await _db.collection("User").doc(userId).delete();
     } on FirebaseException catch (e) {
       throw TFirebaseException(e.code).message;
     } on FormatException catch (_) {
       throw const TFormatException();
     } on PlatformException catch (e) {
       throw TPlatformException(e.code).message;
-    } catch (e) {
-      throw 'Something went wrong. Please try again';
-    }
-  }
-
-
-  /// Upload any image
-  Future<String> uploadImage(String path, XFile image) async {
-    try {
-      final ref = FirebaseStorage.instance.ref(path).child(image.name);
-      await ref.putFile(File(image.path));
-      final url = await ref.getDownloadURL();
-      return url;
-    } on FirebaseException catch (e) {
-      throw e.message ?? 'An unknown Firebase error occurred';
-    } on FormatException catch (_) {
-      throw 'Format exception occurred';
-    } on PlatformException catch (e) {
-      throw e.message ?? 'A platform error occurred';
     } catch (e) {
       throw 'Something went wrong. Please try again';
     }
