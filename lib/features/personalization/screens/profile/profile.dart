@@ -1,18 +1,22 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_eco/common/widgets/appbar/appbar.dart';
 import 'package:firebase_eco/common/widgets/images/t_circular_image.dart';
+import 'package:firebase_eco/common/widgets/shimmer/shimmer.dart';
 import 'package:firebase_eco/common/widgets/texts/section_heading.dart';
 import 'package:firebase_eco/features/personalization/controllers/user_controller.dart';
 import 'package:firebase_eco/features/personalization/screens/profile/widgets/change_name.dart';
 import 'package:firebase_eco/features/personalization/screens/profile/widgets/profile_menu.dart';
 import 'package:firebase_eco/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
+<<<<<<< HEAD
 
 import 'package:get/get.dart';
 
 import 'package:get/get_core/src/get_main.dart';
 
 
+=======
+import 'package:get/get.dart';
+>>>>>>> bf3aed3cabf8036ad299754c6a9c0aad0861beee
 import 'package:iconsax/iconsax.dart';
 
 import '../../../../utils/constants/image_strings.dart';
@@ -42,13 +46,25 @@ class ProfileScreen extends StatelessWidget {
                 width: double.infinity,
                 child: Column(
                   children: [
-                    const TCircularImage(
-                      image: TImages.user,
-                      width: 80,
-                      height: 80,
-                    ),
+                    Obx(() {
+                      final networkImage = controller.user.value.profilePicture;
+                      final image =
+                          networkImage.isNotEmpty ? networkImage : TImages.user;
+                      return controller.imageUploading.value
+                          ? const TShimmerEffect(
+                              width: 80,
+                              height: 80,
+                              radius: 80,
+                            )
+                          : TCircularImage(
+                              image: image,
+                              width: 80,
+                              height: 80,
+                              isNetworkImage: networkImage.isNotEmpty,
+                            );
+                    }),
                     TextButton(
-                        onPressed: () {},
+                        onPressed: () => controller.uploadUserProfilePicture(),
                         child: const Text("Change Profile Picture")),
                   ],
                 ),
@@ -78,7 +94,17 @@ class ProfileScreen extends StatelessWidget {
               value: controller.user.value.fullName,
             ),
               TProfileMenu(
+<<<<<<< HEAD
                   title: 'Username', value: controller.user.value.username, onPressed: () {Get.to(() => const ChangeName());}),
+=======
+                  onPressed: () {},
+                  title: 'Name',
+                  value: controller.user.value.fullName),
+              TProfileMenu(
+                  title: 'Username',
+                  value: controller.user.value.username,
+                  onPressed: () {}),
+>>>>>>> bf3aed3cabf8036ad299754c6a9c0aad0861beee
               const SizedBox(height: TSizes.spaceBtwItems),
               const Divider(),
               const SizedBox(height: TSizes.spaceBtwItems),
@@ -97,7 +123,9 @@ class ProfileScreen extends StatelessWidget {
                   value: controller.user.value.email,
                   onPressed: () {}),
               TProfileMenu(
-                  title: 'Phone Number', value: controller.user.value.phoneNumber.toString(), onPressed: () {}),
+                  title: 'Phone Number',
+                  value: controller.user.value.phoneNumber.toString(),
+                  onPressed: () {}),
               TProfileMenu(title: 'Gender', value: 'Male', onPressed: () {}),
               TProfileMenu(
                   title: 'Date of Birth',
