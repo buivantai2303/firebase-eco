@@ -1,4 +1,3 @@
-
 import 'dart:io';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -40,14 +39,17 @@ class UserRepository extends GetxController {
   Future<UserModel> fetchUserDetails() async {
     try {
       //truy vấn Firestore để lấy collection "Users".  lấy UID của người dùng hiện tại ( ng dung đã đăng nhập)
-      final documentSnapshot = await _db.collection("Users").doc(AuthenticationRepository.instance.authUser?.uid).get();
+      final documentSnapshot = await _db
+          .collection("Users")
+          .doc(AuthenticationRepository.instance.authUser?.uid)
+          .get();
 
-    if(documentSnapshot.exists){
-      return UserModel.fromSnapshot(documentSnapshot);
-    }else{
-      //tra ve user trống
-      return UserModel.empty();
-    }
+      if (documentSnapshot.exists) {
+        return UserModel.fromSnapshot(documentSnapshot);
+      } else {
+        //tra ve user trống
+        return UserModel.empty();
+      }
     } on FirebaseException catch (e) {
       throw TFirebaseException(e.code).message;
     } on FormatException catch (_) {
@@ -59,13 +61,15 @@ class UserRepository extends GetxController {
     }
   }
 
-
   /// Function to update user data in Firestore.
   Future<void> updateUserDetails(UserModel updatedUser) async {
     try {
       ///Sử dụng ID của người dùng từ đối tượng updatedUser để xác định tài liệu cần cập nhật.
 
-    await _db.collection("Users").doc(updatedUser.id).update(updatedUser.toJson());
+      await _db
+          .collection("Users")
+          .doc(updatedUser.id)
+          .update(updatedUser.toJson());
     } on FirebaseException catch (e) {
       throw TFirebaseException(e.code).message;
     } on FormatException catch (_) {
@@ -81,7 +85,10 @@ class UserRepository extends GetxController {
   Future<void> updateSingleField(Map<String, dynamic> json) async {
     try {
       ///Sử dụng UID của người dùng hiện tại để xác định tài liệu cần cập nhật.
-      await _db.collection("Users").doc(AuthenticationRepository.instance.authUser?.uid).update(json);
+      await _db
+          .collection("Users")
+          .doc(AuthenticationRepository.instance.authUser?.uid)
+          .update(json);
     } on FirebaseException catch (e) {
       throw TFirebaseException(e.code).message;
     } on FormatException catch (_) {
@@ -107,7 +114,6 @@ class UserRepository extends GetxController {
       throw 'Something went wrong. Please try again';
     }
   }
-
 
   /// Upload any image
   Future<String> uploadImage(String path, XFile image) async {
