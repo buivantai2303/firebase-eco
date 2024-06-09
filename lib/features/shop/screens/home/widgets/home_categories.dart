@@ -1,12 +1,9 @@
 import 'package:firebase_eco/features/shop/controllers/category_controller.dart';
-import 'package:firebase_eco/features/shop/screens/store/widgets/category_tab.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 
 import '../../../../../common/widgets/image_text_widgets/vertical_image_text.dart';
 import '../../../../../common/widgets/shimmer/category_shimmer.dart';
-import '../../../../../utils/constants/image_strings.dart';
 
 class THomeCategories extends StatelessWidget {
   const THomeCategories({

@@ -1,9 +1,7 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_eco/features/personalization/controllers/user_controller.dart';
 import 'package:firebase_eco/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get_storage/get_storage.dart';
 import 'package:shimmer/shimmer.dart';
 
 import '../../../../../common/widgets/appbar/appbar.dart';
@@ -59,12 +57,12 @@ class THomeAppbar extends StatelessWidget {
 
 class TShimmerEffect extends StatelessWidget {
   const TShimmerEffect({
-    Key? key,
+    super.key,
     required this.width,
     required this.height,
     this.radius = 15,
     this.color,
-  }) : super(key: key);
+  });
 
   final double width, height, radius;
   final Color? color;
