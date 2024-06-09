@@ -31,7 +31,7 @@ class TChoiceChip extends StatelessWidget {
               backgroundColor: THelperFunctions.getColor(text)!)
           : null,
       labelPadding: isColor ? const EdgeInsets.all(0) : null,
-// Make icon in the center
+      // Make icon in the center
       padding: isColor ? const EdgeInsets.all(0) : null,
       shape: isColor ? const CircleBorder() : null,
       backgroundColor: isColor ? THelperFunctions.getColor(text)! : null,

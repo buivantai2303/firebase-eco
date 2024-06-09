@@ -38,7 +38,6 @@ class TCircularImage extends StatelessWidget {
                 : TColors.white),
         borderRadius: BorderRadius.circular(100),
       ),
-      // BoxDecoration
       child: Center(
         child: Image(
           fit: fit,
