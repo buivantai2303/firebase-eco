@@ -1,3 +1,7 @@
+import 'dart:async';
+import 'dart:async';
+import 'dart:async';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_eco/features/authentication/screens/login/login.dart';
 import 'package:firebase_eco/features/authentication/screens/onboarding/onboarding.dart';
@@ -19,6 +23,10 @@ class AuthenticationRepository extends GetxController {
   /// Variable
   final deviceStorage = GetStorage();
   final _auth = FirebaseAuth.instance;
+
+  //method Get Authenticated User Data
+  User? get authUser => _auth.currentUser;
+
 
   /// Called from main.dart on app launch
   @override
@@ -54,7 +62,26 @@ class AuthenticationRepository extends GetxController {
 
 /*---------------------------- Email & Password Sign In ----------------------------*/
 
-  /// [Email Authentication] - Sign In
+  /// [Email Authentication] - Login
+  Future<UserCredential> loginWithEmailAndPassword(String email, String password) async {
+    try{
+      return await _auth.signInWithEmailAndPassword(email: email, password: password);
+    } on FirebaseAuthException catch (e) {
+      throw TFirebaseAuthException(e.code).message;
+    } on FirebaseException catch (e) {
+      throw TFirebaseAuthException(e.code).message;
+    } on FormatException catch (_) {
+      throw const TFormatException();
+    } on PlatformException catch (e) {
+      throw TPlatformException(e.code).message;
+    } catch (e) {
+      throw 'Something went wrong. Please try again';
+    }
+  }
+
+
+
+
 
   /// [Email Authentication] - Register
   Future<UserCredential> registerWithEmailAndPassword(
@@ -95,6 +122,21 @@ class AuthenticationRepository extends GetxController {
   }
 
   /// [Email Authentication] - Forget Password
+    Future<void> sendPasswordResetEmail(String email) async {
+      try {
+        await _auth.sendPasswordResetEmail(email: email);
+      } on FirebaseAuthException catch (e) {
+        throw TFirebaseAuthException(e.code).message;
+      } on FirebaseException catch (e) {
+        throw TFirebaseException(e.code).message;
+      } on FormatException catch (_) {
+        throw const TFormatException();
+      } on PlatformException catch (e) {
+        throw TPlatformException(e.code).message;
+      } catch (e) {
+        throw 'Something went wrong. Please try again!';
+      }
+    }
 
 /*---------------------------- Federated Identity & Social Sign In ----------------------------*/
 

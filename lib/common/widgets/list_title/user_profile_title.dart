@@ -1,3 +1,4 @@
+import 'package:firebase_eco/features/personalization/controllers/user_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 
@@ -15,6 +16,7 @@ class TUserProfileTitle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = UserController.instance;
     return ListTile(
         leading: const TCircularImage(
           image: TImages.user,
@@ -25,7 +27,7 @@ class TUserProfileTitle extends StatelessWidget {
 
         // Title
         title: Text(
-          'Astromazing',
+          controller.user.value.fullName,
           style: Theme.of(context)
               .textTheme
               .headlineSmall!
@@ -34,7 +36,7 @@ class TUserProfileTitle extends StatelessWidget {
 
         // Subtitle
         subtitle: Text(
-          'astromazing@gmail.com',
+            controller.user.value.email,
           style: Theme.of(context)
               .textTheme
               .bodyMedium!
