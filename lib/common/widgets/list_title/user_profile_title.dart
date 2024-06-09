@@ -1,10 +1,8 @@
-import 'package:firebase_eco/features/personalization/controllers/user_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
-
+import 'package:firebase_eco/features/personalization/controllers/user_controller.dart';
 import '../../../utils/constants/colors.dart';
 import '../../../utils/constants/image_strings.dart';
-import '../images/t_circular_image.dart';
 
 class TUserProfileTitle extends StatelessWidget {
   const TUserProfileTitle({
@@ -17,12 +15,17 @@ class TUserProfileTitle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final controller = UserController.instance;
+    final networkImage = controller.user.value.profilePicture;
+    final image = networkImage.isNotEmpty
+        ? NetworkImage(networkImage)
+        : const AssetImage(TImages.user);
+
     return ListTile(
-        leading: const TCircularImage(
-          image: TImages.user,
-          width: 50,
-          height: 50,
-          padding: 0,
+        leading: CircleAvatar(
+          backgroundImage: image is NetworkImage
+              ? image
+              : const AssetImage(TImages.user) as ImageProvider,
+          radius: 25,
         ),
 
         // Title
@@ -36,7 +39,7 @@ class TUserProfileTitle extends StatelessWidget {
 
         // Subtitle
         subtitle: Text(
-            controller.user.value.email,
+          controller.user.value.email,
           style: Theme.of(context)
               .textTheme
               .bodyMedium!
