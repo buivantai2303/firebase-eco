@@ -1,18 +1,17 @@
-import 'dart:ffi';
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_eco/common/widgets/appbar/appbar.dart';
 import 'package:firebase_eco/common/widgets/images/t_circular_image.dart';
-import 'package:firebase_eco/common/widgets/shimmer/shimmer.dart';
 import 'package:firebase_eco/common/widgets/texts/section_heading.dart';
 import 'package:firebase_eco/features/personalization/controllers/user_controller.dart';
 import 'package:firebase_eco/features/personalization/screens/profile/widgets/change_name.dart';
 import 'package:firebase_eco/features/personalization/screens/profile/widgets/profile_menu.dart';
 import 'package:firebase_eco/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
+
 import 'package:get/get.dart';
 
 import 'package:get/get_core/src/get_main.dart';
+
 
 import 'package:iconsax/iconsax.dart';
 
@@ -43,16 +42,13 @@ class ProfileScreen extends StatelessWidget {
                 width: double.infinity,
                 child: Column(
                   children: [
-                    Obx( (){
-                      final networkImage = controller.user.value.profilePicture;
-                      final image = networkImage.isNotEmpty ? networkImage : TImages.user;
-                      return controller.imageUploading.value
-                          ? const TShimmerEffect(width: 80, height: 80, radius: 80,)
-                          :TCircularImage(image: image,width: 80, height: 80, isNetworkImage: networkImage.isNotEmpty,);
-
-                    }),
+                    const TCircularImage(
+                      image: TImages.user,
+                      width: 80,
+                      height: 80,
+                    ),
                     TextButton(
-                        onPressed: () => controller.uploadUserProfilePicture(),
+                        onPressed: () {},
                         child: const Text("Change Profile Picture")),
                   ],
                 ),
@@ -114,7 +110,7 @@ class ProfileScreen extends StatelessWidget {
 
               Center(
                 child: TextButton(
-                  onPressed: () {},
+                  onPressed: () => controller.deleteAccountWarningPopup(),
                   child: const Text(
                     'Close Account',
                     style: TextStyle(color: Colors.red),

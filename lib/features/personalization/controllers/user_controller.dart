@@ -9,6 +9,7 @@ import 'package:firebase_eco/utils/constants/sizes.dart';
 import 'package:firebase_eco/utils/helpers/network_manager.dart';
 import 'package:firebase_eco/utils/popups/full_screen_loader.dart';
 import 'package:firebase_eco/utils/popups/loaders.dart';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -18,6 +19,7 @@ class UserController extends GetxController {
   final profileLoading = false.obs;
   Rx<UserModel> user = UserModel.empty().obs;
   final userRepository = Get.put(UserRepository());
+
 
 
   final hidePassword = false.obs;
@@ -65,6 +67,7 @@ Future<void> saveUserRecord (UserCredential? userCredentials) async {
       phoneNumber: userCredentials.user!.phoneNumber ??'',
       profilePicture: userCredentials.user!.photoURL ??'',
       );
+
 
       // Save user data
       await userRepository.saveUserRecord(user);
@@ -121,7 +124,7 @@ Future<void> saveUserRecord (UserCredential? userCredentials) async {
       }
     } catch (e) {
       TFullScreenLoader.stopLoading();
-      TLoaders.warningSnackBar(title: 'Oh Snap!', message: e.toString());
+      TLoaders.warningSnackBar(title: 'deleteUserAccount error!', message: e.toString());
     }
   }
 
@@ -157,4 +160,18 @@ Future<void> saveUserRecord (UserCredential? userCredentials) async {
       TLoaders.warningSnackBar(title: 'Oh Snap!', message: e.toString());
     }
   }
+
+
+
+//       // Save user data
+//       await userRepository.saveUserRecord(user);
+//       }
+//   } catch (e) {
+//     TLoaders.warningSnackBar(
+//       title: 'Data not saved',
+//       message: 'Something went wrong while saving your information. You can re-save your data in your Profile.',
+//     );
+//   }
+// }
+}
 

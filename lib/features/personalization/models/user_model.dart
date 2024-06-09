@@ -77,7 +77,7 @@ class UserModel {
         lastName: data['LastName'] ?? '',
         username: data['Username'] ?? '',
         email: data['Email'] ?? '',
-        phoneNumber: data['PhoneNumber'] ?? '',
+        phoneNumber: data['Phone Number'] ?? '',
         profilePicture: data['ProfilePicture'] ?? '',
       );
     } else {
