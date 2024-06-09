@@ -88,7 +88,178 @@ class HomeScreen extends StatelessWidget {
                         itemCount: 4,
                         itemBuilder: (_, index) => const TProductCardVertical())
                   ],
-                )),
+                )
+            ),
+// Services and Contact Information
+            Padding(
+              padding: const EdgeInsets.all(20),
+              child: Column(
+                children: [
+                  Container(
+                    padding: EdgeInsets.all(20),
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(15),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.grey.withOpacity(0.5),
+                          spreadRadius: 5,
+                          blurRadius: 7,
+                          offset: Offset(0, 3),
+                        ),
+                      ],
+                    ),
+                    child: Column(
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            Column(
+                              children: [
+                                Icon(Iconsax.back_square, size: 40),
+                                Text('HOÀN TRẢ MIỄN PHÍ'),
+                                Text('Trả hàng miễn phí trong 7 ngày'),
+                              ],
+                            ),
+                          ],
+                        ),
+                        SizedBox(height: 20),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            Column(
+                              children: [
+                                Icon(Iconsax.shield_tick, size: 40),
+                                Text('CAM KẾT CHÍNH HÃNG'),
+                                Text('Hoàn tiền gấp đôi nếu phát hiện hàng giả'),
+                              ],
+                            ),
+                          ],
+                        ),
+                        SizedBox(height: 20),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            Column(
+                              children: [
+                                Icon(Iconsax.truck, size: 40),
+                                Text('MIỄN PHÍ VẬN CHUYỂN'),
+                                Text('Giao hàng miễn phí trên toàn quốc'),
+                              ],
+                            ),
+                          ],
+                        ),
+                        SizedBox(height: 20),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            Column(
+                              children: [
+                                Icon(Iconsax.support, size: 40),
+                                Text('HỖ TRỢ TẬN TÌNH'),
+                                Text('Thông báo tình trạng đơn hàng 24/7'),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(height: 20),
+
+                  Container(
+                    padding: EdgeInsets.all(20),
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(15),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.grey.withOpacity(0.5),
+                          spreadRadius: 5,
+                          blurRadius: 7,
+                          offset: Offset(0, 3),
+                        ),
+                      ],
+                    ),
+                    child: Column(
+                      children: [
+                        Text('Liên hệ với chúng tôi', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+                        SizedBox(height: 10),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(Iconsax.call, size: 30),
+                            SizedBox(width: 10),
+                            Text('094 749 2020', style: TextStyle(fontSize: 16)),
+                          ],
+                        ),
+                        SizedBox(height: 10),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(Iconsax.message, size: 30),
+                            SizedBox(width: 10),
+                            Text('cskh@astromazing.vn', style: TextStyle(fontSize: 16)),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(height: 20),
+                  Container(
+                    padding: EdgeInsets.all(20),
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(15),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.grey.withOpacity(0.5),
+                          spreadRadius: 5,
+                          blurRadius: 7,
+                          offset: Offset(0, 3),
+                        ),
+                      ],
+                    ),
+                    child: Row(
+                      children: [
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text('THÔNG TIN:', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+                            SizedBox(height: 10),
+                            Text('Về AstroMazing', style: TextStyle(fontSize: 16)),
+                            SizedBox(height: 5),
+                            Text('Liên hệ hợp tác', style: TextStyle(fontSize: 16)),
+                            SizedBox(height: 5),
+                            Text('Sitemap', style: TextStyle(fontSize: 16)),
+                            SizedBox(height: 5),
+                            Text('Shopee', style: TextStyle(fontSize: 16)),
+                            SizedBox(height: 5),
+                            Text('Lazada', style: TextStyle(fontSize: 16)),
+                            SizedBox(height: 5),
+                            Text('Tiktok', style: TextStyle(fontSize: 16)),
+                            SizedBox(height: 20),
+                            Text('CHÍNH SÁCH:', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+                            SizedBox(height: 10),
+                            Text('Tích điểm thành viên', style: TextStyle(fontSize: 16)),
+                            SizedBox(height: 5),
+                            Text('Giao hàng & Thanh toán', style: TextStyle(fontSize: 16)),
+                            SizedBox(height: 5),
+                            Text('Chính sách bán sĩ & CTV', style: TextStyle(fontSize: 16)),
+                            SizedBox(height: 5),
+                            Text('Hướng dẫn sử dụng', style: TextStyle(fontSize: 16)),
+                            SizedBox(height: 5),
+                            Text('Bảo hành & Đổi trả', style: TextStyle(fontSize: 16)),
+                            SizedBox(height: 5),
+                            Text('Hợp tác KOL & KOC', style: TextStyle(fontSize: 16)),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
           ],
         ),
       ),
