@@ -33,7 +33,7 @@ class UserRepository extends GetxController {
   }
 
   /// Function to fetch user details based on user ID.
-  Future<UserModel> fetchUserDetails(UserModel user) async {
+  Future<UserModel> fetchUserDetails() async {
     try {
       //truy vấn Firestore để lấy collection "Users".  lấy UID của người dùng hiện tại ( ng dung đã đăng nhập)
       final documentSnapshot = await _db.collection("Users").doc(AuthenticationRepository.instance.authUser?.uid).get();
@@ -59,6 +59,8 @@ class UserRepository extends GetxController {
   /// Function to update user data in Firestore.
   Future<void> updateUserDetails(UserModel updatedUser) async {
     try {
+      ///Sử dụng ID của người dùng từ đối tượng updatedUser để xác định tài liệu cần cập nhật.
+
     await _db.collection("User").doc(updatedUser.id).update(updatedUser.toJson());
     } on FirebaseException catch (e) {
       throw TFirebaseException(e.code).message;
@@ -74,6 +76,7 @@ class UserRepository extends GetxController {
   /// Update any field in specific Users Collection
   Future<void> updateSingleField(Map<String, dynamic> json) async {
     try {
+      ///Sử dụng UID của người dùng hiện tại để xác định tài liệu cần cập nhật.
       await _db.collection("User").doc(AuthenticationRepository.instance.authUser?.uid).update(json);
     } on FirebaseException catch (e) {
       throw TFirebaseException(e.code).message;
