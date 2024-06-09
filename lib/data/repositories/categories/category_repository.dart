@@ -32,9 +32,13 @@ class CategoryRepository extends GetxController {
   //     final storage = Get.put(TFirebaseStorageService());
   //     for (var category in categories) {
   //       final file = await storage.getImageDataFromAssets(category.image);
-  //       final url = await storage.uploadImageData('Categories', file, category.name);
+  //       final url =
+  //           await storage.uploadImageData('Categories', file, category.name);
   //       category.image = url;
-  //       await _db.collection("Categories").doc(category.id).set(category.toJson());
+  //       await _db
+  //           .collection("Categories")
+  //           .doc(category.id)
+  //           .set(category.toJson());
   //     }
   //   } on FirebaseException catch (e) {
   //     throw TFirebaseException(e.code).message;
