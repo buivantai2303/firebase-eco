@@ -25,6 +25,8 @@ class UserController extends GetxController {
   final verifyPassword = TextEditingController();
   GlobalKey<FormState> reAuthFormKey = GlobalKey<FormState>();
 
+  get imageUploading => null;
+
 
   @override
   void onInit() {
@@ -156,4 +158,3 @@ Future<void> saveUserRecord (UserCredential? userCredentials) async {
     }
   }
 
-}
