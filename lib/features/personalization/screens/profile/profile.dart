@@ -1,6 +1,8 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_eco/common/widgets/appbar/appbar.dart';
 import 'package:firebase_eco/common/widgets/images/t_circular_image.dart';
 import 'package:firebase_eco/common/widgets/texts/section_heading.dart';
+import 'package:firebase_eco/features/personalization/controllers/user_controller.dart';
 import 'package:firebase_eco/features/personalization/screens/profile/widgets/profile_menu.dart';
 import 'package:firebase_eco/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
@@ -13,6 +15,8 @@ class ProfileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = UserController.instance;
+
     return Scaffold(
       /// -- Appbar
       appBar: const TAppbar(
@@ -60,9 +64,9 @@ class ProfileScreen extends StatelessWidget {
               ),
 
               TProfileMenu(
-                  onPressed: () {}, title: 'Name', value: 'Astromazing'),
+                  onPressed: () {}, title: 'Name', value: controller.user.value.fullName),
               TProfileMenu(
-                  title: 'Username', value: 'coding_with_t', onPressed: () {}),
+                  title: 'Username', value: controller.user.value.username, onPressed: () {}),
               const SizedBox(height: TSizes.spaceBtwItems),
               const Divider(),
               const SizedBox(height: TSizes.spaceBtwItems),
@@ -73,15 +77,15 @@ class ProfileScreen extends StatelessWidget {
               const SizedBox(height: TSizes.spaceBtwItems),
               TProfileMenu(
                   title: 'User ID',
-                  value: '45689',
+                  value: controller.user.value.id,
                   icon: Iconsax.copy,
                   onPressed: () {}),
               TProfileMenu(
                   title: 'E-mail',
-                  value: 'astromazing@gmail.com',
+                  value: controller.user.value.email,
                   onPressed: () {}),
               TProfileMenu(
-                  title: 'Phone Number', value: '0965422203', onPressed: () {}),
+                  title: 'Phone Number', value: controller.user.value.phoneNumber.toString(), onPressed: () {}),
               TProfileMenu(title: 'Gender', value: 'Male', onPressed: () {}),
               TProfileMenu(
                   title: 'Date of Birth',
