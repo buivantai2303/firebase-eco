@@ -54,10 +54,7 @@ dependencies:
   carousel_slider: ^4.2.1
   flutter_rating_bar: ^4.0.1
   capped_progress_indicator: ^0.0.2
-
   image_picker: ^1.1.2
-  shimmer: ^3.0.0
-
   google_sign_in: ^6.2.1
 
 
