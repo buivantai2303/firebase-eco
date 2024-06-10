@@ -1,6 +1,4 @@
-import 'dart:ffi';
 
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_eco/common/widgets/appbar/appbar.dart';
 import 'package:firebase_eco/common/widgets/images/t_circular_image.dart';
 import 'package:firebase_eco/common/widgets/shimmer/shimmer.dart';
@@ -120,7 +118,7 @@ class ProfileScreen extends StatelessWidget {
 
               Center(
                 child: TextButton(
-                  onPressed: () {},
+                  onPressed: () => controller.deleteAccountWarningPopup(),
                   child: const Text(
                     'Close Account',
                     style: TextStyle(color: Colors.red),

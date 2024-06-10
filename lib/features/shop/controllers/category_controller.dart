@@ -1,4 +1,3 @@
-import 'dart:math';
 
 import 'package:firebase_eco/data/repositories/categories/category_repository.dart';
 import 'package:firebase_eco/features/shop/models/category_model.dart';
