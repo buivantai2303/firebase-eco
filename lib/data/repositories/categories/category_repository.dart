@@ -26,7 +26,7 @@ class CategoryRepository extends GetxController {
       throw 'Something went wrong. Please try again';
     }
   }
-
+//
 // Future<void> uploadDummyData(List<CategoryModel> categories) async {
 //   try {
 //     final storage = Get.put(TFirebaseStorageService());
