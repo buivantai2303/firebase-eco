@@ -11,12 +11,19 @@ class TImages {
   // -- Social Logos
   static const String google = "assets/logos/google-icon.png";
   static const String facebook = "assets/logos/facebook-icon.png";
+  static const String instagram = "assets/logos/Instagram.png";
+  static const String tiktok = "assets/logos/Tiktok.jpg";
+  static const String lazada = "assets/logos/Lazada.png";
+  static const String shopee = "assets/logos/Shopee.png";
+
 
   // -- Category Icons
   static const String sportIcon =
       "assets/icons/categories/icons8-bowling-64.png";
   static const String clothIcon =
       "assets/icons/categories/icons8-tailors-dummy-64.png";
+  static const String phoneIcon =
+      "assets/icons/categories/social.png";
   static const String shoeIcon = "assets/icons/categories/icons8-shoes-64.png";
   static const String cosmeticsIcon =
       "assets/icons/categories/icons8-cosmetics-64.png";
@@ -104,6 +111,9 @@ class TImages {
       "assets/images/on_boarding_images/sammy-line-delivery.gif";
 
   // -- Products
+
+  static const String blog = "assets/images/products/blog.png";
+
   static const String productImage1 = "assets/images/products/nike-shoes.png";
   static const String productImage2 = "assets/images/products/product-1.png";
   static const String productImage3 =

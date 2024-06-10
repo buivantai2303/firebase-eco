@@ -23,7 +23,7 @@ T-Store/
 │ │ ├── repositories
 │ │ └── services
 │ ├── localization
-│ ├── screens
+│ ├── routes
 │ ├── util/
 │ │ ├── constants
 │ │ ├── device
