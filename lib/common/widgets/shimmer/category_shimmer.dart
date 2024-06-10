@@ -30,7 +30,6 @@ class TCategoryShimmer extends StatelessWidget {
               /// Image
               TShimmerEffect(width: 55, height: 55, radius: 55),
               SizedBox(height: TSizes.spaceBtwItems / 2),
-
               /// Text
               TShimmerEffect(width: 55, height: 8),
             ],
