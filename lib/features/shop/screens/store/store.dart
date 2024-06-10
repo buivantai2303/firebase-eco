@@ -3,6 +3,7 @@ import 'package:firebase_eco/common/widgets/appbar/tabbar.dart';
 import 'package:firebase_eco/common/widgets/custom_shape/container/search_container.dart';
 import 'package:firebase_eco/common/widgets/layouts/grid_layout.dart';
 import 'package:firebase_eco/common/widgets/products/cart/cart_menu_icon.dart';
+import 'package:firebase_eco/features/shop/controllers/category_controller.dart';
 import 'package:firebase_eco/features/shop/screens/brand/all_brands.dart';
 import 'package:firebase_eco/features/shop/screens/store/widgets/category_tab.dart';
 import 'package:firebase_eco/utils/helpers/helper_functions.dart';
@@ -21,8 +22,10 @@ class StoreScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final categories = CategoryController.instance.featuredCategories;
+
     return DefaultTabController(
-      length: 5,
+      length: categories.length,
       child: Scaffold(
           appBar: TAppbar(
             title: Text('Store',
@@ -89,38 +92,22 @@ class StoreScreen extends StatelessWidget {
                     ),
 
                     /// -- Tabs
-                    bottom: const TTabBar(
-                      tabs: [
-                        Tab(
-                          child: Text('Sport'),
-                        ),
-                        Tab(
-                          child: Text('Furniture'),
-                        ),
-                        Tab(
-                          child: Text('Electronics'),
-                        ),
-                        Tab(
-                          child: Text('Clothes'),
-                        ),
-                        Tab(
-                          child: Text('Cosmetics'),
-                        ),
-                      ],
+                    bottom: TTabBar(
+                      tabs: categories
+                          .map((category) => Tab(
+                                child: Text(category.name),
+                              ))
+                          .toList(),
                     ),
                   )
                 ];
               },
 
               /// -- Body
-              body: const TabBarView(
-                children: [
-                  TCategoryTab(),
-                  TCategoryTab(),
-                  TCategoryTab(),
-                  TCategoryTab(),
-                  TCategoryTab(),
-                ],
+              body: TabBarView(
+                children: categories
+                    .map((category) => TCategoryTab(category: category))
+                    .toList(),
               ))),
     );
   }

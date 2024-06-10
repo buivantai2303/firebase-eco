@@ -3,9 +3,6 @@ import 'package:flutter/cupertino.dart';
 
 import '../../../utils/constants/sizes.dart';
 
-
-
-
 class TCategoryShimmer extends StatelessWidget {
   const TCategoryShimmer({
     super.key,
@@ -22,7 +19,8 @@ class TCategoryShimmer extends StatelessWidget {
         shrinkWrap: true,
         itemCount: itemCount,
         scrollDirection: Axis.horizontal,
-        separatorBuilder: (_, __) => const SizedBox(width: TSizes.spaceBtwItems),
+        separatorBuilder: (_, __) =>
+            const SizedBox(width: TSizes.spaceBtwItems),
         itemBuilder: (_, __) {
           return const Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -32,7 +30,11 @@ class TCategoryShimmer extends StatelessWidget {
               SizedBox(height: TSizes.spaceBtwItems / 2),
 
               /// Text
-              TShimmerEffect(width: 55, height: 8),
+              TShimmerEffect(
+                width: 55,
+                height: 8,
+                radius: 15,
+              ),
             ],
           );
         },
