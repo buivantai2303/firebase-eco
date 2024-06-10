@@ -1,3 +1,4 @@
+
 import 'package:firebase_eco/common/widgets/appbar/appbar.dart';
 import 'package:firebase_eco/common/widgets/images/t_circular_image.dart';
 import 'package:firebase_eco/common/widgets/shimmer/shimmer.dart';
@@ -78,7 +79,9 @@ class ProfileScreen extends StatelessWidget {
               ),
 
               TProfileMenu(
-                  onPressed: () => const ChangeName(),
+                  onPressed: () {
+                    Get.to(() => const ChangeName());
+                  },
                   title: 'Name',
                   value: controller.user.value.fullName),
               TProfileMenu(

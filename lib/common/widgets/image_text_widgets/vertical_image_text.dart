@@ -1,9 +1,9 @@
+import 'package:firebase_eco/common/widgets/images/t_circular_image.dart';
 import 'package:flutter/material.dart';
 
 import '../../../utils/constants/colors.dart';
 import '../../../utils/constants/sizes.dart';
 import '../../../utils/helpers/helper_functions.dart';
-import '../images/t_circular_image.dart';
 
 class TVerticalImageText extends StatelessWidget {
   const TVerticalImageText({
@@ -35,14 +35,12 @@ class TVerticalImageText extends StatelessWidget {
           children: [
             /// Circular icon
             TCircularImage(
-              image: image,
+                image: image,
               fit: BoxFit.fitWidth,
-              padding: TSizes.sm * 1.4,
+              padding: TSizes.sm *1.4,
               isNetworkImage: isNetworkImage,
               backgroundColor: backgroundColor,
-              overlayColor: THelperFunctions.isDarkMode(context)
-                  ? TColors.light
-                  : TColors.dark,
+              overlayColor: THelperFunctions.isDarkMode(context) ? TColors.light : TColors.dark,
             ),
             const SizedBox(
               height: TSizes.spaceBtwItems / 2,
