@@ -1,7 +1,9 @@
+import 'package:firebase_eco/common/widgets/images/t_circular_image.dart';
 import 'package:firebase_eco/common/widgets/layouts/grid_layout.dart';
 import 'package:firebase_eco/common/widgets/products/product_cards/product_cart_vertical.dart';
 import 'package:firebase_eco/common/widgets/texts/section_heading.dart';
 import 'package:firebase_eco/features/shop/screens/all_products/all_products.dart';
+import 'package:firebase_eco/features/shop/screens/home/widgets/blog_slider.dart';
 import 'package:firebase_eco/features/shop/screens/home/widgets/home_appbar.dart';
 import 'package:firebase_eco/features/shop/screens/home/widgets/home_categories.dart';
 import 'package:firebase_eco/features/shop/screens/home/widgets/promo_slider.dart';
@@ -13,6 +15,7 @@ import '../../../../common/widgets/custom_shape/container/search_container.dart'
 import '../../../../common/widgets/texts/action_heading.dart';
 import '../../../../utils/constants/image_strings.dart';
 import '../../../../utils/constants/sizes.dart';
+import '../store/widgets/category_tab.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -86,10 +89,42 @@ class HomeScreen extends StatelessWidget {
                     ),
                     TGridLayout(
                         itemCount: 4,
-                        itemBuilder: (_, index) => const TProductCardVertical())
+                        itemBuilder: (_, index) => const TProductCardVertical()),
+
+                    const SizedBox(height: TSizes.spaceBtwSections),
+                    DefaultTabController(
+                      length: 4,
+                      child: Column(
+                        children: [
+
+                          SizedBox(
+                            height: 700, // Adjust the height as needed
+                            child: TabBarView(
+                              children: [
+                                TBlogSlider(),
+                                TBlogSlider(),
+                                TBlogSlider(),
+                                TBlogSlider(),
+                              ],
+                            ),
+                          ),
+
+                          TabBar(
+                            tabs: [
+                              Tab(icon: Icon(Iconsax.arrow_up)),
+                              Tab(icon: Icon(Iconsax.arrow_up)),
+                              Tab(icon: Icon(Iconsax.arrow_up)),
+                              Tab(icon: Icon(Iconsax.arrow_up)),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
                   ],
-                )
+                ),
             ),
+
+
 // Services and Contact Information
             Padding(
               padding: const EdgeInsets.all(20),
@@ -184,11 +219,11 @@ class HomeScreen extends StatelessWidget {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        Image.asset('assets/images/social-logo/Facebook.svg', width: 60, height: 60),
-                        Image.asset('assets/images/social-logo/Instagram.png', width: 60, height: 60),
-                        Image.asset('assets/images/social-logo/Shopee.png', width: 60, height: 60),
-                        Image.asset('assets/images/social-logo/Tiktok.jpg', width: 60, height: 60),
-                        Image.asset('assets/images/social-logo/Lazada.png', width: 60, height: 60),
+                        TCircularImage(image: TImages.facebook, width: 60, height: 60),
+                        TCircularImage(image: TImages.instagram, width: 60, height: 60),
+                        TCircularImage(image: TImages.shopee, width: 60, height: 60),
+                        TCircularImage(image: TImages.tiktok, width: 60, height: 60),
+                        TCircularImage(image: TImages.lazada, width: 60, height: 60),
                       ],
                     ),
                   ),
