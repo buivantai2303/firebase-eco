@@ -170,6 +170,34 @@ class HomeScreen extends StatelessWidget {
                   Container(
                     padding: EdgeInsets.all(20),
                     decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(15),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.grey.withOpacity(0.5),
+                          spreadRadius: 5,
+                          blurRadius: 7,
+                          offset: Offset(0, 3),
+                        ),
+                      ],
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Image.asset('assets/images/social-logo/Facebook.svg', width: 60, height: 60),
+                        Image.asset('assets/images/social-logo/Instagram.png', width: 60, height: 60),
+                        Image.asset('assets/images/social-logo/Shopee.png', width: 60, height: 60),
+                        Image.asset('assets/images/social-logo/Tiktok.jpg', width: 60, height: 60),
+                        Image.asset('assets/images/social-logo/Lazada.png', width: 60, height: 60),
+                      ],
+                    ),
+                  ),
+
+                  SizedBox(height: 20),
+
+                  Container(
+                    padding: EdgeInsets.all(20),
+                    decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(15),
                       boxShadow: [
