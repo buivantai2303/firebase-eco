@@ -4,6 +4,7 @@ import 'package:firebase_eco/common/widgets/images/t_circular_image.dart';
 import 'package:firebase_eco/common/widgets/shimmer/shimmer.dart';
 import 'package:firebase_eco/common/widgets/texts/section_heading.dart';
 import 'package:firebase_eco/features/personalization/controllers/user_controller.dart';
+import 'package:firebase_eco/features/personalization/screens/profile/widgets/change_name.dart';
 import 'package:firebase_eco/features/personalization/screens/profile/widgets/profile_menu.dart';
 import 'package:firebase_eco/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
@@ -78,7 +79,9 @@ class ProfileScreen extends StatelessWidget {
               ),
 
               TProfileMenu(
-                  onPressed: () {},
+                  onPressed: () {
+                    Get.to(() => const ChangeName());
+                  },
                   title: 'Name',
                   value: controller.user.value.fullName),
               TProfileMenu(
