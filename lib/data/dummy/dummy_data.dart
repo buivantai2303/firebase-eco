@@ -1,7 +1,5 @@
-import 'package:firebase_eco/features/personalization/models/user_model.dart';
 import 'package:firebase_eco/features/shop/models/category_model.dart';
 import 'package:firebase_eco/utils/constants/image_strings.dart';
-import 'package:flutter/material.dart';
 
 class TDummyData {
   // static final UserModel user = UserModel(id: id, firstName: firstName, lastName: lastName, username: username, email: email, phoneNumber: phoneNumber, profilePicture: profilePicture);

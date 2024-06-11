@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 
 import '../../../../../common/widgets/brands/blog_show_case.dart';
-import '../../../../../common/widgets/brands/brand_show_case.dart';
-import '../../../../../common/widgets/layouts/grid_layout.dart';
-import '../../../../../common/widgets/products/product_cards/product_cart_vertical.dart';
 import '../../../../../common/widgets/texts/section_heading.dart';
 import '../../../../../utils/constants/image_strings.dart';
 import '../../../../../utils/constants/sizes.dart';

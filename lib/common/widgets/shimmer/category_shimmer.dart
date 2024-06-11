@@ -26,7 +26,7 @@ class TCategoryShimmer extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               /// Image
-              TShimmerEffect(width: 55, height: 55, radius: 55),
+              TShimmerEffect(width: 50, height: 50, radius: 50),
               SizedBox(height: TSizes.spaceBtwItems / 2),
 
               /// Text

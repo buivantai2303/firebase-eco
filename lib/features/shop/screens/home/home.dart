@@ -15,7 +15,6 @@ import '../../../../common/widgets/custom_shape/container/search_container.dart'
 import '../../../../common/widgets/texts/action_heading.dart';
 import '../../../../utils/constants/image_strings.dart';
 import '../../../../utils/constants/sizes.dart';
-import '../store/widgets/category_tab.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -92,7 +91,7 @@ class HomeScreen extends StatelessWidget {
                         itemBuilder: (_, index) => const TProductCardVertical()),
 
                     const SizedBox(height: TSizes.spaceBtwSections),
-                    DefaultTabController(
+                    const DefaultTabController(
                       length: 4,
                       child: Column(
                         children: [
@@ -212,11 +211,11 @@ class HomeScreen extends StatelessWidget {
                           color: Colors.grey.withOpacity(0.5),
                           spreadRadius: 5,
                           blurRadius: 7,
-                          offset: Offset(0, 3),
+                          offset: const Offset(0, 3),
                         ),
                       ],
                     ),
-                    child: Row(
+                    child: const Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         TCircularImage(image: TImages.facebook, width: 60, height: 60),
@@ -228,10 +227,10 @@ class HomeScreen extends StatelessWidget {
                     ),
                   ),
 
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
 
                   Container(
-                    padding: EdgeInsets.all(20),
+                    padding: const EdgeInsets.all(20),
                     decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(15),
