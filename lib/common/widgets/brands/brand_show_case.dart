@@ -1,3 +1,4 @@
+import 'package:firebase_eco/features/shop/models/brand_model.dart';
 import 'package:flutter/material.dart';
 
 import '../../../utils/constants/colors.dart';
@@ -16,6 +17,7 @@ class TBrandShowcase extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final BrandModel brand;
     return TRoundedContainer(
       showBorder: true,
       borderColor: TColors.darkGrey,
@@ -25,7 +27,7 @@ class TBrandShowcase extends StatelessWidget {
       child: Column(
         children: [
           /// Brand with products count
-          const TBrandCard(showBorder: false),
+          // const TBrandCard(showBorder: false),
           const SizedBox(
             height: TSizes.spaceBtwItems,
           ),
