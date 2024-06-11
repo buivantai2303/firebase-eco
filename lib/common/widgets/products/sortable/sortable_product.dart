@@ -1,3 +1,4 @@
+import 'package:firebase_eco/features/shop/models/product_model.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 
@@ -25,7 +26,7 @@ class TSortableProducts extends StatelessWidget {
         ),
         const SizedBox(height: TSizes.spaceBtwItems,),
         /// Product
-        TGridLayout(itemCount: 12, itemBuilder: (_,index) => const TProductCardVertical())
+        TGridLayout(itemCount: 12, itemBuilder: (_,index) =>  TProductCardVertical(product: ProductModel.empty(),))
 
       ],
     );

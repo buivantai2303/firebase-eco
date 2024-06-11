@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../../common/widgets/brands/brand_show_case.dart';
 import '../../../../../utils/constants/image_strings.dart';
+import '../../../models/product_model.dart';
 
 class TCategoryTab extends StatelessWidget {
   const TCategoryTab({super.key, required this.category});
@@ -53,7 +54,7 @@ class TCategoryTab extends StatelessWidget {
 
                   TGridLayout(
                     itemCount: 4,
-                    itemBuilder: (_, index) => const TProductCardVertical(),
+                    itemBuilder: (_, index) =>  TProductCardVertical(product: ProductModel.empty(),),
                   ),
 
                   const SizedBox(

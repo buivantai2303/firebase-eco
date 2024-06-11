@@ -1,6 +1,7 @@
 import 'package:firebase_eco/common/widgets/images/t_circular_image.dart';
 import 'package:firebase_eco/common/widgets/layouts/grid_layout.dart';
 import 'package:firebase_eco/common/widgets/products/product_cards/product_cart_vertical.dart';
+import 'package:firebase_eco/common/widgets/shimmer/vertical_product_shimmer.dart';
 import 'package:firebase_eco/common/widgets/texts/section_heading.dart';
 import 'package:firebase_eco/features/shop/screens/all_products/all_products.dart';
 import 'package:firebase_eco/features/shop/screens/home/widgets/blog_slider.dart';
@@ -15,6 +16,7 @@ import '../../../../common/widgets/custom_shape/container/search_container.dart'
 import '../../../../common/widgets/texts/action_heading.dart';
 import '../../../../utils/constants/image_strings.dart';
 import '../../../../utils/constants/sizes.dart';
+import '../../controllers/product_controller.dart';
 import '../store/widgets/category_tab.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -22,6 +24,7 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(ProductController());
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
@@ -87,9 +90,19 @@ class HomeScreen extends StatelessWidget {
                     const SizedBox(
                       height: TSizes.spaceBtwSections,
                     ),
-                    TGridLayout(
-                        itemCount: 4,
-                        itemBuilder: (_, index) => const TProductCardVertical()),
+                    Obx(() {
+                      if(controller.isLoading.value) return const TVerticalProductShimmer();
+
+                      if(controller.featuredProducts.isEmpty) {
+                        return Center(child: Text('No Data Found', style: Theme.of(context).textTheme.bodyMedium,),);
+                      }
+                      return TGridLayout(
+                      itemCount: controller.featuredProducts.length,
+                      itemBuilder: (_, index) => TProductCardVertical(product: controller.featuredProducts[index]),
+                      );
+
+                    }),
+
 
                     const SizedBox(height: TSizes.spaceBtwSections),
                     DefaultTabController(
@@ -98,7 +111,7 @@ class HomeScreen extends StatelessWidget {
                         children: [
 
                           SizedBox(
-                            height: 700, // Adjust the height as needed
+                            height: 750, // Adjust the height as needed
                             child: TabBarView(
                               children: [
                                 TBlogSlider(),
