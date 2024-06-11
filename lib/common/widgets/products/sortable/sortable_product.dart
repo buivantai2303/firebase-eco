@@ -9,8 +9,10 @@ import '../product_cards/product_cart_vertical.dart';
 
 class TSortableProducts extends StatelessWidget {
   const TSortableProducts({
-    super.key,
+    super.key, required this.products,
   });
+
+  final List<ProductModel> products;
 
   @override
   Widget build(BuildContext context) {
