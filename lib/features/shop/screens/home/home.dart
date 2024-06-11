@@ -1,6 +1,7 @@
 import 'package:firebase_eco/common/widgets/images/t_circular_image.dart';
 import 'package:firebase_eco/common/widgets/layouts/grid_layout.dart';
 import 'package:firebase_eco/common/widgets/products/product_cards/product_cart_vertical.dart';
+import 'package:firebase_eco/common/widgets/shimmer/vertical_product_shimmer.dart';
 import 'package:firebase_eco/common/widgets/texts/section_heading.dart';
 import 'package:firebase_eco/features/shop/screens/all_products/all_products.dart';
 import 'package:firebase_eco/features/shop/screens/home/widgets/blog_slider.dart';
@@ -15,12 +16,15 @@ import '../../../../common/widgets/custom_shape/container/search_container.dart'
 import '../../../../common/widgets/texts/action_heading.dart';
 import '../../../../utils/constants/image_strings.dart';
 import '../../../../utils/constants/sizes.dart';
+import '../../controllers/product_controller.dart';
+import '../store/widgets/category_tab.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(ProductController());
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
@@ -66,63 +70,68 @@ class HomeScreen extends StatelessWidget {
 
             /// Body
             Padding(
-                padding: const EdgeInsets.all(TSizes.defaultSpace),
-                child: Column(
-                  children: [
-                    const TPromoSlider(
-                      banners: [
-                        TImages.promoBanner1,
-                        TImages.promoBanner2,
-                        TImages.promoBanner3
-                      ],
-                    ),
-                    const SizedBox(
-                      height: TSizes.spaceBtwSections,
-                    ),
-                    TSectionHeading(
-                      title: 'Popular Product',
-                      onPressed: () => Get.to(() => const AllProducts()),
-                    ),
-                    const SizedBox(
-                      height: TSizes.spaceBtwSections,
-                    ),
-                    TGridLayout(
-                        itemCount: 4,
-                        itemBuilder: (_, index) => const TProductCardVertical()),
+              padding: const EdgeInsets.all(TSizes.defaultSpace),
+              child: Column(
+                children: [
+                  const TPromoSlider(),
+                  const SizedBox(
+                    height: TSizes.spaceBtwSections,
+                  ),
+                  TSectionHeading(
+                    title: 'Popular Product',
+                    onPressed: () => Get.to(() => const AllProducts()),
+                  ),
+                  const SizedBox(
+                    height: TSizes.spaceBtwSections,
+                  ),
+                  Obx(() {
+                    if (controller.isLoading.value)
+                      return const TVerticalProductShimmer();
 
-                    const SizedBox(height: TSizes.spaceBtwSections),
-                    const DefaultTabController(
-                      length: 4,
-                      child: Column(
-                        children: [
-
-                          SizedBox(
-                            height: 700, // Adjust the height as needed
-                            child: TabBarView(
-                              children: [
-                                TBlogSlider(),
-                                TBlogSlider(),
-                                TBlogSlider(),
-                                TBlogSlider(),
-                              ],
-                            ),
-                          ),
-
-                          TabBar(
-                            tabs: [
-                              Tab(icon: Icon(Iconsax.arrow_up)),
-                              Tab(icon: Icon(Iconsax.arrow_up)),
-                              Tab(icon: Icon(Iconsax.arrow_up)),
-                              Tab(icon: Icon(Iconsax.arrow_up)),
+                    if (controller.featuredProducts.isEmpty) {
+                      return Center(
+                        child: Text(
+                          'No Data Found',
+                          style: Theme.of(context).textTheme.bodyMedium,
+                        ),
+                      );
+                    }
+                    return TGridLayout(
+                      itemCount: controller.featuredProducts.length,
+                      itemBuilder: (_, index) => TProductCardVertical(
+                          product: controller.featuredProducts[index]),
+                    );
+                  }),
+                  const SizedBox(height: TSizes.spaceBtwSections),
+                  const DefaultTabController(
+                    length: 4,
+                    child: Column(
+                      children: [
+                        SizedBox(
+                          height: 750, // Adjust the height as needed
+                          child: TabBarView(
+                            children: [
+                              TBlogSlider(),
+                              TBlogSlider(),
+                              TBlogSlider(),
+                              TBlogSlider(),
                             ],
                           ),
-                        ],
-                      ),
+                        ),
+                        TabBar(
+                          tabs: [
+                            Tab(icon: Icon(Iconsax.arrow_up)),
+                            Tab(icon: Icon(Iconsax.arrow_up)),
+                            Tab(icon: Icon(Iconsax.arrow_up)),
+                            Tab(icon: Icon(Iconsax.arrow_up)),
+                          ],
+                        ),
+                      ],
                     ),
-                  ],
-                ),
+                  ),
+                ],
+              ),
             ),
-
 
 // Services and Contact Information
             Padding(
@@ -165,7 +174,8 @@ class HomeScreen extends StatelessWidget {
                               children: [
                                 Icon(Iconsax.shield_tick, size: 40),
                                 Text('CAM KẾT CHÍNH HÃNG'),
-                                Text('Hoàn tiền gấp đôi nếu phát hiện hàng giả'),
+                                Text(
+                                    'Hoàn tiền gấp đôi nếu phát hiện hàng giả'),
                               ],
                             ),
                           ],
@@ -200,37 +210,39 @@ class HomeScreen extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 20),
-
                   Container(
                     padding: const EdgeInsets.all(20),
                     decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(15),
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(15),
                       boxShadow: [
                         BoxShadow(
                           color: Colors.grey.withOpacity(0.5),
                           spreadRadius: 5,
                           blurRadius: 7,
-                          offset: const Offset(0, 3),
+                          offset: Offset(0, 3),
                         ),
                       ],
                     ),
-                    child: const Row(
+                    child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        TCircularImage(image: TImages.facebook, width: 60, height: 60),
-                        TCircularImage(image: TImages.instagram, width: 60, height: 60),
-                        TCircularImage(image: TImages.shopee, width: 60, height: 60),
-                        TCircularImage(image: TImages.tiktok, width: 60, height: 60),
-                        TCircularImage(image: TImages.lazada, width: 60, height: 60),
+                        TCircularImage(
+                            image: TImages.facebook, width: 60, height: 60),
+                        TCircularImage(
+                            image: TImages.instagram, width: 60, height: 60),
+                        TCircularImage(
+                            image: TImages.shopee, width: 60, height: 60),
+                        TCircularImage(
+                            image: TImages.tiktok, width: 60, height: 60),
+                        TCircularImage(
+                            image: TImages.lazada, width: 60, height: 60),
                       ],
                     ),
                   ),
-
-                  const SizedBox(height: 20),
-
+                  SizedBox(height: 20),
                   Container(
-                    padding: const EdgeInsets.all(20),
+                    padding: EdgeInsets.all(20),
                     decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(15),
@@ -245,14 +257,17 @@ class HomeScreen extends StatelessWidget {
                     ),
                     child: const Column(
                       children: [
-                        Text('Liên hệ với chúng tôi', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+                        Text('Liên hệ với chúng tôi',
+                            style: TextStyle(
+                                fontSize: 18, fontWeight: FontWeight.bold)),
                         SizedBox(height: 10),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Icon(Iconsax.call, size: 30),
                             SizedBox(width: 10),
-                            Text('094 749 2020', style: TextStyle(fontSize: 16)),
+                            Text('094 749 2020',
+                                style: TextStyle(fontSize: 16)),
                           ],
                         ),
                         SizedBox(height: 10),
@@ -261,7 +276,8 @@ class HomeScreen extends StatelessWidget {
                           children: [
                             Icon(Iconsax.message, size: 30),
                             SizedBox(width: 10),
-                            Text('cskh@astromazing.vn', style: TextStyle(fontSize: 16)),
+                            Text('cskh@astromazing.vn',
+                                style: TextStyle(fontSize: 16)),
                           ],
                         ),
                       ],
@@ -287,11 +303,15 @@ class HomeScreen extends StatelessWidget {
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text('THÔNG TIN:', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+                            Text('THÔNG TIN:',
+                                style: TextStyle(
+                                    fontSize: 18, fontWeight: FontWeight.bold)),
                             SizedBox(height: 10),
-                            Text('Về AstroMazing', style: TextStyle(fontSize: 16)),
+                            Text('Về AstroMazing',
+                                style: TextStyle(fontSize: 16)),
                             SizedBox(height: 5),
-                            Text('Liên hệ hợp tác', style: TextStyle(fontSize: 16)),
+                            Text('Liên hệ hợp tác',
+                                style: TextStyle(fontSize: 16)),
                             SizedBox(height: 5),
                             Text('Sitemap', style: TextStyle(fontSize: 16)),
                             SizedBox(height: 5),
@@ -301,19 +321,27 @@ class HomeScreen extends StatelessWidget {
                             SizedBox(height: 5),
                             Text('Tiktok', style: TextStyle(fontSize: 16)),
                             SizedBox(height: 20),
-                            Text('CHÍNH SÁCH:', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+                            Text('CHÍNH SÁCH:',
+                                style: TextStyle(
+                                    fontSize: 18, fontWeight: FontWeight.bold)),
                             SizedBox(height: 10),
-                            Text('Tích điểm thành viên', style: TextStyle(fontSize: 16)),
+                            Text('Tích điểm thành viên',
+                                style: TextStyle(fontSize: 16)),
                             SizedBox(height: 5),
-                            Text('Giao hàng & Thanh toán', style: TextStyle(fontSize: 16)),
+                            Text('Giao hàng & Thanh toán',
+                                style: TextStyle(fontSize: 16)),
                             SizedBox(height: 5),
-                            Text('Chính sách bán sĩ & CTV', style: TextStyle(fontSize: 16)),
+                            Text('Chính sách bán sĩ & CTV',
+                                style: TextStyle(fontSize: 16)),
                             SizedBox(height: 5),
-                            Text('Hướng dẫn sử dụng', style: TextStyle(fontSize: 16)),
+                            Text('Hướng dẫn sử dụng',
+                                style: TextStyle(fontSize: 16)),
                             SizedBox(height: 5),
-                            Text('Bảo hành & Đổi trả', style: TextStyle(fontSize: 16)),
+                            Text('Bảo hành & Đổi trả',
+                                style: TextStyle(fontSize: 16)),
                             SizedBox(height: 5),
-                            Text('Hợp tác KOL & KOC', style: TextStyle(fontSize: 16)),
+                            Text('Hợp tác KOL & KOC',
+                                style: TextStyle(fontSize: 16)),
                           ],
                         ),
                       ],

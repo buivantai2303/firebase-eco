@@ -2,6 +2,7 @@ import 'package:firebase_eco/common/widgets/appbar/appbar.dart';
 import 'package:firebase_eco/common/widgets/icons/t_circular_icon.dart';
 import 'package:firebase_eco/common/widgets/layouts/grid_layout.dart';
 import 'package:firebase_eco/common/widgets/products/product_cards/product_cart_vertical.dart';
+import 'package:firebase_eco/features/shop/models/product_model.dart';
 import 'package:firebase_eco/features/shop/screens/home/home.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -34,7 +35,7 @@ class FavouriteScreen extends StatelessWidget {
             children: [
               TGridLayout(
                   itemCount: 6,
-                  itemBuilder: (_, index) => const TProductCardVertical())
+                  itemBuilder: (_, index) =>  TProductCardVertical(product: ProductModel.empty(),))
             ],
           ),
         ),

@@ -4,8 +4,10 @@ import 'package:firebase_eco/common/widgets/images/t_rounded_image.dart';
 import 'package:firebase_eco/common/widgets/texts/product_price_text.dart';
 import 'package:firebase_eco/common/widgets/texts/product_title_text.dart';
 import 'package:firebase_eco/common/widgets/texts/t_brand_title_text_with_verified_icon.dart';
+import 'package:firebase_eco/features/shop/controllers/product_controller.dart';
 import 'package:firebase_eco/features/shop/screens/product_details/product_details.dart';
 import 'package:firebase_eco/utils/constants/colors.dart';
+import 'package:firebase_eco/utils/constants/enums.dart';
 import 'package:firebase_eco/utils/constants/image_strings.dart';
 import 'package:firebase_eco/utils/constants/sizes.dart';
 import 'package:firebase_eco/utils/helpers/helper_functions.dart';
@@ -13,18 +15,23 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 
+import '../../../../features/shop/models/product_model.dart';
 import '../../icons/t_circular_icon.dart';
 
 class TProductCardVertical extends StatelessWidget {
-  const TProductCardVertical({super.key});
+  const TProductCardVertical({super.key, required this.product});
+
+  final ProductModel product;
 
   @override
   Widget build(BuildContext context) {
+    final controller = ProductController.instance;
+    final salePercentage = controller.calculateSalePercentage(product.price, product.salePrice);
     final dark = THelperFunctions.isDarkMode(context);
 
     /// -- Container wih size paddings, color, edges, radius and shadow
     return GestureDetector(
-      onTap: () => Get.to(() => const ProductDetailScreen()),
+      onTap: () => Get.to(() => ProductDetailScreen(product: product)),
       child: Container(
         width: 180,
         padding: const EdgeInsets.all(1),
@@ -38,15 +45,19 @@ class TProductCardVertical extends StatelessWidget {
             /// -- Thumbnail, Wishlist button, Discount Tag
             TRoundedContainer(
               height: 180,
+              width: 180,
               padding: const EdgeInsets.all(TSizes.sm),
               backgroundColor: dark ? TColors.dark : TColors.light,
               child: Stack(
                 children: [
                   /// -- Thumbnail Images
-                  TRoundedImage(
-                    imageUrl: TImages.productImage1,
-                    backgroundColor: dark ? TColors.dark : TColors.light,
-                    applyImageRadius: true,
+                  Center(
+                    child: TRoundedImage(
+                      imageUrl: product.thumbnail,
+                      backgroundColor: dark ? TColors.dark : TColors.light,
+                      applyImageRadius: true,
+                      isNetworkImage: true,
+                    ),
                   ),
 
                   /// -- Sale Tag
@@ -57,7 +68,7 @@ class TProductCardVertical extends StatelessWidget {
                       backgroundColor: TColors.secondary.withOpacity(0.8),
                       padding: const EdgeInsets.symmetric(
                           horizontal: TSizes.sm, vertical: TSizes.xs),
-                      child: Text('25%',
+                      child: Text('$salePercentage%',
                           style: Theme.of(context)
                               .textTheme
                               .labelLarge!
@@ -81,21 +92,21 @@ class TProductCardVertical extends StatelessWidget {
             ),
 
             /// -- Details
-            const Padding(
-                padding: EdgeInsets.symmetric(horizontal: TSizes.sm),
+            Padding(
+                padding: const EdgeInsets.symmetric(horizontal: TSizes.sm),
                 child: SizedBox(
                   width: double.infinity,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       TProductTitleText(
-                        title: 'Green Nike Air Shoes',
+                        title: product.title,
                         smallSize: true,
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: TSizes.spaceBtwItems / 2,
                       ),
-                      TBrandTitleWithVerifiedIcon(title: 'Nike'),
+                      TBrandTitleWithVerifiedIcon(title: product.brand!.name),
                     ],
                   ),
                 )),
@@ -106,10 +117,22 @@ class TProductCardVertical extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
+
+
                 /// -- Price
-                const Padding(
-                  padding: EdgeInsets.only(left: TSizes.sm),
-                  child: TProductPriceText(price: '35.0'),
+                Flexible(
+                  child: Column(
+                    children: [
+                      if(product.productType == ProductType.single.toString() && product.salePrice > 0)
+                      Padding(
+                        padding: EdgeInsets.only(left: TSizes.sm),
+                        child: Text(
+                          product.price.toString(),
+                          style: Theme.of(context).textTheme.labelMedium!.apply(decoration: TextDecoration.lineThrough),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
 
                 /// -- Add Cart button
