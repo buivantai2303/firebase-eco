@@ -26,6 +26,7 @@ class TBlogSlider extends StatelessWidget {
               Column(
                 children: [
                   TSectionHeading(
+                    // showActionButton: false,
                     title: 'Blog',
                     onPressed: () {},
                   ),
