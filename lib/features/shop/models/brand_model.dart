@@ -5,14 +5,14 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 class BrandModel {
   String id;
   String name;
-  String? image;
+  String image;
   int? productsCount;
   bool? isFeatured;
 
   BrandModel ({
     required this.id,
     required this.name,
-    this.image,
+    required this.image,
     this.productsCount,
     this.isFeatured,
 });

@@ -16,7 +16,7 @@ import '../../../../common/widgets/custom_shape/container/search_container.dart'
 import '../../../../common/widgets/texts/action_heading.dart';
 import '../../../../utils/constants/image_strings.dart';
 import '../../../../utils/constants/sizes.dart';
-import '../../controllers/product_controller.dart';
+import '../../controllers/product/product_controller.dart';
 import '../store/widgets/category_tab.dart';
 
 class HomeScreen extends StatelessWidget {

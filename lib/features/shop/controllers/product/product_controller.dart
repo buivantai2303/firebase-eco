@@ -4,7 +4,7 @@ import 'package:firebase_eco/utils/popups/loaders.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../data/repositories/product/product_repository.dart';
+import '../../../../data/repositories/product/product_repository.dart';
 
 
 class ProductController extends GetxController {
