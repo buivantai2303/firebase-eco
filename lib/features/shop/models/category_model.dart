@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-class CategoryModel{
+class CategoryModel {
   String id;
   String name;
   String image;
@@ -13,14 +13,13 @@ class CategoryModel{
     required this.image,
     required this.isFeatured,
     this.parentId = '',
-});
+  });
 
-  static CategoryModel empty() => CategoryModel(id: '', image: '', name: '', isFeatured:false);
+  static CategoryModel empty() =>
+      CategoryModel(id: '', image: '', name: '', isFeatured: false);
 
-
-
-  Map<String, dynamic> toJson(){
-    return{
+  Map<String, dynamic> toJson() {
+    return {
       'Name': name,
       'Image': image,
       'ParentId': parentId,
@@ -28,9 +27,9 @@ class CategoryModel{
     };
   }
 
-  factory CategoryModel.fromSnapshot(DocumentSnapshot<Map<String,dynamic>> document){
-
-    if (document.data() != null){
+  factory CategoryModel.fromSnapshot(
+      DocumentSnapshot<Map<String, dynamic>> document) {
+    if (document.data() != null) {
       final data = document.data()!;
 
       return CategoryModel(
@@ -38,14 +37,9 @@ class CategoryModel{
           name: data['Name'] ?? '',
           image: data['Image'] ?? '',
           parentId: data['ParentId'] ?? '',
-          isFeatured: data['IsFeatured'] ?? false
-      );
-    }else{
+          isFeatured: data['IsFeatured'] ?? false);
+    } else {
       return CategoryModel.empty();
     }
   }
-
 }
-
-
-

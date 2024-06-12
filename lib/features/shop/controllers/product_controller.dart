@@ -1,7 +1,6 @@
 import 'package:firebase_eco/features/shop/models/product_model.dart';
 import 'package:firebase_eco/utils/constants/enums.dart';
 import 'package:firebase_eco/utils/popups/loaders.dart';
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../data/repositories/product/product_repository.dart';

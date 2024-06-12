@@ -11,11 +11,13 @@ import '../../../../common/widgets/layouts/grid_layout.dart';
 import '../../../../utils/constants/sizes.dart';
 
 class AllBrandScreen extends StatelessWidget {
-  const AllBrandScreen({Key? key}) : super(key: key);
+  const AllBrandScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     final brandController = BrandController.instance;
+    final brandTest = brandController.featuredBrands[1];
+    print("brand_index_1: ${brandTest.name}");
     return Scaffold(
       appBar: const TAppbar(
         title: Text('Brands'),
@@ -37,10 +39,14 @@ class AllBrandScreen extends StatelessWidget {
 
               /// Brands
               Obx(
-                    () {
-                  if (brandController.isLoading.value) return TBrandsShimmer();
+                () {
+                  if (brandController.featuredBrands.isEmpty) {
+                    const TBrandsShimmer();
 
-                  if (brandController.allBrands.isEmpty) {
+                    const SizedBox(
+                      height: TSizes.spaceBtwItems,
+                    );
+
                     return Center(
                       child: Text(
                         "No Data Found!",

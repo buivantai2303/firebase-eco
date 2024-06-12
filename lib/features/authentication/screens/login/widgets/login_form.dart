@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 
+import '../../../../../data/repositories/authentication/authentication_repository.dart';
 import '../../../../../utils/constants/sizes.dart';
 import '../../../../../utils/constants/text_strings.dart';
 
@@ -87,10 +88,13 @@ class TLoginForm extends StatelessWidget {
 
           /// Create Account Button
           SizedBox(
-              width: double.infinity,
-              child: OutlinedButton(
-                  onPressed: () => Get.to(() => const SignupScreen()),
-                  child: const Text(TTexts.createAccount))),
+            width: double.infinity,
+            child: OutlinedButton(
+                onPressed: () async {
+                  await AuthenticationRepository.instance.logout();
+                },
+                child: const Text('Logout')),
+          ),
           const SizedBox(height: TSizes.spaceBtwSections),
         ],
       ),

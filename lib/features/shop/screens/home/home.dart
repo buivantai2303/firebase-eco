@@ -85,8 +85,9 @@ class HomeScreen extends StatelessWidget {
                     height: TSizes.spaceBtwSections,
                   ),
                   Obx(() {
-                    if (controller.isLoading.value)
+                    if (controller.isLoading.value) {
                       return const TVerticalProductShimmer();
+                    }
 
                     if (controller.featuredProducts.isEmpty) {
                       return Center(

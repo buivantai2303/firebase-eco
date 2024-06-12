@@ -24,9 +24,9 @@ class StoreScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     final brandController = Get.put(BrandController());
     final categories = CategoryController.instance.featuredCategories;
+    print("itemCountP: ${brandController.featuredBrands.length}");
 
     return DefaultTabController(
       length: categories.length,
@@ -72,7 +72,8 @@ class StoreScreen extends StatelessWidget {
                           TSectionHeading(
                             title: 'Featured Brands',
                             showActionButton: true,
-                            onPressed: () => Get.to(() => const AllBrandScreen()),
+                            onPressed: () =>
+                                Get.to(() => const AllBrandScreen()),
                           ),
 
                           const SizedBox(
@@ -81,23 +82,37 @@ class StoreScreen extends StatelessWidget {
 
                           /// -- Brand GRID
                           Obx(
-                                () {
-                              if (brandController.isLoading.value) return TBrandsShimmer();
+                            () {
+                              if (brandController.featuredBrands.isEmpty) {
+                                const TBrandsShimmer();
 
-                              if(brandController.featuredBrands.isEmpty){
+                                const SizedBox(
+                                  height: TSizes.spaceBtwItems,
+                                );
+
                                 return Center(
-                                  child: Text("No Data Found!", style: Theme.of(context).textTheme.bodyMedium!.apply(color:Colors.white ),),
+                                  child: Text(
+                                    "No Data Found!",
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .bodyMedium!
+                                        .apply(color: Colors.white),
+                                  ),
                                 );
                               }
 
                               return TGridLayout(
-                                itemCount: brandController.featuredBrands.length,
+                                itemCount:
+                                    brandController.featuredBrands.length,
                                 mainAxisExtent: 80,
                                 itemBuilder: (_, index) {
-                                  final brand = brandController.featuredBrands[index];
+                                  final brand =
+                                      brandController.featuredBrands[index];
                                   return TBrandCard(
-                                    showBorder: true, brand: brand,
-                                  onTap:() => Get.to(() => BrandProducts(brand: brand)) ,
+                                    showBorder: true,
+                                    brand: brand,
+                                    onTap: () => Get.to(
+                                        () => BrandProducts(brand: brand)),
                                   );
                                 },
                               );
@@ -106,7 +121,6 @@ class StoreScreen extends StatelessWidget {
                         ],
                       ),
                     ),
-
 
                     /// -- Tabs
                     bottom: TTabBar(
@@ -131,13 +145,16 @@ class StoreScreen extends StatelessWidget {
 }
 
 class TBrandsShimmer extends StatelessWidget {
-  const TBrandsShimmer ({super.key, this.itemCount = 4});
+  const TBrandsShimmer({super.key, this.itemCount = 4});
+
   final int itemCount;
+
   @override
-  Widget build (BuildContext context) {
+  Widget build(BuildContext context) {
     return TGridLayout(
-        mainAxisExtent: 80,
-        itemCount: itemCount,
-        itemBuilder: (_, __) => const TShimmerEffect(width: 300, height: 80),
+      mainAxisExtent: 80,
+      itemCount: itemCount,
+      itemBuilder: (_, __) => const TShimmerEffect(width: 300, height: 80),
     ); // TGridLayout
-  }}
+  }
+}
