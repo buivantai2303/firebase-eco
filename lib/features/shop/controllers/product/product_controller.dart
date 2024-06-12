@@ -3,7 +3,7 @@ import 'package:firebase_eco/utils/constants/enums.dart';
 import 'package:firebase_eco/utils/popups/loaders.dart';
 import 'package:get/get.dart';
 
-import '../../../data/repositories/product/product_repository.dart';
+import '../../../../data/repositories/product/product_repository.dart';
 
 class ProductController extends GetxController {
   static ProductController get instance => Get.find();

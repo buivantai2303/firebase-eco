@@ -4,7 +4,7 @@ import 'package:firebase_eco/common/widgets/images/t_rounded_image.dart';
 import 'package:firebase_eco/common/widgets/texts/product_price_text.dart';
 import 'package:firebase_eco/common/widgets/texts/product_title_text.dart';
 import 'package:firebase_eco/common/widgets/texts/t_brand_title_text_with_verified_icon.dart';
-import 'package:firebase_eco/features/shop/controllers/product_controller.dart';
+import 'package:firebase_eco/features/shop/controllers/product/product_controller.dart';
 import 'package:firebase_eco/features/shop/screens/product_details/product_details.dart';
 import 'package:firebase_eco/utils/constants/colors.dart';
 import 'package:firebase_eco/utils/constants/enums.dart';

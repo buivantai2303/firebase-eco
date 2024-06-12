@@ -4,6 +4,7 @@ import 'package:firebase_eco/features/shop/screens/product_details/widgets/produ
 import 'package:firebase_eco/features/shop/screens/product_details/widgets/product_meta_data.dart';
 import 'package:firebase_eco/features/shop/screens/product_details/widgets/rating_share_widget.dart';
 import 'package:firebase_eco/features/shop/screens/product_reviews/product_reviews.dart';
+import 'package:firebase_eco/utils/constants/enums.dart';
 import 'package:firebase_eco/utils/constants/sizes.dart';
 import 'package:firebase_eco/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
@@ -21,7 +22,6 @@ class ProductDetailScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final dark = THelperFunctions.isDarkMode(context);
 
     return Scaffold(
       bottomNavigationBar: const TBottomAddToCart(),
@@ -29,7 +29,7 @@ class ProductDetailScreen extends StatelessWidget {
         child: Column(
           children: [
             /// 1 - Product Image Slider
-            TProductImageSlider(dark: dark),
+           TProductImageSlider(product: product),
 
             /// 2 - Product Details
             Padding(
@@ -43,13 +43,11 @@ class ProductDetailScreen extends StatelessWidget {
                   const TRatingAndShare(),
 
                   /// -- Price, Title, Stock, Brand
-                  const TProductMetaData(),
+                 TProductMetaData(product: product),
 
                   /// -- Attribute
-                  const TProductAttributes(),
-                  const SizedBox(
-                    height: TSizes.spaceBtwSections,
-                  ),
+                  if(product.productType == ProductType.variable.toString()) TProductAttributes(product: product,),
+                  if(product.productType == ProductType.variable.toString()) const SizedBox(height: TSizes.spaceBtwSections,),
 
                   // Checkout Button
                   SizedBox(
@@ -64,8 +62,8 @@ class ProductDetailScreen extends StatelessWidget {
                   const TSectionHeading(
                       title: 'Description', showActionButton: false),
                   const SizedBox(height: TSizes.spaceBtwItems),
-                  const ReadMoreText(
-                    'This is a Product description for Blue Nike Sleeveless Vest. There are more things that can be added but I will trim it for now.',
+                  ReadMoreText(
+                    product.description ?? '',
                     trimLines: 2,
                     trimMode: TrimMode.Line,
                     trimCollapsedText: 'Show more',
