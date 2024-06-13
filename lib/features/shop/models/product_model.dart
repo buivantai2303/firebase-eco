@@ -2,7 +2,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_eco/features/shop/models/brand_model.dart';
 import 'package:firebase_eco/features/shop/models/product_attribute_model.dart';
 import 'package:firebase_eco/features/shop/models/product_variation_model.dart';
-import 'package:flutter/material.dart';
 
 class ProductModel {
   String id;

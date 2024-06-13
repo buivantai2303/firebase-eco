@@ -1,6 +1,5 @@
 import 'package:firebase_eco/features/authentication/controllers/login/login_controller.dart';
 import 'package:firebase_eco/features/authentication/screens/password_configuration/forget_password.dart';
-import 'package:firebase_eco/features/authentication/screens/signup/signup.dart';
 import 'package:firebase_eco/utils/validators/validation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

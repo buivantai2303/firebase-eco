@@ -1,5 +1,4 @@
 import 'package:firebase_eco/data/repositories/banners/banner_reposity.dart';
-import 'package:firebase_eco/features/shop/controllers/home_controller.dart';
 import 'package:firebase_eco/features/shop/models/banner_model.dart';
 import 'package:get/get.dart';
 

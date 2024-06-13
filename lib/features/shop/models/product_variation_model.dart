@@ -43,6 +43,7 @@ class ProductVariationModel {
     return ProductVariationModel(
       id: data['Id'] ?? '',
       price: double.parse((data['Price'] ?? 0.0).toString()),
+      description: data['Description'] ?? '',
       sku: data['SKU'] ?? '',
       stock: data['Stock'] ?? 0,
       salePrice: double.parse((data['SalePrice'] ?? 0.0).toString()),

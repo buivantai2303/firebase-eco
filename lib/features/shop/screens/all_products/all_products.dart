@@ -1,25 +1,36 @@
-import 'package:firebase_eco/common/widgets/appbar/appbar.dart';
-import 'package:firebase_eco/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
+import '../../../../common/widgets/appbar/appbar.dart';
 import '../../../../common/widgets/products/sortable/sortable_product.dart';
+import '../../../../utils/constants/sizes.dart';
+import '../../controllers/product/product_controller.dart';
 
 class AllProducts extends StatelessWidget {
   const AllProducts({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      appBar: TAppbar(
+    final controller = Get.put(ProductController());
+    return Scaffold(
+      appBar: const TAppbar(
         title: Text('Popular Products'),
         showBackArrow: true,
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.all(TSizes.defaultSpace),
-          child: TSortableProducts(
-            products: [],
-          ),
+          padding: const EdgeInsets.all(TSizes.defaultSpace),
+          child: Obx(() {
+            if (controller.isLoading.value) {
+              return const Center(
+                child: CircularProgressIndicator(),
+              );
+            } else {
+              return TSortableProducts(
+                products: controller.featuredProducts,
+              );
+            }
+          }),
         ),
       ),
     );

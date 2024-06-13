@@ -6,7 +6,6 @@ import 'package:firebase_eco/features/shop/screens/product_details/widgets/ratin
 import 'package:firebase_eco/features/shop/screens/product_reviews/product_reviews.dart';
 import 'package:firebase_eco/utils/constants/enums.dart';
 import 'package:firebase_eco/utils/constants/sizes.dart';
-import 'package:firebase_eco/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';

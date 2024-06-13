@@ -59,6 +59,10 @@ class ProductController extends GetxController {
         double priceToConsider =
             variation.salePrice > 0.0 ? variation.salePrice : variation.price;
 
+        if (priceToConsider < smallestPrice) {
+          smallestPrice = priceToConsider;
+        }
+
         if (priceToConsider > largestPrice) {
           largestPrice = priceToConsider;
         }

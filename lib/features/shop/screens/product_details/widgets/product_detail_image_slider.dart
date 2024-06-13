@@ -1,12 +1,9 @@
-import 'dart:ffi';
 
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:firebase_eco/features/shop/controllers/product/images_controller.dart';
 import 'package:firebase_eco/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:get_storage/get_storage.dart';
 import 'package:iconsax/iconsax.dart';
 
 import '../../../../../common/widgets/appbar/appbar.dart';
@@ -14,7 +11,6 @@ import '../../../../../common/widgets/custom_shape/curved_edges/curved_edges_wid
 import '../../../../../common/widgets/icons/t_circular_icon.dart';
 import '../../../../../common/widgets/images/t_rounded_image.dart';
 import '../../../../../utils/constants/colors.dart';
-import '../../../../../utils/constants/image_strings.dart';
 import '../../../../../utils/constants/sizes.dart';
 import '../../../models/product_model.dart';
 
@@ -26,6 +22,7 @@ class TProductImageSlider extends StatelessWidget {
   final ProductModel product;
 
 
+  @override
   Widget build(BuildContext context) {
 
     final dark = THelperFunctions.isDarkMode(context);

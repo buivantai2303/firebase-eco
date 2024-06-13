@@ -83,7 +83,7 @@ class ProductRepository extends GetxController {
     } on FirebaseException catch (e) {
       throw e.message!;
     } on SocketException catch (e) {
-      throw e.message!;
+      throw e.message;
     } on PlatformException catch (e) {
       throw e.message!;
     } catch (e) {

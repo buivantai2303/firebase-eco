@@ -1,23 +1,24 @@
 import 'package:firebase_eco/common/widgets/layouts/grid_layout.dart';
 import 'package:firebase_eco/common/widgets/products/product_cards/product_cart_vertical.dart';
 import 'package:firebase_eco/common/widgets/texts/section_heading.dart';
-import 'package:firebase_eco/data/repositories/product/product_repository.dart';
 import 'package:firebase_eco/features/shop/models/category_model.dart';
 import 'package:firebase_eco/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../../../../../common/widgets/brands/brand_show_case.dart';
 import '../../../../../utils/constants/image_strings.dart';
-import '../../../models/product_model.dart';
+import '../../../controllers/product/product_controller.dart';
 
 class TCategoryTab extends StatelessWidget {
   const TCategoryTab({super.key, required this.category});
 
   final CategoryModel category;
-  // final ProductRepository.in
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(ProductController());
+
     return ListView(
       shrinkWrap: true,
       physics: const NeverScrollableScrollPhysics(),
@@ -54,12 +55,22 @@ class TCategoryTab extends StatelessWidget {
                     height: TSizes.spaceBtwItems,
                   ),
 
-                  TGridLayout(
-                    itemCount: 4,
-                    itemBuilder: (_, index) => TProductCardVertical(
-                      product: ProductModel.empty(),
-                    ),
-                  ),
+                  Obx(() {
+                    if (controller.isLoading.value) {
+                      return const Center(
+                        child: CircularProgressIndicator(),
+                      );
+                    } else {
+                      final products = controller.featuredProducts;
+                      final itemCount =
+                          products.length < 4 ? products.length : 4;
+                      return TGridLayout(
+                        itemCount: itemCount,
+                        itemBuilder: (_, index) =>
+                            TProductCardVertical(product: products[index]),
+                      );
+                    }
+                  }),
 
                   const SizedBox(
                     height: TSizes.spaceBtwSections,

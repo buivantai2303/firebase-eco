@@ -21,7 +21,9 @@ class TSortableProducts extends StatelessWidget {
         /// Dropdown
         DropdownButtonFormField(
           decoration: const InputDecoration(prefixIcon: Icon(Iconsax.sort)),
-          onChanged: (value) {},
+          onChanged: (value) {
+            // Implement sorting logic based on the selected value
+          },
           items: [
             'Name',
             'Higher Price',
@@ -38,12 +40,12 @@ class TSortableProducts extends StatelessWidget {
           height: TSizes.spaceBtwItems,
         ),
 
-        /// Product
+        /// Product Grid
         TGridLayout(
-            itemCount: 12,
+            itemCount: products.length,
             itemBuilder: (_, index) => TProductCardVertical(
-                  product: ProductModel.empty(),
-                ))
+                  product: products[index],
+                )),
       ],
     );
   }

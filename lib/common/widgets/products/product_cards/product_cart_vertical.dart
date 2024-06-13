@@ -8,7 +8,6 @@ import 'package:firebase_eco/features/shop/controllers/product/product_controlle
 import 'package:firebase_eco/features/shop/screens/product_details/product_details.dart';
 import 'package:firebase_eco/utils/constants/colors.dart';
 import 'package:firebase_eco/utils/constants/enums.dart';
-import 'package:firebase_eco/utils/constants/image_strings.dart';
 import 'package:firebase_eco/utils/constants/sizes.dart';
 import 'package:firebase_eco/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
@@ -88,6 +87,7 @@ class TProductCardVertical extends StatelessWidget {
                 ],
               ),
             ),
+
             const SizedBox(
               height: TSizes.spaceBtwItems / 2,
             ),
@@ -135,6 +135,12 @@ class TProductCardVertical extends StatelessWidget {
                                 .apply(decoration: TextDecoration.lineThrough),
                           ),
                         ),
+                      Padding(
+                        padding: const EdgeInsets.only(left: TSizes.sm),
+                        child: TProductPriceText(
+                          price: controller.getProductPrice(product),
+                        ),
+                      ),
                     ],
                   ),
                 ),
