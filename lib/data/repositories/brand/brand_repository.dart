@@ -14,10 +14,30 @@ class BrandRepository extends GetxController {
   /// Variables
   final _db = FirebaseFirestore.instance;
 
-  /// Get all categories
-  Future<List<BrandModel>> getAllBrands() async {
+  /// Get all brands
+  Future<List<BrandModel>> fetchAllBrands() async {
     try {
       final snapshot = await _db.collection('Brands').get();
+      final list = snapshot.docs
+          .map((document) => BrandModel.fromSnapshot(document))
+          .toList();
+      return list;
+    } on FirebaseException catch (e) {
+      throw TFirebaseException(e.code).message;
+    } on FormatException catch (_) {
+      throw const TFormatException();
+    } on PlatformException catch (e) {
+      throw TPlatformException(e.code).message;
+    } catch (e) {
+      throw 'Something went wrong while fetching Brands.';
+    }
+  }
+
+  /// Get all brands
+  Future<List<BrandModel>> fetchFeaturedBrands() async {
+    try {
+      final snapshot = await _db.collection('Brands').limit(4).get();
+
       final list = snapshot.docs
           .map((document) => BrandModel.fromSnapshot(document))
           .toList();

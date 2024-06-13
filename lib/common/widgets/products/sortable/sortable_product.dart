@@ -6,10 +6,10 @@ import '../../../../utils/constants/sizes.dart';
 import '../../layouts/grid_layout.dart';
 import '../product_cards/product_cart_vertical.dart';
 
-
 class TSortableProducts extends StatelessWidget {
   const TSortableProducts({
-    super.key, required this.products,
+    super.key,
+    required this.products,
   });
 
   final List<ProductModel> products;
@@ -21,15 +21,29 @@ class TSortableProducts extends StatelessWidget {
         /// Dropdown
         DropdownButtonFormField(
           decoration: const InputDecoration(prefixIcon: Icon(Iconsax.sort)),
-          onChanged: (value){},
-          items: ['Name','Higher Price','Lower Price','Sale','Newest','Popularity']
-              .map((option) => DropdownMenuItem(value: option, child: Text(option)))
+          onChanged: (value) {},
+          items: [
+            'Name',
+            'Higher Price',
+            'Lower Price',
+            'Sale',
+            'Newest',
+            'Popularity'
+          ]
+              .map((option) =>
+                  DropdownMenuItem(value: option, child: Text(option)))
               .toList(),
         ),
-        const SizedBox(height: TSizes.spaceBtwItems,),
-        /// Product
-        TGridLayout(itemCount: 12, itemBuilder: (_,index) =>  TProductCardVertical(product: ProductModel.empty(),))
+        const SizedBox(
+          height: TSizes.spaceBtwItems,
+        ),
 
+        /// Product
+        TGridLayout(
+            itemCount: 12,
+            itemBuilder: (_, index) => TProductCardVertical(
+                  product: ProductModel.empty(),
+                ))
       ],
     );
   }

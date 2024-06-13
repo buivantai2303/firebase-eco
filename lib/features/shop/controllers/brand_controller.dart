@@ -18,11 +18,29 @@ class BrandController extends GetxController {
     super.onInit();
   }
 
+  Future<void> getAllBrands() async {
+    try {
+      isLoading.value = true;
+
+      final brands = await brandRepository.fetchAllBrands();
+
+      allBrands.assignAll(brands);
+
+      featuredBrands.assignAll(
+          allBrands.where((brand) => brand.isFeatured == true).take(4));
+    } catch (e) {
+      TLoaders.errorSnackBar(
+          title: "Oh Snap! (Brand - Get Feature)", message: e.toString());
+    } finally {
+      isLoading.value = true;
+    }
+  }
+
   Future<void> getFeaturedBrands() async {
     try {
       isLoading.value = true;
 
-      final brands = await brandRepository.getAllBrands();
+      final brands = await brandRepository.fetchFeaturedBrands();
 
       allBrands.assignAll(brands);
 

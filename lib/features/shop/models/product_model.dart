@@ -41,6 +41,8 @@ class ProductModel {
     this.productVariations,
   });
 
+  ///
+
   static ProductModel empty() => ProductModel(
       id: '', title: '', stock: 0, price: 0, thumbnail: '', productType: '');
 
@@ -77,16 +79,18 @@ class ProductModel {
       stock: data['Stock'] ?? 0,
       isFeatured: data['IsFeatured'] ?? false,
       price: double.parse((data['Price'] ?? 0.0).toString()),
+      salePrice: double.parse((data['SalePrice'] ?? 0.0).toString()),
       thumbnail: data['Thumbnail'] ?? '',
       categoryId: data['CategoryId'] ?? '',
       productType: data['ProductType'] ?? '',
+      description: data['Description'] ?? '',
       brand: BrandModel.fromJson(data['Brand']),
       images: data['Images'] != null ? List<String>.from(data['Images']) : [],
       productAttributes: (data['ProductAttributes'] as List<dynamic>)
           .map((e) => ProductAttributeModel.fromJson(e))
           .toList(),
       productVariations: (data['ProductVariations'] as List<dynamic>)
-          .map((e) => ProductVariationModel.fromjson(e))
+          .map((e) => ProductVariationModel.fromJson(e))
           .toList(),
     );
   }

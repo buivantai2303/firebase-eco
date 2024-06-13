@@ -1,5 +1,3 @@
-
-
 class ProductVariationModel {
   final String id;
   String sku;
@@ -10,18 +8,19 @@ class ProductVariationModel {
   int stock;
   Map<String, String> attributeValues;
 
-  ProductVariationModel ({
+  ProductVariationModel({
     required this.id,
-    this.sku ='',
+    this.sku = '',
     this.image = '',
     this.description = '',
     this.price = 0.0,
-    this.salePrice =0.0,
+    this.salePrice = 0.0,
     this.stock = 0,
     required this.attributeValues,
-});
+  });
 
-  static ProductVariationModel empty() => ProductVariationModel(id: '', attributeValues: {});
+  static ProductVariationModel empty() =>
+      ProductVariationModel(id: '', attributeValues: {});
 
   toJson() {
     return {
@@ -35,10 +34,12 @@ class ProductVariationModel {
       'AttributeValues': attributeValues,
     };
   }
-  
-  factory ProductVariationModel.fromjson(Map<String, dynamic> document) {
+
+  ///
+
+  factory ProductVariationModel.fromJson(Map<String, dynamic> document) {
     final data = document;
-    if(data.isEmpty) return ProductVariationModel.empty();
+    if (data.isEmpty) return ProductVariationModel.empty();
     return ProductVariationModel(
       id: data['Id'] ?? '',
       price: double.parse((data['Price'] ?? 0.0).toString()),
@@ -49,5 +50,4 @@ class ProductVariationModel {
       attributeValues: Map<String, String>.from(data['AttributeValues']),
     );
   }
-  
 }

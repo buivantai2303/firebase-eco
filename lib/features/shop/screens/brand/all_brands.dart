@@ -16,8 +16,6 @@ class AllBrandScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final brandController = BrandController.instance;
-    final brandTest = brandController.featuredBrands[1];
-    print("brand_index_1: ${brandTest.name}");
     return Scaffold(
       appBar: const TAppbar(
         title: Text('Brands'),

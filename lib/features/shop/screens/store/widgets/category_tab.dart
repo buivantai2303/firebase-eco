@@ -1,6 +1,7 @@
 import 'package:firebase_eco/common/widgets/layouts/grid_layout.dart';
 import 'package:firebase_eco/common/widgets/products/product_cards/product_cart_vertical.dart';
 import 'package:firebase_eco/common/widgets/texts/section_heading.dart';
+import 'package:firebase_eco/data/repositories/product/product_repository.dart';
 import 'package:firebase_eco/features/shop/models/category_model.dart';
 import 'package:firebase_eco/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
@@ -13,6 +14,7 @@ class TCategoryTab extends StatelessWidget {
   const TCategoryTab({super.key, required this.category});
 
   final CategoryModel category;
+  // final ProductRepository.in
 
   @override
   Widget build(BuildContext context) {
@@ -54,7 +56,9 @@ class TCategoryTab extends StatelessWidget {
 
                   TGridLayout(
                     itemCount: 4,
-                    itemBuilder: (_, index) =>  TProductCardVertical(product: ProductModel.empty(),),
+                    itemBuilder: (_, index) => TProductCardVertical(
+                      product: ProductModel.empty(),
+                    ),
                   ),
 
                   const SizedBox(

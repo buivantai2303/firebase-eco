@@ -20,16 +20,17 @@ class ProductDetailScreen extends StatelessWidget {
 
   final ProductModel product;
 
+  ///
+
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       bottomNavigationBar: const TBottomAddToCart(),
       body: SingleChildScrollView(
         child: Column(
           children: [
             /// 1 - Product Image Slider
-           TProductImageSlider(product: product),
+            TProductImageSlider(product: product),
 
             /// 2 - Product Details
             Padding(
@@ -43,11 +44,17 @@ class ProductDetailScreen extends StatelessWidget {
                   const TRatingAndShare(),
 
                   /// -- Price, Title, Stock, Brand
-                 TProductMetaData(product: product),
+                  TProductMetaData(product: product),
 
                   /// -- Attribute
-                  if(product.productType == ProductType.variable.toString()) TProductAttributes(product: product,),
-                  if(product.productType == ProductType.variable.toString()) const SizedBox(height: TSizes.spaceBtwSections,),
+                  if (product.productType == ProductType.variable.toString())
+                    TProductAttributes(
+                      product: product,
+                    ),
+                  if (product.productType == ProductType.variable.toString())
+                    const SizedBox(
+                      height: TSizes.spaceBtwSections,
+                    ),
 
                   // Checkout Button
                   SizedBox(
@@ -68,10 +75,10 @@ class ProductDetailScreen extends StatelessWidget {
                     trimMode: TrimMode.Line,
                     trimCollapsedText: 'Show more',
                     trimExpandedText: ' less',
-                    moreStyle:
-                        TextStyle(fontSize: 14, fontWeight: FontWeight.w800),
-                    lessStyle:
-                        TextStyle(fontSize: 14, fontWeight: FontWeight.w800),
+                    moreStyle: const TextStyle(
+                        fontSize: 14, fontWeight: FontWeight.w800),
+                    lessStyle: const TextStyle(
+                        fontSize: 14, fontWeight: FontWeight.w800),
                   ),
 
                   /// - Reviews

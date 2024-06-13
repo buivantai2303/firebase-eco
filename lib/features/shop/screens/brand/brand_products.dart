@@ -45,7 +45,7 @@ class BrandProducts extends StatelessWidget {
                     return TSortableProducts(
                       products: brandProducts,
                     );
-                  })
+                  }),
             ],
           ),
         ),
