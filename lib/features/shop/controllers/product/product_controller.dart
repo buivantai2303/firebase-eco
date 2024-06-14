@@ -16,9 +16,33 @@ class ProductController extends GetxController {
 
   @override
   void onInit() {
+    fetchFeaturedProducts();
     getFeaturedProducts();
     getAllProducts();
     super.onInit();
+  }
+
+  void fetchFeaturedProducts() async{
+    try {
+      isLoading.value = true;
+      final products = await productRepository.getFeaturedProducts();
+      featuredProducts.assignAll(products);
+    } catch (e) {
+      TLoaders.errorSnackBar(title: 'Oh Snap', message: e.toString());
+    } finally {
+      isLoading.value = false;
+    }
+  }
+  Future<List<ProductModel>> fetchAllFeaturedProducts() async{
+    try {
+
+      final products = await productRepository.getFeaturedProducts();
+      return products;
+
+    } catch (e) {
+      TLoaders.errorSnackBar(title: 'Oh Snap', message: e.toString());
+      return [];
+    }
   }
 
   void getFeaturedProducts() async {
