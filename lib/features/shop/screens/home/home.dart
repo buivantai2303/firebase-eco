@@ -3,7 +3,6 @@ import 'package:firebase_eco/common/widgets/products/product_cards/product_cart_
 import 'package:firebase_eco/common/widgets/shimmer/vertical_product_shimmer.dart';
 import 'package:firebase_eco/common/widgets/texts/section_heading.dart';
 import 'package:firebase_eco/features/shop/screens/all_products/all_products.dart';
-import 'package:firebase_eco/features/shop/screens/home/widgets/blog_slider.dart';
 import 'package:firebase_eco/features/shop/screens/home/widgets/home_appbar.dart';
 import 'package:firebase_eco/features/shop/screens/home/widgets/home_categories.dart';
 import 'package:firebase_eco/features/shop/screens/home/widgets/promo_slider.dart';
@@ -15,7 +14,9 @@ import '../../../../common/widgets/custom_shape/container/search_container.dart'
 import '../../../../common/widgets/texts/action_heading.dart';
 import '../../../../utils/constants/sizes.dart';
 import '../../controllers/product/product_controller.dart';
-import '../service/service_contact_information.dart';
+import '../blogs/blogs.dart';
+import '../service/terms.dart';
+import '../footer/home_footer.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -25,11 +26,11 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final controller = Get.put(ProductController());
-    print("ProductCount: ${controller.featuredProducts.length}");
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
           children: [
+            // Header
             const TPrimaryHeaderContainer(
               child: Column(
                 children: [
@@ -110,35 +111,13 @@ class HomeScreen extends StatelessWidget {
             ),
 
             /// Blog
-            const DefaultTabController(
-              length: 4,
-              child: Column(
-                children: [
-                  SizedBox(
-                    height: 750, // Adjust the height as needed
-                    child: TabBarView(
-                      children: [
-                        TBlogSlider(),
-                        TBlogSlider(),
-                        TBlogSlider(),
-                        TBlogSlider(),
-                      ],
-                    ),
-                  ),
-                  TabBar(
-                    tabs: [
-                      Tab(icon: Icon(Iconsax.cd)),
-                      Tab(icon: Icon(Iconsax.cd)),
-                      Tab(icon: Icon(Iconsax.cd)),
-                      Tab(icon: Icon(Iconsax.cd)),
-                    ],
-                  ),
-                ],
-              ),
-            ),
+            const Blogs(),
 
             // Services and Contact Information
             const ServiceAndContactInformation(),
+
+            /// Policies
+            const THomeFooter(),
           ],
         ),
       ),

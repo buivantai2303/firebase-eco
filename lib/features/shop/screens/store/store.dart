@@ -18,7 +18,6 @@ import '../../../../common/widgets/texts/section_heading.dart';
 import '../../../../utils/constants/colors.dart';
 import '../../../../utils/constants/sizes.dart';
 import '../brand/brand_products.dart';
-import '../service/service_contact_information.dart';
 
 class StoreScreen extends StatelessWidget {
   const StoreScreen({super.key});

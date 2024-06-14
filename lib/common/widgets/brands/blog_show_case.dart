@@ -18,7 +18,7 @@ class TBlogShowcase extends StatelessWidget {
   Widget build(BuildContext context) {
     return TRoundedContainer(
       showBorder: true,
-      borderColor: TColors.darkGrey,
+      borderColor: TColors.grey,
       backgroundColor: Colors.transparent,
       padding: const EdgeInsets.all(TSizes.md),
       margin: const EdgeInsets.only(bottom: TSizes.spaceBtwItems),
