@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import '../../../utils/constants/colors.dart';
 import '../../../utils/constants/enums.dart';
-import '../../../utils/constants/image_strings.dart';
 import '../../../utils/constants/sizes.dart';
 import '../../../utils/helpers/helper_functions.dart';
 import '../custom_shape/container/rounded_container.dart';
@@ -14,9 +13,11 @@ class TBlogCard extends StatelessWidget {
     super.key,
     this.onTap,
     required this.showBorder,
+    required this.brandImage,
   });
 
   final bool showBorder;
+  final String brandImage;
   final void Function()? onTap;
 
   @override
@@ -32,8 +33,8 @@ class TBlogCard extends StatelessWidget {
             /// --- Icon
             Flexible(
               child: TCircularImage(
-                isNetworkImage: false,
-                image: TImages.phoneIcon,
+                isNetworkImage: true,
+                image: brandImage,
                 backgroundColor: Colors.transparent,
                 overlayColor: THelperFunctions.isDarkMode(context)
                     ? TColors.white
@@ -55,8 +56,11 @@ class TBlogCard extends StatelessWidget {
                     title: 'Update',
                     brandTextSize: TextSizes.large,
                   ),
+                  const SizedBox(
+                    height: TSizes.spaceBtwItems / 2,
+                  ),
                   Text(
-                    'How to update IOS17 in Iphone',
+                    'How to update iOS 17 in iPhone',
                     // overflow: TextOverflow.ellipsis,
                     style: Theme.of(context).textTheme.labelMedium,
                   )

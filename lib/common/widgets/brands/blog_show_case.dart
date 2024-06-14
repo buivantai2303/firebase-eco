@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 
 import '../../../../../common/widgets/custom_shape/container/rounded_container.dart';
 import '../../../../../utils/constants/colors.dart';
 import '../../../../../utils/constants/sizes.dart';
 import '../../../../../utils/helpers/helper_functions.dart';
+import '../../../features/shop/controllers/brand_controller.dart';
 import 'blog_cart.dart';
 
 class TBlogShowcase extends StatelessWidget {
@@ -16,6 +19,8 @@ class TBlogShowcase extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final brandController = Get.put(BrandController());
+
     return TRoundedContainer(
       showBorder: true,
       borderColor: TColors.grey,
@@ -25,7 +30,10 @@ class TBlogShowcase extends StatelessWidget {
       child: Column(
         children: [
           /// Brand with products count
-          const TBlogCard(showBorder: false),
+          TBlogCard(
+            showBorder: false,
+            brandImage: brandController.featuredBrands[0].image,
+          ),
           const SizedBox(
             height: TSizes.spaceBtwItems,
           ),
