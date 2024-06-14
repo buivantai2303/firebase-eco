@@ -22,7 +22,7 @@ class BrandModel {
   toJson() {
     return {
       'Id': id,
-      "name": name,
+      "Name": name,
       'Image': image,
       'ProductsCount': productsCount,
       'isFeatured': isFeatured,

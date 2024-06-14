@@ -24,16 +24,21 @@ class ProductController extends GetxController {
     try {
       isLoading.value = true;
 
+      // Fetch products
       final products = await productRepository.getFeaturedProducts();
 
-      featuredProducts.assignAll(products);
+      // Ensure that products are not null
+      if (products != null) {
+        featuredProducts.assignAll(products);
+      } else {
+        featuredProducts.clear(); // Handle the null case
+      }
 
-    }
-    catch(e) {
+    } catch (e) {
       TLoaders.errorSnackBar(title: 'Oh Snap', message: e.toString());
-    }finally {
+    } finally {
       isLoading.value = false;
-  }
+    }
   }
 
   String getProductPrice(ProductModel product) {

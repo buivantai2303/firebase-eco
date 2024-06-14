@@ -58,7 +58,7 @@ class ProductModel {
       'Brand': brand!.toJson(),
       'Description': description,
       'ProductType': productType,
-      'ProductAttrubutes': productAttributes != null ? productAttributes!.map((e) => e.toJson()).toList() : [],
+      'ProductAttributes': productAttributes != null ? productAttributes!.map((e) => e.toJson()).toList() : [],
       'ProductVariations': productVariations != null ? productVariations!.map((e) => e.toJson()).toList() : [],
     };
   }

@@ -85,16 +85,32 @@ class HomeScreen extends StatelessWidget {
                       height: TSizes.spaceBtwSections,
                     ),
                     Obx(() {
-                      if(controller.isLoading.value) return const TVerticalProductShimmer();
-
-                      if(controller.featuredProducts.isEmpty) {
-                        return Center(child: Text('No Data Found', style: Theme.of(context).textTheme.bodyMedium,),);
+                      if (controller.isLoading.value) {
+                        return const TVerticalProductShimmer();
                       }
-                      return TGridLayout(
-                      itemCount: controller.featuredProducts.length,
-                      itemBuilder: (_, index) => TProductCardVertical(product: controller.featuredProducts[index]),
-                      );
 
+                      // Ensure featuredProducts is not null or empty
+                      if (controller.featuredProducts.isEmpty) {
+                        return Center(
+                          child: Text(
+                            'No Data Found',
+                            style: Theme.of(context).textTheme.bodyMedium,
+                          ),
+                        );
+                      }
+
+                      // Safe use of featuredProducts
+                      return TGridLayout(
+                        itemCount: controller.featuredProducts.length,
+                        itemBuilder: (_, index) {
+                          // Ensure that the product at the current index is not null
+                          final product = controller.featuredProducts[index];
+                          if (product == null) {
+                            return Center(child: Text('Error loading product'));
+                          }
+                          return TProductCardVertical(product: product);
+                        },
+                      );
                     }),
 
 
