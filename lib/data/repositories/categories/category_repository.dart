@@ -24,33 +24,9 @@ class CategoryRepository extends GetxController {
     } on PlatformException catch (e) {
       throw TPlatformException(e.code).message;
     } catch (e) {
-      throw 'Something went wrong. Please try again';
+      throw 'Something went wrong while fetching Categories.';
     }
   }
-
-
-// Future<void> uploadDummyData(List<CategoryModel> categories) async {
-//   try {
-//     final storage = Get.put(TFirebaseStorageService());
-//     for (var category in categories) {
-//       final file = await storage.getImageDataFromAssets(category.image);
-//       final url =
-//           await storage.uploadImageData('Categories', file, category.name);
-//       category.image = url;
-//       await _db
-//           .collection("Categories")
-//           .doc(category.id)
-//           .set(category.toJson());
-//     }
-//   } on FirebaseException catch (e) {
-//     throw TFirebaseException(e.code).message;
-//   } on PlatformException catch (e) {
-//     throw TPlatformException(e.code).message;
-//   } catch (e) {
-//     throw 'Something went wrong. Please try again!';
-//   }
-// }
-
 
   /// Get Sub Categories
   Future<List<CategoryModel>> getSubCategories(String categoryId) async {
@@ -93,5 +69,4 @@ class CategoryRepository extends GetxController {
       throw 'Something went wrong. Please try again!';
     }
   }
-
 }

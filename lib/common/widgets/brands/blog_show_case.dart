@@ -1,16 +1,10 @@
 import 'package:flutter/material.dart';
 
-import '../../../../../common/widgets/brands/brand_card.dart';
 import '../../../../../common/widgets/custom_shape/container/rounded_container.dart';
 import '../../../../../utils/constants/colors.dart';
 import '../../../../../utils/constants/sizes.dart';
 import '../../../../../utils/helpers/helper_functions.dart';
-import '../../../utils/constants/colors.dart';
-import '../../../utils/constants/sizes.dart';
-import '../../../utils/helpers/helper_functions.dart';
-import '../custom_shape/container/rounded_container.dart';
 import 'blog_cart.dart';
-import 'brand_card.dart';
 
 class TBlogShowcase extends StatelessWidget {
   const TBlogShowcase({
@@ -24,7 +18,7 @@ class TBlogShowcase extends StatelessWidget {
   Widget build(BuildContext context) {
     return TRoundedContainer(
       showBorder: true,
-      borderColor: TColors.darkGrey,
+      borderColor: TColors.grey,
       backgroundColor: Colors.transparent,
       padding: const EdgeInsets.all(TSizes.md),
       margin: const EdgeInsets.only(bottom: TSizes.spaceBtwItems),

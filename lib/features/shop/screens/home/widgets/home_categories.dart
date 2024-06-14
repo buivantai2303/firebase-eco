@@ -1,4 +1,5 @@
 import 'package:firebase_eco/features/shop/controllers/category_controller.dart';
+import 'package:firebase_eco/features/shop/models/category_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -36,7 +37,9 @@ class THomeCategories extends StatelessWidget {
             return TVerticalImageText(
               image: category.image,
               title: category.name,
-              onTap: () {},
+              onTap: () => Get.to(() => SubCategoriesScreen(
+                    categoryModel: CategoryModel.empty(),
+                  )),
               // () => Get.to(() => const SubCategoriesScreen()
             );
           },

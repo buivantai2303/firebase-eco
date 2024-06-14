@@ -1,31 +1,30 @@
-
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class BrandModel {
   String id;
   String name;
-  String? image;
+  String image;
   int? productsCount;
-  bool? isFeatured;
+  bool isFeatured;
 
-  BrandModel ({
+  BrandModel({
     required this.id,
     required this.name,
-    this.image,
+    required this.image,
     this.productsCount,
-    this.isFeatured,
-});
+    required this.isFeatured,
+  });
 
-  static BrandModel empty() => BrandModel(id: '', name: '', image: '', productsCount: 0, isFeatured: false);
+  static BrandModel empty() => BrandModel(
+      id: '', name: '', image: '', productsCount: 0, isFeatured: false);
 
-  toJson() {
+  Map<String, dynamic> toJson() {
     return {
       'Id': id,
-      "Name": name,
+      'Name': name,
       'Image': image,
       'ProductsCount': productsCount,
-      'isFeatured': isFeatured,
+      'IsFeatured': isFeatured,
     };
   }
 
@@ -41,16 +40,21 @@ class BrandModel {
     );
   }
 
-  factory BrandModel.fromSnapshot(DocumentSnapshot<Map<String, dynamic>> snapshot) {
-    final data = snapshot.data();
-    if (data == null) return BrandModel.empty();
-    return BrandModel(
-      id: snapshot.id,
-      name: data['Name'] ?? '',
-      image: data['Image'] ?? '',
-      productsCount: data['ProductsCount'] ?? 0,
-      isFeatured: data['IsFeatured'] ?? false,
-    );
-  }
+  factory BrandModel.fromSnapshot(
+      DocumentSnapshot<Map<String, dynamic>> document) {
+    if (document.data() != null) {
+      final data = document.data()!;
 
+      // Map Json
+      return BrandModel(
+        id: document.id,
+        name: data['Name'] ?? '',
+        image: data['Image'] ?? '',
+        productsCount: data['ProductsCount'] ?? '',
+        isFeatured: data['IsFeatured'] ?? false,
+      );
+    } else {
+      return BrandModel.empty();
+    }
+  }
 }

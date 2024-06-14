@@ -1,7 +1,9 @@
 import 'package:firebase_eco/common/widgets/appbar/appbar.dart';
 import 'package:firebase_eco/common/widgets/brands/brand_card.dart';
 import 'package:firebase_eco/common/widgets/texts/section_heading.dart';
+import 'package:firebase_eco/features/shop/controllers/brand_controller.dart';
 import 'package:firebase_eco/features/shop/screens/brand/brand_products.dart';
+import 'package:firebase_eco/features/shop/screens/store/store.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -13,6 +15,7 @@ class AllBrandScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final brandController = BrandController.instance;
     return Scaffold(
       appBar: const TAppbar(
         title: Text('Brands'),
@@ -33,13 +36,40 @@ class AllBrandScreen extends StatelessWidget {
               ),
 
               /// Brands
-              TGridLayout(
-                  itemCount: 10,
-                  mainAxisExtent: 80,
-                  itemBuilder: (context, index) => TBrandCard(
+              Obx(
+                () {
+                  if (brandController.featuredBrands.isEmpty) {
+                    const TBrandsShimmer();
+
+                    const SizedBox(
+                      height: TSizes.spaceBtwItems,
+                    );
+
+                    return Center(
+                      child: Text(
+                        "No Data Found!",
+                        style: Theme.of(context)
+                            .textTheme
+                            .bodyMedium!
+                            .apply(color: Colors.white),
+                      ),
+                    );
+                  }
+
+                  return TGridLayout(
+                    itemCount: brandController.allBrands.length,
+                    mainAxisExtent: 80,
+                    itemBuilder: (_, index) {
+                      final brand = brandController.allBrands[index];
+                      return TBrandCard(
                         showBorder: true,
-                        onTap: () => Get.to(() => const BrandProducts()),
-                      )),
+                        brand: brand,
+                        onTap: () => Get.to(() => BrandProducts(brand: brand)),
+                      );
+                    },
+                  );
+                },
+              ),
             ],
           ),
         ),

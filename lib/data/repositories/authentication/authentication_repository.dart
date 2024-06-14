@@ -1,5 +1,4 @@
 import 'dart:async';
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_eco/data/repositories/user/user_repository.dart';
 import 'package:firebase_eco/features/authentication/screens/login/login.dart';
@@ -59,7 +58,7 @@ class AuthenticationRepository extends GetxController {
     }
   }
 
-/*---------------------------- Email & Password Sign In ----------------------------*/
+  /*---------------------------- Email & Password Sign In ----------------------------*/
 
   /// [Email Authentication] - Login
   Future<UserCredential> loginWithEmailAndPassword(
@@ -99,8 +98,6 @@ class AuthenticationRepository extends GetxController {
     }
   }
 
-  /// [ReAuthenticate] - ReAuthenticate User
-
   /// [Email Verification] - Mail Verification
   Future<void> sendEmailVerification() async {
     try {
@@ -135,14 +132,6 @@ class AuthenticationRepository extends GetxController {
     }
   }
 
-/*---------------------------- Federated Identity & Social Sign In ----------------------------*/
-
-  /// [Google Authentication] - Google
-
-  /// [Facebook Authentication] - Facebook
-
-/*---------------------------- Email & Password Sign In ----------------------------*/
-
   /// [Logout User] - Valid for any Authentication
   Future<void> logout() async {
     try {
@@ -161,7 +150,7 @@ class AuthenticationRepository extends GetxController {
     }
   }
 
-  /// [GoogleAuthentication] - ĐĂNG NHẬP BẰNG GOOGLE
+  /// [GoogleAuthentication]
   Future<UserCredential?> signInWithGoogle() async {
     try {
       final GoogleSignInAccount? userAccount =

@@ -1,6 +1,5 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:firebase_eco/features/shop/controllers/banner_controller.dart';
-import 'package:firebase_eco/features/shop/controllers/home_controller.dart';
 import 'package:firebase_eco/features/shop/screens/home/widgets/home_appbar.dart';
 import 'package:firebase_eco/utils/constants/colors.dart';
 import 'package:flutter/material.dart';

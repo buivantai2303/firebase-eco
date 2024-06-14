@@ -2,7 +2,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_eco/features/shop/models/brand_model.dart';
 import 'package:firebase_eco/features/shop/models/product_attribute_model.dart';
 import 'package:firebase_eco/features/shop/models/product_variation_model.dart';
-import 'package:flutter/material.dart';
 
 class ProductModel {
   String id;
@@ -21,7 +20,6 @@ class ProductModel {
   String productType;
   List<ProductAttributeModel>? productAttributes;
   List<ProductVariationModel>? productVariations;
-
 
   ProductModel({
     required this.id,
@@ -42,7 +40,10 @@ class ProductModel {
     this.productVariations,
   });
 
-  static ProductModel empty() => ProductModel(id: '', title: '', stock: 0, price: 0, thumbnail: '', productType: '');
+  ///
+
+  static ProductModel empty() => ProductModel(
+      id: '', title: '', stock: 0, price: 0, thumbnail: '', productType: '');
 
   toJson() {
     return {
@@ -58,30 +59,38 @@ class ProductModel {
       'Brand': brand!.toJson(),
       'Description': description,
       'ProductType': productType,
-      'ProductAttributes': productAttributes != null ? productAttributes!.map((e) => e.toJson()).toList() : [],
-      'ProductVariations': productVariations != null ? productVariations!.map((e) => e.toJson()).toList() : [],
+      'ProductAttributes': productAttributes != null
+          ? productAttributes!.map((e) => e.toJson()).toList()
+          : [],
+      'ProductVariations': productVariations != null
+          ? productVariations!.map((e) => e.toJson()).toList()
+          : [],
     };
   }
 
-  factory ProductModel.fromSnapshot(DocumentSnapshot<Map<String, dynamic>> document) {
+  factory ProductModel.fromSnapshot(
+      DocumentSnapshot<Map<String, dynamic>> document) {
     final data = document.data()!;
     return ProductModel(
-        id: document.id,
-        sku: data['SKU'],
-        title: data['Title'],
-        stock: data['Stock'] ?? 0,
-        isFeatured: data['IsFeatured'] ?? false,
-        price: double.parse((data['Price'] ?? 0.0).toString()),
-        thumbnail: data['Thumbnail'] ?? '',
-        categoryId: data['CategoryId'] ?? '',
-        productType: data['ProductType'] ?? '',
-        brand: BrandModel.fromJson(data['Brand']),
-        images: data['Images'] != null ? List<String>.from(data['Images']) : [],
-        productAttributes: (data['ProductAttributes'] as List<dynamic>).map((e) => ProductAttributeModel.fromJson(e)).toList(),
-        productVariations: (data['ProductVariations'] as List<dynamic>).map((e) => ProductVariationModel.fromjson(e)).toList(),
+      id: document.id,
+      sku: data['SKU'],
+      title: data['Title'],
+      stock: data['Stock'] ?? 0,
+      isFeatured: data['IsFeatured'] ?? false,
+      price: double.parse((data['Price'] ?? 0.0).toString()),
+      salePrice: double.parse((data['SalePrice'] ?? 0.0).toString()),
+      thumbnail: data['Thumbnail'] ?? '',
+      categoryId: data['CategoryId'] ?? '',
+      productType: data['ProductType'] ?? '',
+      description: data['Description'] ?? '',
+      brand: BrandModel.fromJson(data['Brand']),
+      images: data['Images'] != null ? List<String>.from(data['Images']) : [],
+      productAttributes: (data['ProductAttributes'] as List<dynamic>)
+          .map((e) => ProductAttributeModel.fromJson(e))
+          .toList(),
+      productVariations: (data['ProductVariations'] as List<dynamic>)
+          .map((e) => ProductVariationModel.fromJson(e))
+          .toList(),
     );
   }
-
-
 }
-

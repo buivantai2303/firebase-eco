@@ -2,19 +2,20 @@ import 'package:firebase_eco/common/widgets/appbar/appbar.dart';
 import 'package:firebase_eco/common/widgets/icons/t_circular_icon.dart';
 import 'package:firebase_eco/common/widgets/layouts/grid_layout.dart';
 import 'package:firebase_eco/common/widgets/products/product_cards/product_cart_vertical.dart';
-import 'package:firebase_eco/features/shop/models/product_model.dart';
 import 'package:firebase_eco/features/shop/screens/home/home.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 
 import '../../../../utils/constants/sizes.dart';
+import '../../controllers/product/product_controller.dart';
 
 class FavouriteScreen extends StatelessWidget {
   const FavouriteScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(ProductController());
     return Scaffold(
       appBar: TAppbar(
         title: Text(
@@ -34,8 +35,10 @@ class FavouriteScreen extends StatelessWidget {
           child: Column(
             children: [
               TGridLayout(
-                  itemCount: 6,
-                  itemBuilder: (_, index) =>  TProductCardVertical(product: ProductModel.empty(),))
+                  itemCount: controller.featuredProducts.length,
+                  itemBuilder: (_, index) => TProductCardVertical(
+                        product: controller.featuredProducts[index],
+                      )),
             ],
           ),
         ),
