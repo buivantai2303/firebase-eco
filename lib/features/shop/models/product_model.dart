@@ -93,4 +93,26 @@ class ProductModel {
           .toList(),
     );
   }
+
+  // Map JSON-oriented document snapshot from Firebase to Model
+  factory ProductModel.fromQuerySnapshot(QueryDocumentSnapshot<Object?> document) {
+    final data = document.data() as Map<String, dynamic>;
+    return ProductModel(
+      id: document.id,
+      sku: data['SKU'] ?? '',
+      title: data['title'] ?? '',
+      stock: data['stock'] ?? 0,
+      isFeatured: data['isFeatured'] ?? false,
+      price: double.parse((data['price'] ?? 0.0).toString()),
+      salePrice: double.parse((data['salePrice'] ?? 0.0).toString()),
+      thumbnail: data['thumbnail'] ?? '',
+      categoryId: data['categoryId'] ?? '',
+      description: data['Description'] ?? '',
+      productType: data['ProductType'] ?? '',
+      brand: BrandModel.fromJson(data['brand'] ?? {}),
+      images: data['images'] != null ? List<String>.from(data['images']) : [],
+      productAttributes: (data['ProductAttributes'] as List<dynamic>).map((e) => ProductAttributeModel.fromJson(e)).toList(),
+      productVariations: (data['ProductVariations'] as List<dynamic>).map((e) => ProductVariationModel.fromJson(e)).toList(),
+    );
+  }
 }

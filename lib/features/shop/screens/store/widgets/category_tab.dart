@@ -52,7 +52,7 @@ class TCategoryTab extends StatelessWidget {
                         children: [
                           TSectionHeading(title: 'title', onPressed: () => Get.to(AllProducts(
                             title: category.name,
-                            fut
+                            futureMethod: controller.getCategoryProducts(categoryId: category.id, limit: -1),
                           )),),
                           const SizedBox(height: TSizes.spaceBtwItems,),
                           TGridLayout(itemCount: products!.length, itemBuilder: (_, index) => TProductCardVertical(product: products[index]))

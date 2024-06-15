@@ -1,5 +1,8 @@
+import 'package:firebase_eco/features/shop/controllers/product/all_products_controller.dart';
 import 'package:firebase_eco/features/shop/models/product_model.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:iconsax/iconsax.dart';
 
 import '../../../../utils/constants/sizes.dart';
@@ -16,13 +19,17 @@ class TSortableProducts extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(AllProductsController());
+    controller.assignProducts(products);
     return Column(
       children: [
         /// Dropdown
         DropdownButtonFormField(
           decoration: const InputDecoration(prefixIcon: Icon(Iconsax.sort)),
+          value: controller.selectedSortOption.value,
           onChanged: (value) {
             // Implement sorting logic based on the selected value
+            controller.sortProducts(value!);
           },
           items: [
             'Name',
@@ -41,11 +48,10 @@ class TSortableProducts extends StatelessWidget {
         ),
 
         /// Product Grid
-        TGridLayout(
-            itemCount: products.length,
-            itemBuilder: (_, index) => TProductCardVertical(
-                  product: products[index],
-                )),
+        Obx(
+            () => TGridLayout(
+                itemCount: controller.products.length, itemBuilder: (_, index) => TProductCardVertical(product: controller.products[index],)),
+        ),
       ],
     );
   }
