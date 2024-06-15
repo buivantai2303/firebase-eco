@@ -2,7 +2,6 @@ import 'package:firebase_eco/common/widgets/brands/brand_show_case.dart';
 import 'package:firebase_eco/common/widgets/shimmer/boxes_shimmer.dart';
 import 'package:firebase_eco/common/widgets/shimmer/list_title_shimmer.dart';
 import 'package:firebase_eco/features/shop/controllers/brand_controller.dart';
-import 'package:firebase_eco/utils/constants/image_strings.dart';
 import 'package:firebase_eco/utils/constants/sizes.dart';
 import 'package:firebase_eco/utils/helpers/cloud_helper_functions.dart';
 import 'package:flutter/material.dart';

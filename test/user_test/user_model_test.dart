@@ -1,7 +1,6 @@
 import 'package:firebase_eco/features/personalization/models/user_model.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:mockito/mockito.dart';
 
 import '../mocks.mocks.dart';
@@ -98,7 +97,7 @@ void main() {
 
     test('kiểm tra phương thức nameParts trả về đúng mảng các phần của tên', () {
       // Sắp xếp
-      final fullName = 'Bui Van Tai';
+      const fullName = 'Bui Van Tai';
 
       // Hành động
       final parts = UserModel.nameParts(fullName);

@@ -1,5 +1,4 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_eco/features/shop/models/brand_model.dart';
 import 'package:firebase_eco/utils/exceptions/firebase_exceptions.dart';
 import 'package:firebase_eco/utils/exceptions/format_exceptions.dart';

@@ -20,7 +20,6 @@ class CategoryController extends GetxController {
   }
 
   Future<void> fetchCategories() async {
-    print("CateD: ${_categoryRepository.getAllCategories()}");
     try {
       // Show loader
       isLoading.value = true;

@@ -91,12 +91,18 @@ class ProductRepository extends GetxController {
     }
   }
 
-  Future<List<ProductModel>> getFavouriteProduct(List<String> productIds) async {
+  Future<List<ProductModel>> getFavouriteProduct(
+      List<String> productIds) async {
     try {
-      final querySnapshot = await _db.collection('Products').where(FieldPath.documentId, whereIn:productIds).get();
+      final querySnapshot = await _db
+          .collection('Products')
+          .where(FieldPath.documentId, whereIn: productIds)
+          .get();
+
       final List<ProductModel> productList = querySnapshot.docs
-          .map((doc) => ProductModel.fromQuerySnapshot(doc))
+          .map((doc) => ProductModel.fromSnapshot(doc))
           .toList();
+
       return productList;
     } on FirebaseException catch (e) {
       throw TFirebaseException(e.code).message;

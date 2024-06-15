@@ -21,10 +21,6 @@ class TProductAttributes extends StatelessWidget {
     final controller = Get.put(VariationController());
     final dark = THelperFunctions.isDarkMode(context);
 
-    final descriptionss = controller.selectedVariation.value.description;
-
-    print("DescriptionD: $descriptionss");
-
     return Obx(
       () => Column(
         children: [
@@ -115,9 +111,6 @@ class TProductAttributes extends StatelessWidget {
                           () => Wrap(
                             spacing: 8,
                             children: attribute.values!.map((attributeValue) {
-                              final isSelected = controller
-                                      .selectedAttributes[attribute.name] ==
-                                  attributeValue;
                               final available = controller
                                   .getAttributesAvailabilityInVariation(
                                       product.productVariations!,

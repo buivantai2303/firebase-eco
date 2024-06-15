@@ -2,7 +2,6 @@ import 'package:firebase_eco/features/shop/controllers/product/all_products_cont
 import 'package:firebase_eco/features/shop/models/product_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:iconsax/iconsax.dart';
 
 import '../../../../utils/constants/sizes.dart';

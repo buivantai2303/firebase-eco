@@ -1,4 +1,3 @@
-import 'package:firebase_eco/common/styles/shadows.dart';
 import 'package:firebase_eco/common/widgets/custom_shape/container/rounded_container.dart';
 import 'package:firebase_eco/common/widgets/images/t_rounded_image.dart';
 import 'package:firebase_eco/common/widgets/products/favourite_icon/favourite_icon.dart';
@@ -16,7 +15,6 @@ import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 
 import '../../../../features/shop/models/product_model.dart';
-import '../../icons/t_circular_icon.dart';
 
 class TProductCardVertical extends StatelessWidget {
   const TProductCardVertical({super.key, required this.product});

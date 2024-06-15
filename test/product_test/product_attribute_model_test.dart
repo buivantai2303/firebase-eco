@@ -1,7 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:mockito/mockito.dart';
 import 'package:firebase_eco/features/shop/models/product_attribute_model.dart';
-import '../mocks.mocks.dart'; // Import your generated mocks
+// Import your generated mocks
 
 void main() {
   group('ProductAttributeModel Tests', () {

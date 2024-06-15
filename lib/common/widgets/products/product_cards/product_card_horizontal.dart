@@ -1,4 +1,3 @@
-import 'package:firebase_eco/common/styles/shadows.dart';
 import 'package:firebase_eco/common/widgets/custom_shape/container/rounded_container.dart';
 import 'package:firebase_eco/common/widgets/images/t_rounded_image.dart';
 import 'package:firebase_eco/common/widgets/texts/product_price_text.dart';
@@ -8,7 +7,6 @@ import 'package:firebase_eco/utils/constants/colors.dart';
 import 'package:firebase_eco/utils/constants/image_strings.dart';
 import 'package:firebase_eco/utils/constants/sizes.dart';
 import 'package:firebase_eco/utils/helpers/helper_functions.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 
@@ -36,7 +34,7 @@ class TProductCardHorizontal extends StatelessWidget {
             backgroundColor: dark ? TColors.dark : TColors.light,
             child: Stack(
               children: [
-                SizedBox(width: 120, height: 120, child: TRoundedImage(imageUrl: TImages.productImage1, applyImageRadius: true,)
+                const SizedBox(width: 120, height: 120, child: TRoundedImage(imageUrl: TImages.productImage1, applyImageRadius: true,)
                 ),
 
                 Positioned(
@@ -69,10 +67,10 @@ class TProductCardHorizontal extends StatelessWidget {
           SizedBox(
             width: 172,
             child: Padding(
-                padding: EdgeInsets.only(top: TSizes.sm, left: TSizes.sm),
+                padding: const EdgeInsets.only(top: TSizes.sm, left: TSizes.sm),
               child: Column(
                 children: [
-                    Column(
+                    const Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         TProductTitleText(title: 'Green Nike Half Sleeves Shirt', smallSize: true,),
@@ -86,7 +84,7 @@ class TProductCardHorizontal extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      const Flexible(child: const TProductPriceText(price: '256.0 - 25689.6')),
+                      const Flexible(child: TProductPriceText(price: '256.0 - 25689.6')),
 
                       Container(
                         decoration: const BoxDecoration(

@@ -15,23 +15,28 @@ class ForgetPasswordController extends GetxController {
 
   sendPasswordResetEmail() async {
     try {
-      TFullScreenLoader.openLoadingDialog('Processing your request...', TImages.docerAnimation);
+      TFullScreenLoader.openLoadingDialog(
+          'Processing your request...', TImages.docerAnimation);
 
       final isConnected = await NetworkManager.instance.isConnected();
-      if(!isConnected) {TFullScreenLoader.stopLoading();
-      return;
-      }
-
-      if(!forgetPasswordFormKey.currentState!.validate()) {
+      if (!isConnected) {
         TFullScreenLoader.stopLoading();
         return;
       }
 
-      await AuthenticationRepository.instance.sendPasswordResetEmail(email.text.trim());
+      if (!forgetPasswordFormKey.currentState!.validate()) {
+        TFullScreenLoader.stopLoading();
+        return;
+      }
+
+      await AuthenticationRepository.instance
+          .sendPasswordResetEmail(email.text.trim());
 
       TFullScreenLoader.stopLoading();
 
-      TLoaders.successSnackBar(title: 'Email sent', message: 'Email Link Sent to Reset your Password'.tr);
+      TLoaders.successSnackBar(
+          title: 'Email sent',
+          message: 'Email Link Sent to Reset your Password'.tr);
 
       Get.to(() => ResetPassword(email: email.text.trim()));
     } catch (e) {
@@ -41,20 +46,22 @@ class ForgetPasswordController extends GetxController {
   }
 
   resendPasswordResetEmail(String email) async {
-
     try {
-      TFullScreenLoader.openLoadingDialog('Processing your request...', TImages.docerAnimation);
+      TFullScreenLoader.openLoadingDialog(
+          'Processing your request...', TImages.docerAnimation);
 
       final isConnected = await NetworkManager.instance.isConnected();
-      if (!isConnected) {TFullScreenLoader.stopLoading(); return;}
-
-
+      if (!isConnected) {
+        TFullScreenLoader.stopLoading();
+        return;
+      }
 
       await AuthenticationRepository.instance.sendPasswordResetEmail(email);
 
       TFullScreenLoader.stopLoading();
-      TLoaders.successSnackBar(title: 'Email sent', message: 'Email Link Sent to Reset your Password'.tr);
-
+      TLoaders.successSnackBar(
+          title: 'Email sent',
+          message: 'Email Link Sent to Reset your Password'.tr);
     } catch (e) {
       TFullScreenLoader.stopLoading();
       TLoaders.errorSnackBar(title: 'Oh Snap', message: e.toString());

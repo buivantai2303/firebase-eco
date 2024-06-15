@@ -1,6 +1,5 @@
 import 'package:firebase_eco/features/shop/models/product_variation_model.dart';
 import 'package:flutter_test/flutter_test.dart';
-import '../mocks.mocks.dart';
 
 void main() {
   group('ProductVariationModel', () {
