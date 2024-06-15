@@ -15,7 +15,7 @@ void main() {
       };
 
       // Create a mock DocumentSnapshot
-      final documentSnapshot = MockDocumentSnapshot(); // Using your generated mock
+      final documentSnapshot = MockDocumentSnapshot();
       when(documentSnapshot.data()).thenReturn(mockData);
 
       // Call fromSnapshot factory constructor
