@@ -9,15 +9,15 @@ import 'package:firebase_eco/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
 
 class SubCategoriesScreen extends StatelessWidget {
-  const SubCategoriesScreen({super.key, required this.categoryModel});
+  const SubCategoriesScreen({super.key, required this.category});
 
-  final CategoryModel categoryModel;
+  final CategoryModel category;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: TAppbar(
-        title: Text(categoryModel.name),
+        title: Text(category.name),
         showBackArrow: true,
       ),
       body: SingleChildScrollView(

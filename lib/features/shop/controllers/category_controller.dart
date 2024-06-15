@@ -63,6 +63,8 @@ class CategoryController extends GetxController {
     return products;
   }
 
+
+
   /// Get Category or Sub-Category Products
 // Future<List<ProductModel>> getCategoryProducts(
 //     {required String categoryId, int limit = 4}) async {
