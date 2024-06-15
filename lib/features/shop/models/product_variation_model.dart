@@ -19,6 +19,8 @@ class ProductVariationModel {
     required this.attributeValues,
   });
 
+  get name => null;
+
   static ProductVariationModel empty() =>
       ProductVariationModel(id: '', attributeValues: {});
 
