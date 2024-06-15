@@ -1,5 +1,7 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:firebase_eco/features/shop/models/brand_model.dart';
 import 'package:firebase_eco/features/shop/screens/brand/brand_products.dart';
+import 'package:firebase_eco/features/shop/screens/home/widgets/home_appbar.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -59,7 +61,12 @@ Widget brandTopProductImageWidget(String image, context) {
       backgroundColor: THelperFunctions.isDarkMode(context)
           ? TColors.darkerGrey
           : TColors.light,
-      child: Image(fit: BoxFit.contain, image: AssetImage(image)),
+      child: CachedNetworkImage(
+        fit: BoxFit.contain,
+        imageUrl: image,
+        progressIndicatorBuilder: (context, url, downloadProgress) => const TShimmerEffect(width: 100, height: 100),
+        errorWidget: (context, url, error) => const Icon(Icons.error),
+      ),
     ),
   ); // Expanded
 }

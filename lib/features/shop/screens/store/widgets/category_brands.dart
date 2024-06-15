@@ -51,9 +51,9 @@ class CategoryBrands extends StatelessWidget {
                   final widget = TCloudHelperFunctions.checkMultiRecordState(snapshot: snapshot, loader: loader);
                   if(widget != null) return widget;
 
-                  final products = snapshot.data;
+                  final products = snapshot.data!;
 
-                  return TBrandShowcase( brand: brand, images: products!.map((e) => e.thumbnail).toList());
+                  return TBrandShowcase( brand: brand, images: products.map((e) => e.thumbnail).toList());
                 }
               );
           }

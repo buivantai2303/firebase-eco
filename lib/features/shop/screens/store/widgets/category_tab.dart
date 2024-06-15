@@ -46,7 +46,7 @@ class TCategoryTab extends StatelessWidget {
                         final response = TCloudHelperFunctions.checkMultiRecordState(snapshot: snapshot, loader: const TVerticalProductShimmer());
                         if(response != null) return response;
 
-                        final products = snapshot.data;
+                        final products = snapshot.data!;
 
                         return Column(
                         children: [
@@ -55,7 +55,7 @@ class TCategoryTab extends StatelessWidget {
                             futureMethod: controller.getCategoryProducts(categoryId: category.id, limit: -1),
                           )),),
                           const SizedBox(height: TSizes.spaceBtwItems,),
-                          TGridLayout(itemCount: products!.length, itemBuilder: (_, index) => TProductCardVertical(product: products[index]))
+                          TGridLayout(itemCount: products.length, itemBuilder: (_, index) => TProductCardVertical(product: products[index]))
                         ],
                         );
                     },
