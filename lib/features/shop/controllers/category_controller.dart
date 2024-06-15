@@ -25,7 +25,7 @@ class CategoryController extends GetxController {
       isLoading.value = true;
 
       // Fetch data from source (Firebase)
-      final categories = await _categoryRepository.getAllCategories();
+      final categories = await _categoryRepository.fetchAllCategories();
 
       // Update Category List
       allCategories.assignAll(categories);
@@ -47,7 +47,7 @@ class CategoryController extends GetxController {
   Future<List<CategoryModel>> getSubCategories(String categoryId) async {
     try {
       final subCategories =
-          await _categoryRepository.getSubCategories(categoryId);
+          await _categoryRepository.fetchSubCategories(categoryId);
       return subCategories;
     } catch (e) {
       TLoaders.errorSnackBar(
@@ -62,8 +62,6 @@ class CategoryController extends GetxController {
         .getProductsForCategory(categoryId: categoryId, limit: limit);
     return products;
   }
-
-
 
   /// Get Category or Sub-Category Products
 // Future<List<ProductModel>> getCategoryProducts(

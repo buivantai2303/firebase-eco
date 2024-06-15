@@ -12,7 +12,7 @@ class CategoryRepository extends GetxController {
 
   final _db = FirebaseFirestore.instance;
 
-  Future<List<CategoryModel>> getAllCategories() async {
+  Future<List<CategoryModel>> fetchAllCategories() async {
     try {
       final snapshot = await _db.collection('Categories').get();
       final list = snapshot.docs
@@ -29,7 +29,7 @@ class CategoryRepository extends GetxController {
   }
 
   /// Get Sub Categories
-  Future<List<CategoryModel>> getSubCategories(String categoryId) async {
+  Future<List<CategoryModel>> fetchSubCategories(String categoryId) async {
     try {
       final snapshot = await _db
           .collection("Categories")
