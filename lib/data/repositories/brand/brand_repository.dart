@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_eco/features/shop/models/brand_model.dart';
 import 'package:firebase_eco/utils/exceptions/firebase_exceptions.dart';
 import 'package:firebase_eco/utils/exceptions/format_exceptions.dart';
@@ -30,6 +31,34 @@ class BrandRepository extends GetxController {
       throw TPlatformException(e.code).message;
     } catch (e) {
       throw 'Something went wrong while fetching Brands.';
+    }
+  }
+
+
+  /// Get Brands for a specific category
+  Future<List<BrandModel>> getBrandForCategory(String categoryId) async {
+    try {
+      QuerySnapshot brandCategoryQuery = await _db
+          .collection('BrandCategory')
+          .where('categoryId', isEqualTo: categoryId)
+          .get();
+
+      List<String> brandIds = brandCategoryQuery.docs.map((doc) => doc.id).toList();
+      final brandsQuery = await _db
+          .collection('Brands')
+          .where(FieldPath.documentId, whereIn: brandIds).limit(2)
+          .get();
+
+      List<BrandModel> brands = brandsQuery.docs.map((doc) => BrandModel.fromSnapshot(doc)).toList();
+
+      return brands;
+
+    } on FirebaseException catch (e) {
+      throw TFirebaseException(e.code).message;
+    } on PlatformException catch (e) {
+      throw TPlatformException(e.code).message;
+    } catch (e) {
+      throw 'Something went wrong. Please try again!';
     }
   }
 
@@ -71,4 +100,6 @@ class BrandRepository extends GetxController {
       throw 'Something went wrong. Please try again!';
     }
   }
+
+
 }

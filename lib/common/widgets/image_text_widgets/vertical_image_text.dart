@@ -24,8 +24,8 @@ class TVerticalImageText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final dark = THelperFunctions.isDarkMode(context);
-    final defaultBackgroundColor = dark ? TColors.black : TColors.white;
+    // final dark = THelperFunctions.isDarkMode(context);
+    // final defaultBackgroundColor = dark ? TColors.black : TColors.white;
 
     return GestureDetector(
       onTap: onTap,
@@ -35,12 +35,14 @@ class TVerticalImageText extends StatelessWidget {
           children: [
             /// Circular icon
             TCircularImage(
-                image: image,
+              image: image,
               fit: BoxFit.fitWidth,
-              padding: TSizes.sm *1.4,
+              padding: TSizes.sm * 1.4,
               isNetworkImage: isNetworkImage,
               backgroundColor: backgroundColor,
-              overlayColor: THelperFunctions.isDarkMode(context) ? TColors.light : TColors.dark,
+              overlayColor: THelperFunctions.isDarkMode(context)
+                  ? TColors.light
+                  : TColors.dark,
             ),
             const SizedBox(
               height: TSizes.spaceBtwItems / 2,

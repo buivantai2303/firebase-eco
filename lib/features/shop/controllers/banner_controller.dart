@@ -1,4 +1,4 @@
-import 'package:firebase_eco/data/repositories/banners/banner_reposity.dart';
+import 'package:firebase_eco/data/repositories/banners/banner_repository.dart';
 import 'package:firebase_eco/features/shop/models/banner_model.dart';
 import 'package:get/get.dart';
 
@@ -28,7 +28,7 @@ class BannerController extends GetxController {
 
       // Fetch data from source (Firebase)
 
-      final bannerRepo = Get.put(BannerReposity());
+      final bannerRepo = Get.put(BannerRepository());
       final banners = await bannerRepo.fetchBanners();
 
       this.banners.assignAll(banners);
