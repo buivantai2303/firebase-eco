@@ -48,24 +48,24 @@ class BrandController extends GetxController {
           allBrands.where((brand) => brand.isFeatured == true).take(4));
     } catch (e) {
       TLoaders.errorSnackBar(
-          title: "Oh Snap! (Brand - Get Feature)", message: e.toString());
+          title: "Oh Snap! (Brand Controller - 1)", message: e.toString());
     } finally {
       isLoading.value = true;
     }
   }
 
-
   ///Get Brands For Category
   Future<List<BrandModel>> getBrandsForCategory(String categoryId) async {
     try {
       final brands = await brandRepository.getBrandForCategory(categoryId);
+      print("Brands[0]: ${brands[0].name}");
       return brands;
     } catch (e) {
-      TLoaders.errorSnackBar(title: 'Oh Snap', message: e.toString());
+      TLoaders.errorSnackBar(
+          title: 'Oh Snap (Brand Controller - 2)', message: e.toString());
       return [];
     }
   }
-
 
   /// Get Brand Specific Products from your data source
   Future<List<ProductModel>> getBrandProducts(
@@ -76,7 +76,7 @@ class BrandController extends GetxController {
       return products;
     } catch (e) {
       TLoaders.errorSnackBar(
-          title: 'Oh Snap! (Brand - Products)', message: e.toString());
+          title: 'Oh Snap! (Brand Controller - 3)', message: e.toString());
       return [];
     }
   }

@@ -22,25 +22,26 @@ class ProductController extends GetxController {
     super.onInit();
   }
 
-  void fetchFeaturedProducts() async{
+  void fetchFeaturedProducts() async {
     try {
       isLoading.value = true;
       final products = await productRepository.getFeaturedProducts();
       featuredProducts.assignAll(products);
     } catch (e) {
-      TLoaders.errorSnackBar(title: 'Oh Snap', message: e.toString());
+      TLoaders.errorSnackBar(
+          title: 'Oh Snap (Product - Controller - 1)', message: e.toString());
     } finally {
       isLoading.value = false;
     }
   }
-  Future<List<ProductModel>> fetchAllFeaturedProducts() async{
+
+  Future<List<ProductModel>> fetchAllFeaturedProducts() async {
     try {
-
-      final products = await productRepository.getFeaturedProducts();
+      final products = await productRepository.getAllFeaturedProducts();
       return products;
-
     } catch (e) {
-      TLoaders.errorSnackBar(title: 'Oh Snap', message: e.toString());
+      TLoaders.errorSnackBar(
+          title: 'Oh Snap (Product - Controller - 2)', message: e.toString());
       return [];
     }
   }
@@ -52,7 +53,8 @@ class ProductController extends GetxController {
 
       featuredProducts.assignAll(products);
     } catch (e) {
-      TLoaders.errorSnackBar(title: 'Oh Snap', message: e.toString());
+      TLoaders.errorSnackBar(
+          title: 'Oh Snap (Product - Controller - 3)', message: e.toString());
     } finally {
       isLoading.value = false;
     }
@@ -65,7 +67,8 @@ class ProductController extends GetxController {
 
       featuredProducts.assignAll(products);
     } catch (e) {
-      TLoaders.errorSnackBar(title: 'Oh Snap', message: e.toString());
+      TLoaders.errorSnackBar(
+          title: 'Oh Snap (Product - Controller - 4)', message: e.toString());
     } finally {
       isLoading.value = false;
     }
