@@ -20,8 +20,6 @@ class TCategoryTab extends StatelessWidget {
   Widget build(BuildContext context) {
     final controller = CategoryController.instance;
 
-    print("Categories-e ${controller.featuredCategories[0].name}");
-
     return ListView(
       shrinkWrap: true,
       physics: const NeverScrollableScrollPhysics(),
@@ -53,7 +51,7 @@ class TCategoryTab extends StatelessWidget {
                       return Column(
                         children: [
                           TSectionHeading(
-                            title: 'title',
+                            title: category.name,
                             onPressed: () => Get.to(AllProducts(
                               title: category.name,
                               futureMethod: controller.getCategoryProducts(

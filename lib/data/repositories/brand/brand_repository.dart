@@ -34,7 +34,6 @@ class BrandRepository extends GetxController {
     }
   }
 
-
   /// Get Brands for a specific category
   Future<List<BrandModel>> getBrandForCategory(String categoryId) async {
     try {
@@ -43,16 +42,18 @@ class BrandRepository extends GetxController {
           .where('categoryId', isEqualTo: categoryId)
           .get();
 
-      List<String> brandIds = brandCategoryQuery.docs.map((doc) => doc.id).toList();
+      List<dynamic> brandIds =
+          brandCategoryQuery.docs.map((doc) => doc.get('brandId')).toList();
       final brandsQuery = await _db
           .collection('Brands')
-          .where(FieldPath.documentId, whereIn: brandIds).limit(2)
+          .where(FieldPath.documentId, whereIn: brandIds)
+          .limit(2)
           .get();
 
-      List<BrandModel> brands = brandsQuery.docs.map((doc) => BrandModel.fromSnapshot(doc)).toList();
+      List<BrandModel> brands =
+          brandsQuery.docs.map((doc) => BrandModel.fromSnapshot(doc)).toList();
 
       return brands;
-
     } on FirebaseException catch (e) {
       throw TFirebaseException(e.code).message;
     } on PlatformException catch (e) {
@@ -100,6 +101,4 @@ class BrandRepository extends GetxController {
       throw 'Something went wrong. Please try again!';
     }
   }
-
-
 }

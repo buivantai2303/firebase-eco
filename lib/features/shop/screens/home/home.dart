@@ -82,7 +82,7 @@ class HomeScreen extends StatelessWidget {
                   TSectionHeading(
                     title: 'Popular Products',
                     onPressed: () => Get.to(() => AllProducts(
-                          title: 'Popular product',
+                          title: 'Popular Products',
                           futureMethod: controller.fetchAllFeaturedProducts(),
                         )),
                   ),

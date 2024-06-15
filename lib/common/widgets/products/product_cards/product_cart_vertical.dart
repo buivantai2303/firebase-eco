@@ -37,7 +37,14 @@ class TProductCardVertical extends StatelessWidget {
         width: 180,
         padding: const EdgeInsets.all(1),
         decoration: BoxDecoration(
-          boxShadow: [TShadowStyle.verticalProductShadow],
+          boxShadow: [
+            BoxShadow(
+              color: Colors.grey.withOpacity(0.3),
+              spreadRadius: 1,
+              blurRadius: 10,
+              offset: const Offset(0, 1),
+            ),
+          ],
           borderRadius: BorderRadius.circular(TSizes.productImageRadius),
           color: dark ? TColors.darkerGrey : TColors.white,
         ),
@@ -78,10 +85,12 @@ class TProductCardVertical extends StatelessWidget {
                   ),
 
                   /// -- Favorite icon button
-                 Positioned(
+                  Positioned(
                       top: 0,
                       right: 0,
-                      child:TFavouriteIcon(productId: product.id,))
+                      child: TFavouriteIcon(
+                        productId: product.id,
+                      ))
                 ],
               ),
             ),

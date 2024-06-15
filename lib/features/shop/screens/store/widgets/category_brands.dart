@@ -19,7 +19,6 @@ class CategoryBrands extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print("CategoryBrands: ${category.id}");
     final controller = BrandController.instance;
     return FutureBuilder(
         future: controller.getBrandsForCategory(category.id),
