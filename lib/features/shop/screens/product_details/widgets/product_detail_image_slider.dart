@@ -1,5 +1,6 @@
 
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:firebase_eco/common/widgets/products/favourite_icon/favourite_icon.dart';
 import 'package:firebase_eco/features/shop/controllers/product/images_controller.dart';
 import 'package:firebase_eco/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
@@ -94,7 +95,7 @@ class TProductImageSlider extends StatelessWidget {
             // appbar icons
             const TAppbar(
               showBackArrow: true,
-              actions: [TCircularIcon(icon: Iconsax.heart5, color: Colors.red)],
+              // actions: [TFavouriteIcon()],
             )
           ],
         ),

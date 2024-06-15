@@ -1,15 +1,20 @@
 import 'package:get_storage/get_storage.dart';
 
 class TLocalStorage {
-  static final TLocalStorage _instance = TLocalStorage._internal();
 
-  factory TLocalStorage() {
-    return _instance;
-  }
+  late final GetStorage _storage;
 
-  TLocalStorage._internal();
 
-  final _storage = GetStorage();
+  static TLocalStorage? _instance;
+
+  //
+  // factory TLocalStorage.instance() {
+  //   _instance ??= TLocalStorage._internal();
+  //   return _instance!;
+  // }
+
+
+
 
   // Generic method to save data
   Future<void> saveData<T>(String key, T value) async {

@@ -1,6 +1,7 @@
 import 'package:firebase_eco/common/styles/shadows.dart';
 import 'package:firebase_eco/common/widgets/custom_shape/container/rounded_container.dart';
 import 'package:firebase_eco/common/widgets/images/t_rounded_image.dart';
+import 'package:firebase_eco/common/widgets/products/favourite_icon/favourite_icon.dart';
 import 'package:firebase_eco/common/widgets/texts/product_price_text.dart';
 import 'package:firebase_eco/common/widgets/texts/product_title_text.dart';
 import 'package:firebase_eco/common/widgets/texts/t_brand_title_text_with_verified_icon.dart';
@@ -77,13 +78,10 @@ class TProductCardVertical extends StatelessWidget {
                   ),
 
                   /// -- Favorite icon button
-                  const Positioned(
-                      top: 0,
-                      right: 0,
-                      child: TCircularIcon(
-                        icon: Iconsax.heart5,
-                        color: Colors.red,
-                      ))
+                  // const Positioned(
+                  //     top: 0,
+                  //     right: 0,
+                  //     child: TFavouriteIcon())
                 ],
               ),
             ),
