@@ -7,12 +7,23 @@ class TLocalStorage {
 
   static TLocalStorage? _instance;
 
-  //
-  // factory TLocalStorage.instance() {
-  //   _instance ??= TLocalStorage._internal();
-  //   return _instance!;
-  // }
+  TLocalStorage._internal();
 
+
+  factory TLocalStorage.instance() {
+    _instance ??= TLocalStorage._internal();
+    return _instance!;
+  }
+
+
+  static Future<void> init(String bucketName) async{
+
+    await GetStorage.init(bucketName);
+    _instance = TLocalStorage._internal();
+    _instance!._storage = GetStorage(bucketName);
+
+
+  }
 
 
 

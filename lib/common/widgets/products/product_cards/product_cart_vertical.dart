@@ -78,10 +78,10 @@ class TProductCardVertical extends StatelessWidget {
                   ),
 
                   /// -- Favorite icon button
-                  // const Positioned(
-                  //     top: 0,
-                  //     right: 0,
-                  //     child: TFavouriteIcon())
+                 Positioned(
+                      top: 0,
+                      right: 0,
+                      child:TFavouriteIcon(productId: product.id,))
                 ],
               ),
             ),

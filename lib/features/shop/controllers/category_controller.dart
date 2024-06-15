@@ -1,4 +1,3 @@
-
 import 'package:firebase_eco/data/repositories/categories/category_repository.dart';
 import 'package:firebase_eco/data/repositories/product/product_repository.dart';
 import 'package:firebase_eco/features/shop/models/category_model.dart';
@@ -21,6 +20,7 @@ class CategoryController extends GetxController {
   }
 
   Future<void> fetchCategories() async {
+    print("CateD: ${_categoryRepository.getAllCategories()}");
     try {
       // Show loader
       isLoading.value = true;
@@ -37,14 +37,12 @@ class CategoryController extends GetxController {
           .take(8)
           .toList());
     } catch (e) {
-      TLoaders.errorSnackBar(title: 'Oh Snap!', message: e.toString());
+      TLoaders.errorSnackBar(
+          title: 'Oh Snap! (Categories - 1)', message: e.toString());
     } finally {
       isLoading.value = false;
     }
   }
-
-
-
 
   /// Load Category Data
   Future<List<CategoryModel>> getSubCategories(String categoryId) async {
@@ -53,14 +51,16 @@ class CategoryController extends GetxController {
           await _categoryRepository.getSubCategories(categoryId);
       return subCategories;
     } catch (e) {
-      TLoaders.errorSnackBar(title: 'Oh Snap!', message: e.toString());
+      TLoaders.errorSnackBar(
+          title: 'Oh Snap! (Categories - 2)', message: e.toString());
       return [];
     }
   }
 
-
-  Future<List<ProductModel>> getCategoryProducts({required String categoryId, int limit = 4}) async {
-    final products = await ProductRepository.instance.getProductsForCategory(categoryId: categoryId, limit: limit);
+  Future<List<ProductModel>> getCategoryProducts(
+      {required String categoryId, int limit = 4}) async {
+    final products = await ProductRepository.instance
+        .getProductsForCategory(categoryId: categoryId, limit: limit);
     return products;
   }
 

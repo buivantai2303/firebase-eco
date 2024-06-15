@@ -93,9 +93,9 @@ class TProductImageSlider extends StatelessWidget {
             ),
 
             // appbar icons
-            const TAppbar(
+            TAppbar(
               showBackArrow: true,
-              // actions: [TFavouriteIcon()],
+              actions: [TFavouriteIcon(productId: product.id,)],
             )
           ],
         ),
