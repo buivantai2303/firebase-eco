@@ -1,7 +1,7 @@
+import 'package:firebase_eco/features/authentication/screens/login/widgets/login_form.dart';
 import 'package:firebase_eco/routes/routes.dart';
 import 'package:get/get_navigation/src/routes/get_route.dart';
 
-import '../features/authentication/screens/login/login.dart';
 import '../features/authentication/screens/onboarding/onboarding.dart';
 import '../features/authentication/screens/onboarding/verify_email.dart';
 import '../features/authentication/screens/password_configuration/forget_password.dart';
@@ -23,7 +23,8 @@ class AppRoutes {
     GetPage(name: TRoutes.store, page: () => const StoreScreen()),
     GetPage(name: TRoutes.favourites, page: () => const FavouriteScreen()),
     GetPage(name: TRoutes.settings, page: () => const SettingsScreen()),
-    GetPage(name: TRoutes.productReviews, page: () => const ProductReviewsScreen()),
+    GetPage(
+        name: TRoutes.productReviews, page: () => const ProductReviewsScreen()),
     GetPage(name: TRoutes.order, page: () => const OrderScreen()),
     GetPage(name: TRoutes.checkout, page: () => const CheckoutScreen()),
     GetPage(name: TRoutes.cart, page: () => const CartScreen()),
@@ -31,7 +32,7 @@ class AppRoutes {
     GetPage(name: TRoutes.userAddress, page: () => const UserAddressScreen()),
     GetPage(name: TRoutes.signup, page: () => const SignupScreen()),
     GetPage(name: TRoutes.verifyEmail, page: () => const VerifyEmailScreen()),
-    GetPage(name: TRoutes.signIn, page: () => const LoginScreen()),
+    GetPage(name: TRoutes.signIn, page: () => const TLoginForm()),
     GetPage(name: TRoutes.forgetPassword, page: () => const ForgetPassword()),
     GetPage(name: TRoutes.onBoarding, page: () => const OnBoardingScreen()),
     // Add more GetPage entries as needed

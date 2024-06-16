@@ -4,7 +4,6 @@ import 'package:firebase_eco/common/widgets/texts/action_heading.dart';
 import 'package:firebase_eco/common/widgets/texts/section_heading.dart';
 import 'package:firebase_eco/data/dummy/dummy_data.dart';
 import 'package:firebase_eco/features/authentication/screens/login/login.dart';
-import 'package:firebase_eco/features/authentication/screens/login/widgets/login_form.dart';
 import 'package:firebase_eco/features/personalization/screens/address/address.dart';
 import 'package:firebase_eco/features/personalization/screens/profile/profile.dart';
 import 'package:firebase_eco/features/shop/screens/order/order.dart';
@@ -136,7 +135,7 @@ class SettingsScreen extends StatelessWidget {
                   width: double.infinity,
                   child: OutlinedButton(
                       onPressed: () => Get.to(() => Scaffold(
-                        appBar: AppBar(title: Text('Login')),
+                        appBar: AppBar(title: const Text('Login')),
                         body: const LoginScreen(),
                       )),
                       child: const Text('Logout')),

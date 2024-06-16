@@ -1,3 +1,4 @@
+import 'package:firebase_eco/utils/constants/image_strings.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -29,9 +30,9 @@ class TBlogShowcase extends StatelessWidget {
       child: Column(
         children: [
           /// Brand with products count
-          TBlogCard(
+          const TBlogCard(
             showBorder: false,
-            brandImage: brandController.featuredBrands[0].image,
+            brandImage: TImages.appleLogo,
           ),
           const SizedBox(
             height: TSizes.spaceBtwItems,

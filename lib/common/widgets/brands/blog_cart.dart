@@ -33,7 +33,7 @@ class TBlogCard extends StatelessWidget {
             /// --- Icon
             Flexible(
               child: TCircularImage(
-                isNetworkImage: true,
+                isNetworkImage: false,
                 image: brandImage,
                 backgroundColor: Colors.transparent,
                 overlayColor: THelperFunctions.isDarkMode(context)
