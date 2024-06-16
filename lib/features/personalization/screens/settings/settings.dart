@@ -135,7 +135,7 @@ class SettingsScreen extends StatelessWidget {
                   width: double.infinity,
                   child: OutlinedButton(
                       onPressed: () => Get.to(() => Scaffold(
-                        appBar: AppBar(title: const Text('Login')),
+                        // appBar: AppBar(title: const Text('Login')),
                         body: const LoginScreen(),
                       )),
                       child: const Text('Logout')),
